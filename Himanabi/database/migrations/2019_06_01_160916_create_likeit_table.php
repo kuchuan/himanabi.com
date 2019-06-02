@@ -14,8 +14,6 @@ class CreateLikeitTable extends Migration
     public function up()
     {
         Schema::create('likeit', function (Blueprint $table) {
-            // $table->increments('id');
-            // $table->timestamps();
             $table->bigIncrements('likeit_id');
             $table->bigInteger('users_id');
             $table->bigInteger('skills_id');
