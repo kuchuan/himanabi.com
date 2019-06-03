@@ -16,8 +16,8 @@ class CreateSkillsTable extends Migration
         Schema::create('skills', function (Blueprint $table) {
             // $table->increments('id');
             // $table->timestamps();
-            $table->bigIncrements('skills_id');
-            $table->bigInteger('skills_users');
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id');
             $table->boolean('toggle_user');
             $table->string('skills_category', 60);
             $table->string('skills_name', 60);
@@ -47,6 +47,7 @@ class CreateSkillsTable extends Migration
             $table->boolean('Interest16');
             $table->boolean('Interest17');
             $table->boolean('Interest18');
+
         });
     }
 

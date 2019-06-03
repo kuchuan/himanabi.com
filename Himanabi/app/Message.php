@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-  protected $table = 'message';
+      protected $table = 'messages';
 
-  protected $guarded = array('message_id');
+		  protected $guarded = array('id');
 
-  public $timestamps = true;
+		  public $timestamps = true;
 
-  protected $fillable = [
-  	'room_id', 'created_at', 'users_toggle', 'talk',
-  ];
-
+		  protected $fillable = [
+		  	'room_id', 'users_toggle', 'talk',
+ 		 ];
 }

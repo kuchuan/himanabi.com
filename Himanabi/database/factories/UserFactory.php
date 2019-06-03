@@ -23,8 +23,8 @@ $factory->define(App\User::class, function (Faker $faker) {
   			    'name' => $faker->name(), //名前 （日本語）
 				'nickname' => $faker->firstKanaName(), // 単語
 				'email' => $faker->unique()->safeEmail,
-                'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
 				'password' => $faker->password(),
+                'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
 				'language' => $faker->country(),
 				'area' => $faker->city(),
 				'picture' => $faker->image($dir = '/tmp'),

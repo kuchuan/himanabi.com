@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Skill extends Model
 {
-    //
-  protected $table = 'skills';
+		protected $table = 'skills';
 
-  protected $guarded = array('skils_id');
+		protected $guarded = array('id');
 
-  public $timestamps = true;
+		public $timestamps = true;
 
-  protected $fillable = [
-	    'skills_id',
-			'skills_users',
+		protected $fillable = [
+			'id',
+			'users_id',
 			'toggle_user',
 			'skills_category',
 			'skills_name',
@@ -43,6 +42,6 @@ class Skill extends Model
 			'Interest16',
 			'Interest17',
 			'Interest18',
-  ];
+		];
 
 }

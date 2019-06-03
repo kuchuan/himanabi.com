@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-// use Illuminate\Support\Facades\DB;
-// use Carbon\Carbon;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,6 +11,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 10)->create(); // 10件のデータを作成
+        factory(App\User::class, 20)->create(); // 10件のデータを作成
     }
 }
