@@ -24,7 +24,7 @@
 <body>
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
-        ゲスト（テスト中です）
+{{--         ゲスト（テスト中です） --}}
     @else
     {{-- ログインしている場合の処理 --}}
         ログイン（テスト中です）
@@ -97,7 +97,9 @@
             </ul>
         </div>
     </nav>
+    
     @yield('content')
+
 </header>
 <!--Bottom Footer-->
     <div class="bottom section-padding">
