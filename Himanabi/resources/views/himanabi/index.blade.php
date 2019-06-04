@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
 {{-- caroucel --}}
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -551,4 +552,5 @@
 
         </div>
     </div>
+
 @endsection
