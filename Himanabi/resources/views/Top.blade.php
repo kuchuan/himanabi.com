@@ -1,4 +1,4 @@
-@extends('/Layout');
+@extends('/about')
 
 @section('title')
 @endsection

@@ -26,7 +26,7 @@
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
             </button>
-            <h1 class="himanabi" >H<span class = "i">i</span>manavi</h1>
+            <h1 class="title" >H<span class = "i">i</span>manavi</h1>
              <h4 class="site">スキルと時間のマッチング総合サイト</h4>
             <div class="collapse navbar-collapse" id="mainMenu">
                 <ul class="navbar-nav ml-auto navList">
@@ -52,7 +52,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <p class="colorfilter-base">
-            <img src="/img/セブ海.jpg" height="70%"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
+            <img src="/img/セブ海.jpg" height="550"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
           </p>
         </div>
 {{--         <div class="good">
@@ -60,7 +60,7 @@
         </div> --}}
         <div class="carousel-item">
          <p class="colorfilter-base">
-          <img src="/img/TOP画面２.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
+          <img src="/img/会話2.jpg" width="100%" height="550" class="d-block colorfilter-image" alt="...">
          </p>
         </div>
 {{--         <div class="good">
@@ -68,11 +68,11 @@
         </div> --}}
         <div class="carousel-item">
          <p class="colorfilter-base">
-          <img src="/img/TOP画面.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
+          <img src="/img/会話.jpg" width="100%" height="550" class="d-block colorfilter-image" alt="...">
          </p>
         </div>
         {{-- logo画像 --}}
-        <div class="good">
+        <div class="himanabi">
           <img src="/img/アセット 1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
         </div>
       </div>
@@ -86,7 +86,7 @@
       </a>
   </div>
 
-  <form class="form5 dark" method="post" action="" style="width: %; margin: 0 auto; padding-left: 350px;">
+  <form class="form5 dark" method="post" action="" style="width: %; margin: 0 auto; padding-left: 370px;">
     <div class = "form clearfix">
         <div class="cp_ipselect">
             <select class="cp_sl06" required>
@@ -117,7 +117,7 @@
             <label class="cp_sl06_selectlabel">場所で選ぶ</label>
     　　　</div>
 
-        <div class = "search_button" style="padding-right: 420px; padding-top: 44px;">
+        <div class = "search_button" style="padding-right: 430px; padding-top: 44px;">
           <input class="sbox5" type="" name="" placeholder="フリーワード( ex. ピアノ、英語、水泳）">
           <button class="sbtn5 btn-dark">
             <i class="fas fa-search"></i><span>検索</span>
@@ -597,7 +597,7 @@
 </section>
 <!-- Team -->
 
-<!--Bottom Footer-->
+<!--Bottom Footer----------------------------------------------------------------------------------------------->
     <div class="bottom section-padding">
       <div class="container">
         <div class="row">
@@ -609,7 +609,7 @@
         </div>
       </div>
     </div>
-<!--Bottom Footer-->
+<!--Bottom Footer------------------------------------------------------------------------------------------------>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
