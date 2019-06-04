@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class HimanabiController extends Controller
 {
-    public function index()
-    {
-    	return 'Hello World';
-    }
+
+   
+
+
 
     // public function create()
     // {
@@ -17,4 +17,10 @@ class HimanabiController extends Controller
     //     return view('himanabi.create');
     // }
 
-}
+
+    public function index(){
+    	return views('himanabi.index');
+    }
+
+  }
+
