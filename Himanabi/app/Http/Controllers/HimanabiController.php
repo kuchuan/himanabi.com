@@ -19,11 +19,9 @@ class HimanabiController extends Controller
 
 
     public function index(){
-<<<<<<< HEAD
-    	return views('himanabi.index');
-=======
+
     	return view('himanabi.index');
->>>>>>> 9f20377ebe86a305db9c11c6ec028995bd3be22c
+
     }
 
   }
