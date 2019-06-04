@@ -12,9 +12,13 @@
 */
 
 
-// Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
+Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 
-Route::get('/Top', function () {
-    return view('Top');
-});
+// Route::get('/Top', function () {
+//     return view('Top');
+// });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
