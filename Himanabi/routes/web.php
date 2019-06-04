@@ -11,6 +11,10 @@
 |
 */
 
+
+// Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
+
 Route::get('/Top', function () {
     return view('Top');
 });
+
