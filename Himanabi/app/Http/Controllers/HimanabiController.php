@@ -11,10 +11,10 @@ class HimanabiController extends Controller
     	return 'Hello World';
     }
 
-    public function create()
-    {
-        // views/himanabi/create.blade.phpを表示する
-        return view('himanabi.create');
-    }
+    // public function create()
+    // {
+    //     // views/himanabi/create.blade.phpを表示する
+    //     return view('himanabi.create');
+    // }
 
 }
