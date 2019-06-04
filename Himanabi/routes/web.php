@@ -16,9 +16,21 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 //     return view('Top');
 // });
 
+<<<<<<< HEAD
 // Route::get('himanabi/create', 'HimanabiController@create')->name('himanabi.create'); // ログイン処理
 // Route::post('himanabi/create', 'HimanabiController@store')->name('himanabi.create'); // 保存処理
 
 Auth::routes();
 
+=======
+Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
+
+// Route::get('/Top', function () {
+//     return view('Top');
+// });
+
+
+Auth::routes();
+
+>>>>>>> 9f20377ebe86a305db9c11c6ec028995bd3be22c
 Route::get('/home', 'HomeController@index')->name('home');

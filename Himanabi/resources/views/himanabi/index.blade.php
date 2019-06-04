@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -73,6 +74,16 @@
         </nav>
 	</header>
 {{-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーcaroucelーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー --}}
+=======
+@extends('layout')
+
+@section('title')
+トップページ 一覧
+@endsection
+
+@section('content')
+{{-- caroucel --}}
+>>>>>>> 9f20377ebe86a305db9c11c6ec028995bd3be22c
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -619,6 +630,7 @@
 
         </div>
     </div>
+<<<<<<< HEAD
 </section>
 <!-- Team -->
 
@@ -640,3 +652,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+=======
+@endsection
+>>>>>>> 9f20377ebe86a305db9c11c6ec028995bd3be22c
