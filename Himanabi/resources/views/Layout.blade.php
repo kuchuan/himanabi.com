@@ -101,7 +101,7 @@
     </html>
 
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link"><i class="fas fa-users"></i>About</a>
+                    <a href={{ route('himanabi.about') }} class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
             </ul>
         </div>

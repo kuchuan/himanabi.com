@@ -1,4 +1,4 @@
-@extends('/about')
+@extends('about')
 
 @section('title')
 @endsection
