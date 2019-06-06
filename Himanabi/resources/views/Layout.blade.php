@@ -25,6 +25,8 @@
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
     {{--         ゲスト（テスト中です） --}}
+        {{-- ゲスト（テスト中です） --}}
+    {{--         ゲスト（テスト中です） --}}
     @else
     {{-- ログインしている場合の処理 --}}
         ログイン（テスト中です）
@@ -34,12 +36,12 @@
 <header>
     <nav class="navbar navbar-expand-lg navStyle">
         <a class="brand-navbar" href="#"><img src="/img/アセット 2.png" class="ikon" alt="Responsive image" height="60px"></a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
-            <span><i class="fas fa-align-right iconStyle"></i></span>
-        </button>
-        <h1 class="himanabi" >H<span class = "i">i</span>manabi</h1>
-        <h6 class="site">スキルと時間のマッチング総合サイト</h6>
-        <div class="collapse navbar-collapse" id="mainMenu">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+                <span><i class="fas fa-align-right iconStyle"></i></span>
+            </button>
+            <h1 class="title" >H<span class = "i">i</span>manavi</h1>
+            <h5 class="site">スキルと時間のマッチング総合サイト</h5>
+            <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
                 <li class="nav-item active">
                     <a href="{{ route('himanabi.index') }}" class="nav-link">
@@ -51,6 +53,7 @@
                     <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
                 </li>
                 <li class="nav-item">
+
                     <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログイン</a>
                 </li>
                 <!-- Modal -->
@@ -85,21 +88,18 @@
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
                         </div>
-                    </form>
-
                   </div>
-
+                 </form>
                 </div>
-        </body>
-    </html>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link"><i class="fas fa-users"></i>About</a>
+                    <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     @yield('content')
+
 
 </header>
 <!--Bottom Footer-->

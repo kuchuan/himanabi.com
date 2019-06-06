@@ -6,13 +6,13 @@
 @section('content')
 
 
-    @foreach ($users as $user)
+{{--     @foreach ($users as $user)
         <div class="m-4 p-4 border border-primary">
             <p>{{ $users->title }}</p>
             <p>{{ $diary->body }}</p>
             <p>{{ $diary->created_at }}</p>
         </div>
-    @endforeach
+    @endforeach --}}
 
 
 
