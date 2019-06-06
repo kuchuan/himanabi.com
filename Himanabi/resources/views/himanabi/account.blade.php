@@ -15,8 +15,6 @@
     @endforeach --}}
 
 
-
-
 <form>
 <div class="container border" ><!--firstContainer-->
 
@@ -43,12 +41,12 @@
 						<input type="text" class="form-control" id="inputNickName" placeholder="げんごうくん">
 						{{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
 					</div>
-
 					 <div class="form-group text-left">
 					 	<label class="small text-info" for="profilePicture">プロフィール写真</label><br>
 						<figure class="figure">
 							  <svg class="mb-0 bd-placeholder-img figure-img img-fluid rounded mx-auto d-blocks" width="240" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 400x300"><rect width="100%" height="100%" fill="#868e96"/><text class="small" x="18%" y="50%" fill="#dee2e6" dy=".3em">プロフィール写真</text></svg>
 						</figure>
+					</div>
 
 					    <!-- 切り替えボタンの設定 -->
 							<button type="button" class="btn btn-default border btn-sm border-dark">
@@ -78,7 +76,6 @@
 									    </div><!-- /.modal-content -->
 									  </div><!-- /.modal-dialog -->
 									</div><!-- /.modal -->
-					</div>
 					<div class="form-group text-left">
 						<label class="small text-info" for="inputBirthday">生年月日</label>
 						<input type="date" class="form-control" id="inputBirthday" placeholder="2000-1-1">
@@ -287,6 +284,7 @@
 
 
 {{-- 	 <a href="{{ route('diary.create') }}" class ="btn btn-primary">新規投稿</a>
+>>>>>>> 38358ec5ee63c3b2fc4322b94ba4ea37ef0fe71f
 	@foreach ($diaries as $diary)
 		<div class="m-4 p-4 border border-primary">
 			<p>{{ $diary['title'] }}</p>

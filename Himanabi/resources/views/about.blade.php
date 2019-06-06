@@ -1,4 +1,5 @@
 @extends('layout')
+<<<<<<< HEAD
 
 @section('title')
 {{-- アカウント管理画面 --}}
@@ -33,6 +34,10 @@
   </header>
 
   <!-- ======================================Navigation Bar================================================= -->
+=======
+@section('content')
+
+>>>>>>> 9989af13aaec111434716c4710475671a755df2d
 <div class="how-section1">
                     <div class="row">
                         <div class="col-md-6 how-img">
@@ -88,4 +93,9 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9989af13aaec111434716c4710475671a755df2d
 @endsection
