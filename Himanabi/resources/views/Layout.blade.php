@@ -37,7 +37,7 @@
             <span><i class="fas fa-align-right iconStyle"></i></span>
         </button>
         <h1 class="himanabi" >H<span class = "i">i</span>manabi</h1>
-        <h4 class="site">スキルと時間のマッチング総合サイト</h4>
+        <h6 class="site">スキルと時間のマッチング総合サイト</h6>
         <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
                 <li class="nav-item active">
@@ -97,7 +97,7 @@
             </ul>
         </div>
     </nav>
-    
+
     @yield('content')
 
 </header>
