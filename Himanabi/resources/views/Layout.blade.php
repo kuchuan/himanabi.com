@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{--佐藤付け足し--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
->>>>>>> master
+
     {{-- りょうくんが書いたコードここから --}}
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -26,16 +26,21 @@
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
 
+
        {{--  ゲスト（テスト中です） --}}
 
         ゲスト（テスト中です）
 
 {{--         ゲスト（テスト中です） --}}
 
+
+    {{--         ゲスト（テスト中です） --}}
+
     @else
     {{-- ログインしている場合の処理 --}}
         ログイン（テスト中です）
     @endguest
+
 <!-- Navigation Bar -->
 <header>
     <nav class="navbar navbar-expand-lg navStyle">
@@ -44,11 +49,11 @@
             <span><i class="fas fa-align-right iconStyle"></i></span>
         </button>
         <h1 class="himanabi" >H<span class = "i">i</span>manabi</h1>
-        <h4 class="site">スキルと時間のマッチング総合サイト</h4>
+        <h6 class="site">スキルと時間のマッチング総合サイト</h6>
         <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('himanabi.index') }}" class="nav-link">
                         <i class="fas fa-home"></i>HOME<span class="sr-only">(current)</span></a></li>
                 <li class="nav-item">
                     <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>このサイトについて</a>
@@ -89,8 +94,8 @@
                       </p>
 
                       <div>
-                        <p style="margin:20px;"><button type="button-center" class="btn btn-primary">{{ __('Login(普段はこちら)') }}</button>
-                            @if (Route::has('password.request'))
+                        <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.account')}}">{{ __('Login(普段はこちら)') }}</button>
+                            @if (Route::has('himanabi.account'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</p>
                             @endif
                       </div>
@@ -124,7 +129,7 @@
         </div>
     </nav>
 
-    
+
     @yield('content')
 
 
