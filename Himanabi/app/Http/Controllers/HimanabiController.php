@@ -27,6 +27,8 @@ class HimanabiController extends Controller
 
     public function account(){
         //アカウント管理画面
+
+        $users = user::with('id')->get();
     	return view('himanabi.account');
     }
 }

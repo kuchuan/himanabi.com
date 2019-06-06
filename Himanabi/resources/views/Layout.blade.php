@@ -24,11 +24,12 @@
 <body>
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
-{{--         ゲスト（テスト中です） --}}
+    {{--         ゲスト（テスト中です） --}}
     @else
     {{-- ログインしている場合の処理 --}}
         ログイン（テスト中です）
     @endguest
+
 <!-- Navigation Bar -->
 <header>
     <nav class="navbar navbar-expand-lg navStyle">
@@ -41,7 +42,7 @@
         <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('himanabi.index') }}" class="nav-link">
                         <i class="fas fa-home"></i>HOME<span class="sr-only">(current)</span></a></li>
                 <li class="nav-item">
                     <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>このサイトについて</a>

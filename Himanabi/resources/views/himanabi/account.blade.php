@@ -5,9 +5,21 @@
 
 @section('content')
 
+
+    @foreach ($users as $user)
+        <div class="m-4 p-4 border border-primary">
+            <p>{{ $users->title }}</p>
+            <p>{{ $diary->body }}</p>
+            <p>{{ $diary->created_at }}</p>
+        </div>
+    @endforeach
+
+
+
+
 <form>
 <div class="container border" ><!--firstContainer-->
-	
+
 	<div class="row infoPart">
 		<div class="col-sm-1" style="background-color:;">
 			両サイドの空白カラム
@@ -179,7 +191,7 @@
 						  </div>
 				</div>{{-- 中央パートの左側 --}}
 
-				<div class="flex-low col-5"><!--中央パートの右側-->
+				<div class="col-5"><!--中央パートの右側-->
 							<div class="form-group text-left" style="align-self:flex-end">
 								<label class="small text-info" for="areaSelect2">希望エリア</label>
 								<select class="form-control" id="areaSelect2">
@@ -259,7 +271,8 @@
 							両サイドの空白カラム
 						</div>
 	  </div>
-
+	  			  <i class="fas fa-caret-down fa-3x text-info pb-2"></i>
+	  			  <br>
 			<div class="input-button">
 		    <button type="button" class="btn btn-outline-dark border-dark">破棄する</button>
 				<button type="button" class="btn btn-primary">登録する</button>

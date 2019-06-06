@@ -27,6 +27,7 @@ Route::get('/account', 'HimanabiController@account')->name('himanabi.account'); 
 
 
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
