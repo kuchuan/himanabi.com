@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class HimanabiController extends Controller
 {
 
-   
 
 
 
@@ -31,6 +30,7 @@ class HimanabiController extends Controller
     }
 
     public function about(){
-        return view('about');
+        return view('himanabi.about');
     }
+
 }
