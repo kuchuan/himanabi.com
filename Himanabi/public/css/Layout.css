@@ -44,7 +44,8 @@ padding: 0px 30px 0px 0px;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
-.himanabi {
+.title {
+    padding-left: 10px;
     color: white;
 }
 
@@ -245,10 +246,13 @@ section .section-title {
     position: relative;
 }
 
-.good{
+.himanabi{
     position: absolute;
     top: 150;
     left: 450;
+
+    padding-top: 150px;
+    padding-left: 454px;
 }
 
 .colorfilter-base {

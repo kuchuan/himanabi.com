@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{--佐藤付け足し--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+>>>>>>> master
     {{-- りょうくんが書いたコードここから --}}
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -24,7 +25,13 @@
 <body>
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
+
        {{--  ゲスト（テスト中です） --}}
+
+        ゲスト（テスト中です）
+
+{{--         ゲスト（テスト中です） --}}
+
     @else
     {{-- ログインしている場合の処理 --}}
         ログイン（テスト中です）
@@ -50,32 +57,50 @@
                     <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
                 </li>
                 <li class="nav-item">
+
                     <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログイン</a>
                 </li>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">ログイン画面</h5>
+                      <div class="modal-header">{{ __('Login') }}
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form class="form-signin">
-                        <p style="margin:20px;"> <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""></p>
-                        <p style="margin:20px;"><input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""></p>
-                        <div>
-                        <p style="margin:20px;"><button type="button-center" class="btn btn-primary">ログイン(普段はこちら)</button></p>
+                        <form class="form-signin" action="{{ route('login') }}">
+                        @csrf
+                    <p style="margin:20px;"> <input type="email" id="inputEmail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email address" value="{{ old('email') }}" required="" autofocus="">
+                         @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                         @endif
+                     </p>
+                     <p style="margin:20px;"><input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" required="">
+                         @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                          @endif
+                      </p>
+
+                      <div>
+                        <p style="margin:20px;"><button type="button-center" class="btn btn-primary">{{ __('Login(普段はこちら)') }}</button>
+                            @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</p>
+                            @endif
                       </div>
                         <div class="btn-group" role="group" aria-label="基本のボタングループ">
                         <div class="mx-auto">
                         <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-square"></i> Sign in </span> </button>
                         <button class="btn google-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-google"></i> Sign in </span> </button>
                          <button class="btn twitter-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-twitter"></i> Sign in </span> </button>
-                         <p>Already have an account??</p>
-                         </div>
+                         <a>Already have an account??</a>
+                         </div>s
                      </div>
 
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">SNSのユーザーでログインする</button></p></div>
@@ -91,13 +116,18 @@
                 </div>
         </body>
     </html>
+
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link"><i class="fas fa-users"></i>About</a>
+                    <a href={{ route('himanabi.about') }} class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    
     @yield('content')
+
+
 </header>
 <!--Bottom Footer-->
     <div class="bottom section-padding">

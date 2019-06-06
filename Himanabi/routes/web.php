@@ -23,9 +23,11 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 
 
 
-// Route::get('/Top', function () {
-//     return view('Top');
-// });
+Route::get('account', 'HimanabiController@index')->name('himanabi.account'); //検証用
+
+Route::get('about', 'HimanabiController@about')->name('himanabi.about'); 
+
+Route::post('/', 'Auth\LoginController@index');
 
 
 Auth::routes();
