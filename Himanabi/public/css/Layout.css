@@ -247,12 +247,13 @@ section .section-title {
 }
 
 .himanabi{
-    position: absolute;
+   /* position: absolute;
     top: 150;
     left: 450;
 
-    padding-top: 150px;
-    padding-left: 454px;
+    padding-top: 150px;;*/
+    color: white;
+    padding-left: 15px;px
 }
 
 .colorfilter-base {
@@ -523,4 +524,38 @@ div{text-align: center;}
         content:'Twitter';
 
 
+}
+
+/*about------------------------------------------------------------------------*/
+
+.how-section1{
+    margin-top:-15%;
+    padding: 10%;
+}
+.how-section1 h4{
+    color: #ffa500;
+    font-weight: bold;
+    font-size: 40px;
+}
+.how-section1 .subheading{
+    color: #3931af;
+    font-size: 28px;
+}
+.how-section1 .row
+{
+    margin-top: 10%;
+}
+.how-img
+{
+    text-align: center;
+}
+.how-img img{
+    width: 50%;
+    height: 80%;
+
+    padding-top: 50px;
+}
+
+.subheading{
+    padding-bottom: 20px;
 }
