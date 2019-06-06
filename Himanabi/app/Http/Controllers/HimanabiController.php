@@ -29,4 +29,8 @@ class HimanabiController extends Controller
         //アカウント管理画面
     	return view('himanabi.account');
     }
+
+    public function about(){
+        return view('about');
+    }
 }

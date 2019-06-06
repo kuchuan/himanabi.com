@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="/css/Layout.css">{{-- りょうくん追加 --}}
     {{-- <link rel="stylesheet" type="text/css" href="/css/app.css"> --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<<<<<<< HEAD
+=======
     {{--佐藤付け足し--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+>>>>>>> master
     {{-- りょうくんが書いたコードここから --}}
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -24,7 +27,11 @@
 <body>
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
+<<<<<<< HEAD
+        ゲスト（テスト中です）
+=======
 {{--         ゲスト（テスト中です） --}}
+>>>>>>> master
     @else
     {{-- ログインしている場合の処理 --}}
         ログイン（テスト中です）
@@ -50,6 +57,7 @@
                     <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
                 </li>
                 <li class="nav-item">
+
                     <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログイン</a>
                 </li>
                 <!-- Modal -->
@@ -91,14 +99,17 @@
                 </div>
         </body>
     </html>
+
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link"><i class="fas fa-users"></i>About</a>
+                    <a href={{ route('himanabi.about') }} class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
             </ul>
         </div>
     </nav>
+
     
     @yield('content')
+
 
 </header>
 <!--Bottom Footer-->
