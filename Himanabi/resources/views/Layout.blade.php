@@ -25,11 +25,8 @@
 <body>
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
-
-
     @else
     {{-- ログインしている場合の処理 --}}
-        ログイン（テスト中です）
     @endguest
 
 <!-- Navigation Bar -->
@@ -108,7 +105,6 @@
                   </div>
                  </form>
                 </div>
-
                 <li class="nav-item">
                     <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>

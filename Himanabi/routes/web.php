@@ -26,11 +26,15 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 Route::get('/account', 'HimanabiController@account')->name('himanabi.account'); //検証用
 
 
+
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
 
 
 Route::post('/', 'Auth\LoginController@index');
 
+
+
+Route::post('/', 'Auth\LoginController@index');
 
 
 Auth::routes();
