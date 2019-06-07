@@ -43,11 +43,14 @@
                 <li class="nav-item active">
                     <a href="{{ route('himanabi.index') }}" class="nav-link">
                         <i class="fas fa-home"></i>HOME<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>このサイトについて</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
                 <li class="nav-item">
 
@@ -80,7 +83,7 @@
                             </span>
                           @endif
                       </p>
-
+                      </form>
                       <div>
                         <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.account')}}">{{ __('Login(普段はこちら)') }}</button>
                             @if (Route::has('himanabi.account'))
@@ -98,18 +101,15 @@
 
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">SNSのユーザーでログインする</button></p></div>
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">新規にユーザー登録する</button></p></div>
-
+                  <!--./Modal-->
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
                         </div>
                   </div>
-                 </form>
                 </div>
-                <li class="nav-item">
-                    <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
-                </li>
-            </ul>
+               </ul>
         </div>
+    </div>
     </nav>
 
 

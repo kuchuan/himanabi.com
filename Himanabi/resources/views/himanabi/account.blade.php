@@ -5,15 +5,15 @@
 
 @section('content')
 
-
-{{--     @foreach ($users as $user)
-        <div class="m-4 p-4 border border-primary">
-            <p>{{ $users->title }}</p>
-            <p>{{ $diary->body }}</p>
-            <p>{{ $diary->created_at }}</p>
-        </div>
-    @endforeach --}}
-
+<!--検証用-->
+{{--         @foreach ($datas as $user)
+            <li>{{ $user->name }}</li>
+            <li>{{ $user->nickname }}</li>
+        @endforeach
+ --}}
+            <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},{{ $skill->user->skills_name }}
+</li>
+<!--./検証用-->
 
 <form>
 <div class="container border" ><!--firstContainer-->
