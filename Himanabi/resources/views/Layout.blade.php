@@ -27,21 +27,21 @@
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
     @else
     {{-- ログインしている場合の処理 --}}
-        ログイン（テスト中です）
     @endguest
+
 <!-- Navigation Bar -->
 <header>
     <nav class="navbar navbar-expand-lg navStyle">
         <a class="brand-navbar" href="#"><img src="/img/アセット 2.png" class="ikon" alt="Responsive image" height="60px"></a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
-            <span><i class="fas fa-align-right iconStyle"></i></span>
-        </button>
-        <h1 class="himanabi" >H<span class = "i">i</span>manabi</h1>
-        <h4 class="site">スキルと時間のマッチング総合サイト</h4>
-        <div class="collapse navbar-collapse" id="mainMenu">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+                <span><i class="fas fa-align-right iconStyle"></i></span>
+            </button>
+            <h1 class="title" >H<span class = "i">i</span>manavi</h1>
+            <h5 class="site">スキルと時間のマッチング総合サイト</h5>
+            <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
                 <li class="nav-item active">
-                    <a href={{ route('himanabi.index') }} class="nav-link">
+                    <a href="{{ route('himanabi.index') }}" class="nav-link">
                         <i class="fas fa-home"></i>HOME<span class="sr-only">(current)</span></a></li>
                 {{-- <li class="nav-item">
                     <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>このサイトについて</a>
@@ -50,7 +50,7 @@
                     <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
                 </li>
                 <li class="nav-item">
-                    <a href={{ route('himanabi.about') }} class="nav-link"><i class="fas fa-users"></i>About</a>
+                    <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
                 <li class="nav-item">
 
@@ -60,44 +60,59 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">ログイン画面</h5>
+                      <div class="modal-header">{{ __('Login') }}
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form class="form-signin">
-                        <p style="margin:20px;"> <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""></p>
-                        <p style="margin:20px;"><input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""></p>
-                        <div>
-                        <p style="margin:20px;"><button type="button-center" class="btn btn-primary">ログイン(普段はこちら)</button></p>
+                        <form class="form-signin" action="{{ route('login') }}">
+                        @csrf
+                    <p style="margin:20px;"> <input type="email" id="inputEmail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email address" value="{{ old('email') }}" required="" autofocus="">
+                         @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                         @endif
+                     </p>
+                     <p style="margin:20px;"><input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" required="">
+                         @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                          @endif
+                      </p>
+                      </form>
+                      <div>
+                        <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.account')}}">{{ __('Login(普段はこちら)') }}</button>
+                            @if (Route::has('himanabi.account'))
+                                    <a class="btn btn-link" href="{{ route('himanabi.account') }}">{{ __('Forgot Your Password?') }}</p>
+                            @endif
                       </div>
                         <div class="btn-group" role="group" aria-label="基本のボタングループ">
                         <div class="mx-auto">
                         <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-square"></i> Sign in </span> </button>
                         <button class="btn google-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-google"></i> Sign in </span> </button>
                          <button class="btn twitter-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-twitter"></i> Sign in </span> </button>
-                         <p>Already have an account??</p>
-                         </div>
+                         <a>Already have an account??</a>
+                         </div>s
                      </div>
 
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">SNSのユーザーでログインする</button></p></div>
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">新規にユーザー登録する</button></p></div>
-
+                  <!--./Modal-->
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
                         </div>
-                    </form>
-
                   </div>
-
-            </ul>
+                </div>
+               </ul>
         </div>
     </div>
     </nav>
 
-    
+
     @yield('content')
 
 
