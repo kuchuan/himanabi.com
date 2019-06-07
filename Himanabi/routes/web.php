@@ -30,6 +30,8 @@ Route::get('about', 'HimanabiController@about')->name('himanabi.about');
 
 
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
