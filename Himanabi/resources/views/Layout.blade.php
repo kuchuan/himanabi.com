@@ -66,10 +66,14 @@
                     <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログイン</a>
                 </li>
                 <!-- Modal -->
+                
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">{{ __('Login') }}
+                <li>{{ $datas->name }}</li>
+                <li>{{ $datas->nickname }}</li>
+
                         <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
@@ -105,7 +109,7 @@
                         <button class="btn google-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-google"></i> Sign in </span> </button>
                          <button class="btn twitter-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-twitter"></i> Sign in </span> </button>
                          <a>Already have an account??</a>
-                         </div>s
+                         </div>
                      </div>
 
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">SNSのユーザーでログインする</button></p></div>

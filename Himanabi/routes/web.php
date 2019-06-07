@@ -28,7 +28,7 @@ Route::get('/account', 'HimanabiController@account')->name('himanabi.account'); 
 
 Route::get('about', 'HimanabiController@about')->name('himanabi.about'); 
 
-Route::post('/', 'Auth\LoginController@index');
+Route::post('/', 'HimanabiController@Layout');
 
 
 Auth::routes();

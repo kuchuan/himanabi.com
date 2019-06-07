@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+
 
 class HimanabiController extends Controller
 {
 
-   
+     public function index(){
+                //ログイン管理画面
+                $datas = User::first();//最初のデータのみ取
+                return view('himanabi.index',['datas'=>$datas]);
+           }
 
 
 
@@ -18,11 +26,11 @@ class HimanabiController extends Controller
     // }
 
 
-    public function index(){
+    // public function index(){
 
-    	return view('himanabi.index');
+    // 	return view('himanabi.index');
 
-    }
+    // }
 
 
     public function account(){
@@ -33,6 +41,8 @@ class HimanabiController extends Controller
     }
 
     public function about(){
-        return view('about');
+        return view('himanabi.about');
     }
+
+  
 }
