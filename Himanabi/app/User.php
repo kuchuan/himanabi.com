@@ -28,4 +28,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function skill() {   //userに対して多になるskillのテーブル名を使う
+        return $this->hasMany(user::class);
+    }
+
+
 }

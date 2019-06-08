@@ -5,7 +5,43 @@
 
 @section('content')
 
-					 <div class="form-group text-left">
+<!--検証用-->
+{{--         @foreach ($datas as $user)
+            <li>{{ $user->name }}</li>
+            <li>{{ $user->nickname }}</li>
+        @endforeach
+ --}}
+            <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},{{ $skill->user->skills_name }}
+</li>
+<!--./検証用-->
+
+<form>
+<div class="container border" ><!--firstContainer-->
+
+	<div class="row infoPart">
+		<div class="col-sm-1" style="background-color:;">
+			両サイドの空白カラム
+		</div>
+
+		<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
+
+			<p class="h4 ml-3 text-left text-info font-weight-bold">あなたの<span style="color:red">アカウント</span>を管理しましょう</p>
+			<p type="text" class="mb-0 text-right text-info" ><i class="fas fa-trash-alt fa-border fa-1x mr-3 border-info">：ユーザー削除はこちら</i></p>
+				<div class="ml-3 text-left text-muted font-weight-bold">＊必須項目</div>
+
+			<div class="row justify-content-between">
+				<div clas="col-1"></div>
+				<div class="col-5"><!--中央パートの左側-->
+					<div class="form-group text-left">
+						<label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
+						<input type="text" class="form-control" id="inputName" placeholder="令泉 和也">
+					</div>
+					<div class="form-group text-left">
+						<label class="small text-info" for="inputNickName">ニックネーム*</label>
+						<input type="text" class="form-control" id="inputNickName" placeholder="げんごうくん">
+						{{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
+					</div>
+				  <div class="form-group text-left">
 					 	<label class="small text-info" for="profilePicture">プロフィール写真</label><br>
 						<figure class="figure">
 							  <svg class="mb-0 bd-placeholder-img figure-img img-fluid rounded mx-auto d-blocks" width="240" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 400x300"><rect width="100%" height="100%" fill="#868e96"/><text class="small" x="18%" y="50%" fill="#dee2e6" dy=".3em">プロフィール写真</text></svg>
@@ -40,7 +76,6 @@
 									    </div><!-- /.modal-content -->
 									  </div><!-- /.modal-dialog -->
 									</div><!-- /.modal -->
-					</div>
 					<div class="form-group text-left">
 						<label class="small text-info" for="inputBirthday">生年月日</label>
 						<input type="date" class="form-control" id="inputBirthday" placeholder="2000-1-1">

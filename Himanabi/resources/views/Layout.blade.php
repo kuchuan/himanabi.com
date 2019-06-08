@@ -25,45 +25,56 @@
 <body>
     @guest
     {{-- ログインしていない（ゲスト状態）場合の処理 --}}
-
-
-       {{--  ゲスト（テスト中です） --}}
-
-        ゲスト（テスト中です）
-
-{{--         ゲスト（テスト中です） --}}
-
-
-    {{--         ゲスト（テスト中です） --}}
-
     @else
     {{-- ログインしている場合の処理 --}}
-        ログイン（テスト中です）
     @endguest
 
 <!-- Navigation Bar -->
 <header>
     <nav class="navbar navbar-expand-lg navStyle">
         <a class="brand-navbar" href="#"><img src="/img/アセット 2.png" class="ikon" alt="Responsive image" height="60px"></a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
-            <span><i class="fas fa-align-right iconStyle"></i></span>
-        </button>
-        <h1 class="himanabi" >H<span class = "i">i</span>manabi</h1>
-        <h6 class="site">スキルと時間のマッチング総合サイト</h6>
-        <div class="collapse navbar-collapse" id="mainMenu">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+                <span><i class="fas fa-align-right iconStyle"></i></span>
+            </button>
+            <h1 class="title" >H<span class = "i">i</span>manavi</h1>
+            <h5 class="site">スキルと時間のマッチング総合サイト</h5>
+            <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
                 <li class="nav-item active">
                     <a href="{{ route('himanabi.index') }}" class="nav-link">
                         <i class="fas fa-home"></i>HOME<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>このサイトについて</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
+                </li>
 
-                    <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログイン</a>
+
+                @guest
+
+
+                @else
+                <li class="nav-username">
+                  <a>ユーザー名の表示</a>{{ Auth::user()->name }}
+                </li>
+
+                @endguest
+
+                <li class="nav-item">
+
+                    @guest
+                    
+                    <a href="{{ route('login') }}" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウトイン</a>
+                    @else
+
+                    <a href="{{ route('login') }}" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウト
+                    </a>
+
+                    @endguest
                 </li>
                 <!-- Modal -->
                 
@@ -96,11 +107,11 @@
                             </span>
                           @endif
                       </p>
-
+                      </form>
                       <div>
                         <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.account')}}">{{ __('Login(普段はこちら)') }}</button>
                             @if (Route::has('himanabi.account'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</p>
+                                    <a class="btn btn-link" href="{{ route('himanabi.account') }}">{{ __('Forgot Your Password?') }}</p>
                             @endif
                       </div>
                         <div class="btn-group" role="group" aria-label="基本のボタングループ">
@@ -114,23 +125,15 @@
 
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">SNSのユーザーでログインする</button></p></div>
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">新規にユーザー登録する</button></p></div>
-
+                  <!--./Modal-->
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
                         </div>
-                    </form>
-
                   </div>
-
                 </div>
-        </body>
-    </html>
-
-                <li class="nav-item">
-                    <a href={{ route('himanabi.about') }} class="nav-link"><i class="fas fa-users"></i>About</a>
-                </li>
-            </ul>
+               </ul>
         </div>
+    </div>
     </nav>
 
 

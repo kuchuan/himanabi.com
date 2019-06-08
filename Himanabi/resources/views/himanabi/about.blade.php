@@ -1,5 +1,10 @@
-@extends('layout')
+@extends('Layout')
+
+@section('title')
+
 @section('content')
+
+<link rel="stylesheet" href="{{ asset('css/about.css') }}">
 
 <div class="how-section1">
                     <div class="row">
@@ -10,7 +15,7 @@
                             <h4>ABOUT</h4>
                                         <h4 class="subheading"> ひまなび とは？</h4>
                         <p class="text-muted">私たち「ひまなび」は、セブ島にいる時間を持て余してしまっている人と、<br>
-                          スキルを人並み以上に持っている人々をマッチングさせて、<br>「スキルの共有」「勉強」ができる空間を提供させていただくサービスです.</p>
+                          スキルを人並み以上に持っている人々をマッチングさせて、<br>「スキルの共有」「勉強」ができる空間を提供させていただくサービスです。</p>
                         </div>
                     </div>
                     <div class="row">
@@ -47,15 +52,25 @@
                             <h4></h4>
                                         <h4 class="subheading">最後に</h4>
                                         <p class="text-muted">人と人との出会い方に新しい方法を。<br>
-                                        セブ島にいる皆さんが貴重な時間を無駄にしない為にも、このサービスを通すことでより幸せで、<br>
+                                        セブ島にいる皆さんが貴重な時間を無駄にしない為にも、<br>このサービスを通すことでより幸せで、<br>
                                         より自分の時間と経験をいいものに変換できることを心から望んでいます。<br>
-                                        みなさんの時間、スキル、勉強、貢献を使ってセブ島で新しい発見をしていきましょう。</p>
+                                        みなさんの時間、スキル、勉強、貢献を使って<br>セブ島で新しい発見をしていきましょう。</p>
                         </div>
                         <div class="col-md-6 how-img">
                             <img src="/img/料理.jpg" class="rounded-circle img-fluid" alt=""/>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 @endsection
