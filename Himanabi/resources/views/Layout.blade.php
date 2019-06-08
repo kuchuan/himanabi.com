@@ -16,7 +16,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   {{--  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> ？二つあるよね？--}}
     <link href=“https://fonts.googleapis.com/css?family=Amatic+SC:700” rel=“stylesheet”>
     {{-- りょうくんが書いたコードここまで --}}
     {{-- フォントオーサム --}}
@@ -52,9 +52,20 @@
                 <li class="nav-item">
                     <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
-                <li class="nav-item">
+                @guest
 
-                    <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログイン</a>
+                @else
+                <li class="nav-username">
+                    <a>ユーザー名の表示</a>
+                </li>
+                @endguest
+
+                <li class="nav-item">
+                    @guest
+                      <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウトイン</a>
+                    @else
+                      <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウト</a>
+                    @endguest
                 </li>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

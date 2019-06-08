@@ -44,8 +44,9 @@ class Skill extends Model
 			'Interest18',
 		];
 
+
 		public function user() {   //多のskillに対して一になるusersのテーブル名を使う
-			return $this->belongsTo(Skill::class);
-		}
+			return $this->belongsTo(User::class);
+}
 
 }

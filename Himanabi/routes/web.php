@@ -23,9 +23,9 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 
 
 
-Route::get('/account', 'HimanabiController@account')->name('himanabi.account'); //検証用
-
-
+Route::get('/account', 'HimanabiController@account')->name('himanabi.account');
+Route::get('/testlayout', 'HimanabiController@test')->name('himanabi.test');//Dean検証用
+Route::get('/skills', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
 
 
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
