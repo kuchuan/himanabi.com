@@ -101,7 +101,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
+                                    <p><img class=" img-fluid" src={{ $user->picture }} alt="card image"></p>
                                     <h4 class="card-title">{{ $user->name }}{{-- 名前 --}}</h4>
                                     <p class="card-text">{{ $user->skills_explanation }}{{-- スキル・学びの詳細 --}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
