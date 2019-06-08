@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-アカウント管理画面
+スキル登録画面
 @endsection
 
 @section('content')
@@ -10,11 +10,10 @@
 {{--         @foreach ($datas as $user)
             <li>{{ $user->name }}</li>
             <li>{{ $user->nickname }}</li>
-        @endforeach
- --}}
+        @endforeach --}}
+
             <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
-            	{{-- {{ $skill->user->skills_name }} --}}
-            	
+
             	{{ $datas->skills_name }}
             	@foreach($datas->skills as $skill)
             		{{ $skill->skills_name }}
@@ -23,35 +22,75 @@
 <!--./検証用-->
 
 <form>
-<div class="container border" ><!--firstContainer-->
 
-	<div class="row infoPart">
-		<div class="col-sm-1" style="background-color:;">
-			両サイドの空白カラム
-		</div>
+<div class="container border" ><!--secondContainer-->
+		<div class="row infoPart">
+			<div class="col-sm-1" style="background-color:;">
+				両サイドの空白カラム
+			</div>
 
-		<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
+			<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
+					<p class="h4 ml-3 text-left text-info font-weight-bold">あなたが<span style="color:red">提供できるスキル</span>に関連のある項目を選びましょう</p>
+					<p type="text" class="mb-0 text-right text-info" ><i class="fas fa-eraser fa-border fa-1x mr-3 border-info">：このページを最初から始める</i></p>
+						<div class="ml-3 text-left text-muted font-weight-bold">＊必須項目</div>
 
-			<p class="h4 ml-3 text-left text-info font-weight-bold">あなたの<span style="color:red">アカウント</span>を管理しましょう</p>
-			<p type="text" class="mb-0 text-right text-info" ><i class="fas fa-trash-alt fa-border fa-1x mr-3 border-info">：ユーザー削除はこちら</i></p>
-				<div class="ml-3 text-left text-muted font-weight-bold">＊必須項目</div>
-
-			<div class="row justify-content-between">
-				<div clas="col-1"></div>
+				<div class="row justify-content-between">
+				<div clas="col-1"></div><!--中央パートの左余白-->
 				<div class="col-5"><!--中央パートの左側-->
-					<div class="form-group text-left">
-						<label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
-						<input type="text" class="form-control" id="inputName" placeholder="令泉 和也">
-					</div>
-					<div class="form-group text-left">
-						<label class="small text-info" for="inputNickName">ニックネーム*</label>
-						<input type="text" class="form-control" id="inputNickName" placeholder="げんごうくん">
-						{{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
-					</div>
+							<div class="form-group text-left"><!--カテゴリ-->
+								<label class="small text-info" for="exampleSelect1exampleFormControlSelect1">カテゴリ＊</label>
+								<select class="form-control" id="exampleFormControlSelect1">
+									<option>語学</option>
+									<option>教育</option>
+									<option>運動</option>
+									<option>芸術</option>
+									<option>食べる</option>
+									<option>買う</option>
+									<option>家庭</option>
+									<option>子育て</option>
+								</select>
+							</div><!--./カテゴリ-->
+
+								<div class="form-group text-left">
+									<label class="small text-info" for="inputSkill">スキル名＊</label>
+									<input type="text" class="form-control" id="inputSkill" placeholder="スキルの名前を入力してください">
+								</div>
+
+								<div class="form-group text-left">
+									<label class="small text-info" for="textArea1">経験期間＊</label>
+										<div class="input-group mb-3">
+										  <input type="text" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="basic-addon2">
+										  <div class="input-group-append">
+										    <span class="input-group-text" id="basic-addon2">年間（0.0）</span>
+										  </div>
+										</div>
+								</div>
+
+						  <div class="form-group text-left">
+						    <label class="small text-info" for="textArea1">説明＊</label>
+						    <textarea class="form-control" id="textArea1" rows="3"></textarea>
+						  </div>
+				</div>{{-- 中央パートの左側 --}}
+
+				<div class="col-5"><!--中央パートの右側-->
+
+							<div class="form-group text-left" style="align-self:flex-end">
+								<label class="small text-info" for="areaSelect2">希望エリア</label>
+								<select class="form-control" id="areaSelect2">
+									<option>らふぐ</option>
+									<option>まんだうえ</option>
+									<option>ばにらっど</option>
+									<option>かさんばがん</option>
+									<option>まくたん</option>
+									<option>いろいろ</option>
+									<option>その他</option>
+								</select>
+							</div>
+
 				  <div class="form-group text-left">
-					 	<label class="small text-info" for="profilePicture">プロフィール写真</label><br>
+					 	<label class="small text-info" for="profilePicture">スキルに関連する写真</label><br>
 						<figure class="figure">
-							  <svg class="mb-0 bd-placeholder-img figure-img img-fluid rounded mx-auto d-blocks" width="240" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 400x300"><rect width="100%" height="100%" fill="#868e96"/><text class="small" x="18%" y="50%" fill="#dee2e6" dy=".3em">プロフィール写真</text></svg>
+							  <svg class="mb-0 bd-placeholder-img figure-img img-fluid rounded mx-auto d-blocks" width="240" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 400x300"><rect width="100%" height="100%" fill="#868e96"/><text class="small" x="18%" y="50%" fill="#dee2e6" dy=".3em">スキル写真</text></svg>
 						</figure>
 					</div>
 
@@ -78,136 +117,12 @@
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-									        <button type="button" class="btn btn-primary">変更を保存</button>
+									        <button type="button" class="btn btn-primary">変更を保存する</button>
 									      </div><!-- /.modal-footer -->
 									    </div><!-- /.modal-content -->
 									  </div><!-- /.modal-dialog -->
 									</div><!-- /.modal -->
-					<div class="form-group text-left">
-						<label class="small text-info" for="inputBirthday">生年月日</label>
-						<input type="date" class="form-control" id="inputBirthday" placeholder="2000-1-1">
-					</div>
-				</div><!--/.中央パートの左側-->
 
-
-				<div class="col-5"><!--中央パートの右側-->
-						<div class="form-group text-left">
-							<label class="small text-info" for="inputEmail">E-mail*</label>
-							<input type="email" class="form-control" id="InputEmail" placeholder="Eメールアドレス">
-						</div>
-						<div class="form-group text-left">
-							<label class="small  text-info" or="reInputEmail">E-mail確認用</label>
-							<input type="email" class="form-control" id="reInputEmail" placeholder="Eメールアドレス">
-							<small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
-						</div>
-						<div class="form-group text-left">
-							<label class="small text-info" for="inputPassword">パスワード*</label>
-							<input type="password" class="form-control" id="inputPassword" placeholder="パスワード">
-						</div>
-						<div class="form-group text-left">
-							<label class="small text-info" for="reInputPassword">パスワード確認用</label>
-							<input type="password" class="form-control" id="reInputPassword" placeholder="パスワード">
-						</div>
-						<div class="form-group text-left">
-							<label class="small text-info" for="languageSelect1">使用言語</label>
-							<select class="form-control" id="languageSelect1">
-								<option>日本語</option>
-								<option>英語</option>
-								<option>中国語</option>
-								<option>韓国語</option>
-								<option>その他</option>
-							</select>
-						</div>
-						<div class="form-group text-left">
-							<label class="small text-info" for="areaSelect1">居住エリア</label>
-							<select class="form-control" id="areaSelect1">
-								<option>らふぐ</option>
-								<option>まんだうえ</option>
-								<option>ばにらっど</option>
-								<option>かさんばがん</option>
-								<option>まくたん</option>
-								<option>いろいろ</option>
-								<option>その他</option>
-							</select>
-						</div>
-					</div><!--/.中央パートの右側-->
-					<div clas="col-1"></div>
-		</div><!--/.中央パートのrow設定-->
-	 </div><!--/.中央パート-->
-	 	   <div class="col-sm-1" style="background-color:;">
-			 右サイドの空白カラム
-			 </div>
-	</div><!-- /.infoPart -->
-	<i class="fas fa-caret-down fa-3x text-info"></i>
-
-</div><!--/.firstContainer-->
-
-
-
-
-
-<div class="container border" ><!--secondContainer-->
-		<div class="row infoPart">
-			<div class="col-sm-1" style="background-color:;">
-				両サイドの空白カラム
-			</div>
-
-			<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
-					<p class="h4 ml-3 text-left text-info font-weight-bold">あなたが<span style="color:red">学びたいスキル</span>に関連のある項目を選びましょう</p>
-					<p type="text" class="mb-0 text-right text-info" ><i class="fas fa-eraser fa-border fa-1x mr-3 border-info">：このページを最初から始める</i></p>
-						<div class="ml-3 text-left text-muted font-weight-bold">＊必須項目</div>
-
-				<div class="row justify-content-between">
-				<div clas="col-1"></div><!--中央パートの左余白-->
-				<div class="col-5"><!--中央パートの左側-->
-							<div class="form-group text-left"><!--カテゴリ-->
-								<label class="small text-info" for="exampleSelect1exampleFormControlSelect1">カテゴリ</label>
-								<select class="form-control" id="exampleFormControlSelect1">
-									<option>語学</option>
-									<option>教育</option>
-									<option>運動</option>
-									<option>芸術</option>
-									<option>食べる</option>
-									<option>買う</option>
-									<option>家庭</option>
-									<option>子育て</option>
-								</select>
-							</div><!--./カテゴリ-->
-
-								<div class="form-group text-left">
-									<label class="small text-info" for="inputSkill">スキル名</label>
-									<input type="text" class="form-control" id="inputSkill" placeholder="スキルの名前を入力してください">
-								</div>
-
-								<div class="form-group text-left">
-									<label class="small text-info" for="textArea1">希望期間</label>
-										<div class="input-group mb-3">
-										  <input type="text" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="basic-addon2">
-										  <div class="input-group-append">
-										    <span class="input-group-text" id="basic-addon2">週間（0.0）</span>
-										  </div>
-										</div>
-								</div>
-
-						  <div class="form-group text-left">
-						    <label class="small text-info" for="textArea1">意気込み</label>
-						    <textarea class="form-control" id="textArea1" rows="3"></textarea>
-						  </div>
-				</div>{{-- 中央パートの左側 --}}
-
-				<div class="col-5"><!--中央パートの右側-->
-							<div class="form-group text-left" style="align-self:flex-end">
-								<label class="small text-info" for="areaSelect2">希望エリア</label>
-								<select class="form-control" id="areaSelect2">
-									<option>らふぐ</option>
-									<option>まんだうえ</option>
-									<option>ばにらっど</option>
-									<option>かさんばがん</option>
-									<option>まくたん</option>
-									<option>いろいろ</option>
-									<option>その他</option>
-								</select>
-							</div>
 				</div>{{-- ./中央パートの右側 --}}
 				<div clas="col-1"></div><!--中央パートの右余白-->
 				</div>
@@ -279,9 +194,9 @@
 	  			  <br>
 			<div class="input-button">
 		    <button type="button" class="btn btn-outline-dark border-dark">破棄する</button>
-				<button type="button" class="btn btn-primary">登録する</button>
+				<button type="button" class="btn btn-primary">確認する</button>
 			</div>
-				<p class="text-info font-weight-bold"><br>提供できるスキルがあれば、<br>『あなたのスキル登録』から登録をお願いします。</p>
+				<br>
 
 </div>
 
