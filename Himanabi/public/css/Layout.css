@@ -246,12 +246,15 @@ section .section-title {
     position: relative;
 }
 
-.himanabi{
-   /* position: absolute;
-    top: 150;
-    left: 450;
+.logo {
+    position: absolute;
+    padding-left: 450px;
+    padding-top: 150px;
 
-    padding-top: 150px;;*/
+}
+
+.himanabi{
+
     color: white;
     padding-left: 15px;px
 }

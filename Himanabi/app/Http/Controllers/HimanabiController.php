@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\user; //App\Userクラスの試用を宣言する（Dean追加）
+use App\User; //App\Userクラスの試用を宣言する（Dean追加）
+use App\Skill; //App\Skillクラスの試用を宣言する
+use App\Skill_user; //App\Skill_userクラスの試用を宣言する
 use Illuminate\Http\Request;
-use App\User;
+
 
 class HimanabiController extends Controller
 {
@@ -20,9 +22,15 @@ class HimanabiController extends Controller
 
 
     public function index(){
+        // $users = Skill::with('user')->get();
         $users = User::all();
+        $skills = Skill::all();
+        // var_dump($skills);
+        // exit();
+        // $users = User::with('skill_user')->get();
         // $users = User::all()->take(3);
-
+        // $skills = Skill_user::with('user')->get();
+        // dd($skills->skills_explanation);
     	return view('himanabi.index', ["users" => $users]);
 
     }

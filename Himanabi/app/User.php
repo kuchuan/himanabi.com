@@ -29,8 +29,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function skill() {   //userに対して多になるskillのテーブル名を使う
-        return $this->hasMany(user::class);
+    public function skills() {   //userに対して多になるskillのテーブル名を使う
+        return $this->hasMany(Skill::class);
     }
 
 

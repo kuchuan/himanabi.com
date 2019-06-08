@@ -11,7 +11,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <p class="colorfilter-base">
-            <img src="/img/セブ海.jpg" height="70%"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
+            <img src="/img/セブ海.jpg" height="550px"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
           </p>
         </div>
 {{--         <div class="good">
@@ -19,7 +19,7 @@
         </div> --}}
         <div class="carousel-item">
          <p class="colorfilter-base">
-          <img src="/img/TOP画面２.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
+          <img src="/img/TOP画面２.jpg" width="100%" height="550px" class="d-block colorfilter-image" alt="...">
          </p>
         </div>
 {{--         <div class="good">
@@ -27,11 +27,11 @@
         </div> --}}
         <div class="carousel-item">
          <p class="colorfilter-base">
-          <img src="/img/TOP画面.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
+          <img src="/img/TOP画面.jpg" width="100%" height="550px" class="d-block colorfilter-image" alt="...">
          </p>
         </div>
         {{-- logo画像 --}}
-        <div class="good">
+        <div class="logo">
           <img src="/img/アセット 1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
         </div>
       </div>
@@ -103,7 +103,7 @@
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
                                     <h4 class="card-title">{{ $user->name }}{{-- 名前 --}}</h4>
-                                    <p class="card-text">スキル・学びの詳細</p>
+                                    <p class="card-text">{{ $user->skills_explanation }}{{-- スキル・学びの詳細 --}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>
