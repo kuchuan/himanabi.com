@@ -14,7 +14,7 @@
 
             <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
 
-            	{{ $datas->skills_name }}
+            	{{-- {{ $datas->skills_name }} --}}
             	@foreach($datas->skills as $skill)
             		{{ $skill->skills_name }}
             	@endforeach

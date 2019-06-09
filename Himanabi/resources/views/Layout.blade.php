@@ -62,12 +62,14 @@
 
                 <li class="nav-item">
                     @guest
-                      <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウトイン</a>
+                      <a href="{{ route('login') }}" class="nav-link">
+                        <i class="fas fa-phone"></i>ログイン</a>
                     @else
-                      <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウト</a>
+                      dd(auth::user()->name);
+                      <a href={{ Auth::logout() }} class="nav-link"><i class="fas fa-phone"></i>ログアウト</a>
                     @endguest
                 </li>
-                <!-- Modal -->
+               {{--  <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -112,10 +114,10 @@
 
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">SNSのユーザーでログインする</button></p></div>
                         <p style="margin:20px;"><button type="button-center" class="btn btn-outline-primary">新規にユーザー登録する</button></p></div>
-                  <!--./Modal-->
-                        <div class="modal-footer">
+                  <!--./Modal--> --}}
+       {{--                  <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
-                        </div>
+                        </div> --}}
                   </div>
                 </div>
                </ul>

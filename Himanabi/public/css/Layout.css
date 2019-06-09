@@ -114,7 +114,8 @@ padding: 0px 30px 0px 0px;
 
 /* FontAwesome for working BootSnippet :> */
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('lib/font-awesome/fonts/font-awesome.min.css');
+/*@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');*/
 #team {
     background: white !important;
 }

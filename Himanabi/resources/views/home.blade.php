@@ -1,4 +1,5 @@
 @extends('layouts.app')
+{{-- すべて不要、home.blade.phpはそのうち削除する --}}
 
 @section('content')
 <div class="container">

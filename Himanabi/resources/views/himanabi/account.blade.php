@@ -14,15 +14,15 @@
  --}}
             <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
             	{{-- {{ $skill->user->skills_name }} --}}
-            	
-            	{{ $datas->skills_name }}
+
+            	{{-- {{ $datas->skills_name }} --}}
             	@foreach($datas->skills as $skill)
             		{{ $skill->skills_name }}
             	@endforeach
 						</li>
 <!--./検証用-->
 
-<form>
+<form action="{{ route('diary.create') }}" method="POST" enctype="multpart/form-data">
 <div class="container border" ><!--firstContainer-->
 
 	<div class="row infoPart">
@@ -218,7 +218,7 @@
 					<div clas="col-1"></div><br>
 						<div class="col-10">
 
-							<div class="form-group text-left ">{{-- チェックボックス --}}
+							<div class="form-group text-left">{{-- チェックボックス --}}
 								<label class="small text-info p-3">あなたが興味をもっていること・ものにチェックを入れてください</label>
 								  <div class="checkbox">
 		                    <div class="form-row" id="checkRadios1">
@@ -279,8 +279,28 @@
 	  			  <br>
 			<div class="input-button">
 		    <button type="button" class="btn btn-outline-dark border-dark">破棄する</button>
-				<button type="button" class="btn btn-primary">登録する</button>
+
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</button>
 			</div>
+									<!-- 登録モーダルの設定 -->
+									<div class="modal fade" id="myCheckModal" tabindex="-1" role="dialog" aria-labelledby="myCheckModalLabel">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h6 class="modal-title" id="modalLabel">個人と希望スキル情報登録の確認</h6>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-footer justify-content-between">
+									        <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+									        <button type="button" class="btn btn-primary">情報を登録する</button>
+									      </div><!-- /.modal-footer -->
+									    </div><!-- /.modal-content -->
+									  </div><!-- /.modal-dialog -->
+									</div>
+									<!-- /.登録modalの終了 -->
+
 				<p class="text-info font-weight-bold"><br>提供できるスキルがあれば、<br>『あなたのスキル登録』から登録をお願いします。</p>
 
 </div>
