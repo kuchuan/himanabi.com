@@ -95,9 +95,8 @@
         <div class="row">
             <!-- Team member -->
             <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
-            </li>
 
-            @foreach($datas->take(6)->skills as $skill)
+                @foreach($datas->skills->take(6) as $skill)
 
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
@@ -106,8 +105,8 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src={{-- {{ $user->picture }} --}} alt="card image"></p>
-                                    <h4 class="card-title">{{ $datas->name }}{{-- 名前 --}}</h4>
-                                    <p class="card-text">{{-- {{ $user->find(1)->skills_explanation }} --}}{{-- スキル・学びの詳細 --}}</p>
+                                    <h4 class="card-title">{{-- {{ $datas->name }} --}}{{-- 名前 --}}</h4>
+                                    <p class="card-text">{{-- スキル・学びの詳細 --}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>
@@ -149,6 +148,8 @@
                 </div>
             </div>
             @endforeach
+            </li>
+
             <!-- ./Team member -->
            {{--  <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4">
