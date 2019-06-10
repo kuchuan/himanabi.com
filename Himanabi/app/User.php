@@ -33,6 +33,7 @@ class User extends Authenticatable
 
     public function skills() {  //sを忘れないように
         return $this->hasMany(Skill::class);//userに対して多になるskillのテーブル名を使う
+        // return $this->hasMany("App\Skill");//userに対して多になるskillのテーブル名を使う
 
     }
 

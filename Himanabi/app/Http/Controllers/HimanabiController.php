@@ -23,15 +23,15 @@ class HimanabiController extends Controller
 
     public function index(){
         // $users = Skill::with('user')->get();
-        $users = User::all();
-        $skills = Skill::all();
+        $datas = User::all();
+        // $skills = Skill::all();
         // var_dump($skills);
         // exit();
         // $users = User::with('skill_user')->get();
         // $users = User::all()->take(3);
         // $skills = Skill_user::with('user')->get();
         // dd($skills->skills_explanation);
-    	return view('himanabi.index', ["users" => $users]);
+    	return view('himanabi.index', ['datas' => $datas]);
 
     }
 

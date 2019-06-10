@@ -94,16 +94,20 @@
         <h5 class="section-title h1">新着情報</h5>
         <div class="row">
             <!-- Team member -->
-            @foreach($users->take(6) as $user)
+            <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
+            </li>
+
+            @foreach($datas->take(6)->skills as $skill)
+
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src={{ $user->picture }} alt="card image"></p>
-                                    <h4 class="card-title">{{ $user->name }}{{-- 名前 --}}</h4>
-                                    <p class="card-text">{{ $user->skills_explanation }}{{-- スキル・学びの詳細 --}}</p>
+                                    <p><img class=" img-fluid" src={{-- {{ $user->picture }} --}} alt="card image"></p>
+                                    <h4 class="card-title">{{ $datas->name }}{{-- 名前 --}}</h4>
+                                    <p class="card-text">{{-- {{ $user->find(1)->skills_explanation }} --}}{{-- スキル・学びの詳細 --}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>

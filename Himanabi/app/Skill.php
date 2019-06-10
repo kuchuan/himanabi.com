@@ -47,6 +47,7 @@ class Skill extends Model
 
 		public function user() {   //多のskillに対して一になるusersのテーブル名を使う
 			return $this->belongsTo(User::class);
+			// return $this->belongsTo("App\User");
 
 		}
 
