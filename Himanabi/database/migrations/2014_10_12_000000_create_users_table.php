@@ -23,13 +23,15 @@ class CreateUsersTable extends Migration
             // $table->timestamps();
             $table->bigIncrements('id');
             $table->string('name', 30);
-            $table->string('nickname', 40);
+            $table->string('nickname', 40)->nullable();
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
-            $table->date('birthday');
-            $table->string('language', 20);
-            $table->string('area', 60);
-            $table->string('picture', 255);
+            $table->rememberToken();
+            $table->date('birthday')->nullable();
+            $table->string('language', 20)->nullable();
+            $table->string('area', 60)->nullable();
+            $table->string('picture', 255)->nullable();
             $table->timestampsTz();
         });
     }

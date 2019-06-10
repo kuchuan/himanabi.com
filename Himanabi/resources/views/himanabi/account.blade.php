@@ -1,7 +1,7 @@
-@extends('layout')
+@extends('testlayout')
 
 @section('title')
-アカウント管理画面
+アカウント管理
 @endsection
 
 @section('content')
@@ -16,18 +16,20 @@
             	{{-- {{ $skill->user->skills_name }} --}}
 
             	{{-- {{ $datas->skills_name }} --}}
-            	@foreach($datas->skills as $skill)
-            		{{ $skill->skills_name }}
-            	@endforeach
-						</li>
+            	{{-- @foreach($datas->skills as $skill) --}}
+            		{{-- {{ $skill->skills_name }} --}}
+            	{{-- @endforeach --}}
+						{{-- </li> --}}
 <!--./検証用-->
+{{-- {{ dd(Auth::user()) }} --}}
+<form >
+@csrf
 
-<form action="{{ route('diary.create') }}" method="POST" enctype="multpart/form-data">
-<div class="container border" ><!--firstContainer-->
+<div class="container border pt-5" ><!--firstContainer-->
 
 	<div class="row infoPart">
 		<div class="col-sm-1" style="background-color:;">
-			両サイドの空白カラム
+			{{-- 両サイドの空白カラム --}}
 		</div>
 
 		<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
@@ -135,7 +137,7 @@
 		</div><!--/.中央パートのrow設定-->
 	 </div><!--/.中央パート-->
 	 	   <div class="col-sm-1" style="background-color:;">
-			 右サイドの空白カラム
+			 {{-- 右サイドの空白カラム --}}
 			 </div>
 	</div><!-- /.infoPart -->
 	<i class="fas fa-caret-down fa-3x text-info"></i>
@@ -149,7 +151,7 @@
 <div class="container border" ><!--secondContainer-->
 		<div class="row infoPart">
 			<div class="col-sm-1" style="background-color:;">
-				両サイドの空白カラム
+				{{-- 両サイドの空白カラム --}}
 			</div>
 
 			<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
@@ -182,7 +184,7 @@
 								<div class="form-group text-left">
 									<label class="small text-info" for="textArea1">希望期間</label>
 										<div class="input-group mb-3">
-										  <input type="text" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="basic-addon2">
+										  <input type="number" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="basic-addon2">
 										  <div class="input-group-append">
 										    <span class="input-group-text" id="basic-addon2">週間（0.0）</span>
 										  </div>
@@ -272,7 +274,7 @@
 			  </div><!--class="row justify-content-between-->
 			  </div><!--中央パート-->
 					  <div class="col-sm-1" style="background-color:;">
-							両サイドの空白カラム
+							{{-- 両サイドの空白カラム --}}
 						</div>
 	  </div>
 	  			  <i class="fas fa-caret-down fa-3x text-info pb-2"></i>

@@ -24,6 +24,14 @@ class HimanabiController extends Controller
 
     }
 
+    public function createaccount(){
+        //アカウント管理画面
+        //$datas =DB::select('select * from user');
+        // $datas = User::all(); //全件取得
+        $datas = User::first();//最初のデータのみ取得
+        // dd($datas);
+        return view('himanabi.createaccount',['datas' => $datas]);
+    }
 
     public function account(){
         //アカウント管理画面
@@ -64,7 +72,7 @@ class HimanabiController extends Controller
         // storageフォルダに画像をアップロードする
         // 選択された画像をstrage/app/public/diary_imgにアップロード
         // 画像名を残す
-        $$himanabi->skills_picture = $request->skills_picture->store('public/himanabi_img');
+        $$himanabi->skills_picture = $request->skills_picture->store('public/img');
         $himanabi->Interest01 =$request->Interest01;
         $himanabi->Interest02 =$request->Interest02;
         $himanabi->Interest03 =$request->Interest03;

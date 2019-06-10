@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->bigInteger('room_id');
             $table->timestampsTz();
             $table->boolean('users_toggle');
-            $table->text('talk');
+            $table->text('talk')->nullable();
         });
     }
 

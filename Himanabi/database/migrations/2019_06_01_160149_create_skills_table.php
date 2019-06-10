@@ -21,14 +21,14 @@ class CreateSkillsTable extends Migration
             $table->boolean('toggle_user');
             $table->string('skills_category', 60);
             $table->string('skills_name', 60);
-            $table->float('skills_experience', 3, 1);
-            $table->float('skills_get', 3, 1);
-            $table->text('skills_explanation');
-            $table->text('skills_enthusiasm');
-            $table->string('skills_area', 60);
+            $table->float('skills_experience', 3, 1)->nullable();
+            $table->float('skills_get', 3, 1)->nullable();
+            $table->text('skills_explanation')->nullable();
+            $table->text('skills_enthusiasm')->nullable();
+            $table->string('skills_area', 60)->nullable();
             $table->timestampsTz();
 
-            $table->string('skills_picture', 255);
+            $table->string('skills_picture', 255)->nullable();
             $table->boolean('Interest01');
             $table->boolean('Interest02');
             $table->boolean('Interest03');
