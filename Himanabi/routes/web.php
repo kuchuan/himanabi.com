@@ -22,12 +22,12 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 
     //{}は対応するメソッドの引数になる
 		Route::get('himanabi/{id}/account', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
-		// Route::put('himanabi/{id}/update', 'HimanabiController@update')->name('himanabi.updateaccount'); //ユーザー更新処理
+		Route::put('himanabi/{id}/update', 'HimanabiController@update')->name('himanabi.updateaccount'); //ユーザー更新処理
 
-		// Route::delete('himanabi/{id}/deleteaccount', 'DiaryController@destory')->name('himanabi.destoryaccount'); //ユーザー削除処理
+		Route::delete('himanabi/{id}/deleteaccount', 'himanabiController@destory')->name('himanabi.destoryaccount'); //ユーザー削除処理
 
-		// Route::post('himanabi/{id}/like', 'HimanabiController@like')->name('himanabi.like');
-    // Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabidiary.dislike');
+		Route::post('himanabi/{id}/like', 'HimanabiController@like')->name('himanabi.like');
+    Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabidiary.dislike');
 // });//ここは後日有効にします
 
 // Route::get('/testlayout', 'HimanabiController@test')->name('himanabi.test');//Dean検証用

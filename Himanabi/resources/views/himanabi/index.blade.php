@@ -89,7 +89,7 @@
 
 {{-- ーー --}}
   <!-- Team -->
-<section id="team">
+<section id="team pt-5">
     <div class="container">
         <h5 class="section-title h1">新着情報</h5>
         <div class="row">
@@ -106,7 +106,7 @@
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>
-                                     
+
                                 </div>
                             </div>
                         </div>

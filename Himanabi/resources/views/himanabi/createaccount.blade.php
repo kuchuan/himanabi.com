@@ -7,11 +7,11 @@
 @section('content')
 
 <!--検証用-->
-{{--         @foreach ($datas as $user)
+       {{--  @foreach ($datas as $user)
             <li>{{ $user->name }}</li>
             <li>{{ $user->nickname }}</li>
-        @endforeach
- --}}
+        @endforeach --}}
+
             {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
                 {{-- {{ $skill->user->skills_name }} --}}
 
@@ -24,7 +24,7 @@
 <form >
 @csrf
 
-<div class="container border pt-5" ><!--firstContainer-->
+<div class="container pt-5" ><!--firstContainer-->
 
     <div class="row infoPart">
         <div class="col-sm-1" style="background-color:;">
