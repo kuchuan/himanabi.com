@@ -15,11 +15,11 @@
             <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
             	{{-- {{ $skill->user->skills_name }} --}}
 
-            	{{-- {{ $datas->skills_name }} --}}
-            	{{-- @foreach($datas->skills as $skill) --}}
-            		{{-- {{ $skill->skills_name }} --}}
-            	{{-- @endforeach --}}
-						{{-- </li> --}}
+            	{{ $datas->skills_name }}
+            	@foreach($datas->skills as $skill)
+            		{{ $skill->skills_name }}
+            	@endforeach
+						</li>
 <!--./検証用-->
 {{-- {{ dd(Auth::user()) }} --}}
 <form >

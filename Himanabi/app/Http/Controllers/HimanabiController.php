@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\user; //App\Userクラスの試用を宣言する（Dean追加）
+use App\skill; //App\skillクラスの試用を宣言する（Dean追加）
 use Illuminate\Http\Request;
 
 class HimanabiController extends Controller
@@ -26,6 +27,7 @@ class HimanabiController extends Controller
         $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
         // dd($datas);
+        // $skills = Skill::all();
         return view('himanabi.createaccount',['datas' => $datas]);
     }
 

@@ -6,31 +6,32 @@
 
 @section('content')
 
+
+<form >
+
+
+<div class="container pt-5" ><!--firstContainer-->
 <!--検証用-->
        {{--  @foreach ($datas as $user)
             <li>{{ $user->name }}</li>
             <li>{{ $user->nickname }}</li>
         @endforeach --}}
 
-            {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
+            <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
                 {{-- {{ $skill->user->skills_name }} --}}
-
+            </li>
                 {{-- {{ $datas->skills_name }} --}}
-                {{-- @foreach($datas->skills as $skill) --}}
-                    {{-- {{ $skill->skills_name }} --}}
-                {{-- @endforeach --}}
-                        {{-- </li> --}}
+                @foreach($datas->skills as $skill)
+                    {{ $skill->skills }}
+                @endforeach
+
+            {{ ($datas->skills) }}
 <!--./検証用-->
-<form >
-@csrf
-
-<div class="container pt-5" ><!--firstContainer-->
-
     <div class="row infoPart">
         <div class="col-sm-1" style="background-color:;">
             {{-- 両サイドの空白カラム --}}
         </div>
-
+@csrf
         <div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
 
             <p class="h4 ml-3 text-left text-info font-weight-bold">あなたの<span style="color:red">アカウント</span>を作りましょう</p>
@@ -42,11 +43,11 @@
                 <div class="col-5"><!--中央パートの左側-->
                     <div class="form-group text-left">
                         <label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="令泉 和也">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="令泉 和也" value="{{ $datas->name }}">
                     </div>
                     <div class="form-group text-left">
                         <label class="small text-info" for="nickname">ニックネーム*</label>
-                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="げんごうくん">
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="げんごうくん" value="{{ $datas->nickname }}">
                         {{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
                     </div>
                   <div class="form-group text-left">
@@ -86,7 +87,7 @@
                                     </div><!-- /.modal -->
                     <div class="form-group text-left">
                         <label class="small text-info" for="birthday">生年月日</label>
-                        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="2000-1-1">
+                        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="2000-1-1" value="{{ $datas->birthday }}">
                     </div>
                 </div><!--/.中央パートの左側-->
 
@@ -94,24 +95,24 @@
                 <div class="col-5"><!--中央パートの右側-->
                         <div class="form-group text-left">
                             <label class="small text-info" for="email">E-mail*</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス" value="{{ $datas->email }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small  text-info" for="email_verified_at">E-mail確認用</label>
-                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認">
+                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="{{ $datas->email_verified_at }}">
                             <small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="password">パスワード*</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="パスワード">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="パスワード" value="{{ $datas->pas }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="remember_token">パスワード確認用</label>
-                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認">
+                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認" value="{{ $datas->remember_token }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="language">使用言語</label>
-                            <select class="form-control" name="language" id="language">
+                            <select class="form-control" name="language" id="language" value="{{ $datas->language }}">
                                 <option>日本語</option>
                                 <option>英語</option>
                                 <option>中国語</option>
@@ -121,7 +122,7 @@
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="area">居住エリア</label>
-                            <select class="form-control" name="area" id="area">
+                            <select class="form-control" name="area" id="area" value="{{ $datas->area }}">
                                 <option>らふぐ</option>
                                 <option>まんだうえ</option>
                                 <option>ばにらっど</option>
@@ -163,7 +164,7 @@
                 <div class="col-5"><!--中央パートの左側-->
                             <div class="form-group text-left"><!--カテゴリ-->
                                 <label class="small text-info" for="skills_category">カテゴリ</label>
-                                <select class="form-control" name="skills_category" id="skills_category">
+                                <select class="form-control" name="skills_category" id="skills_category" value="{{ $datas->skills_category }}">
                                     <option>語学</option>
                                     <option>教育</option>
                                     <option>運動</option>
@@ -177,7 +178,7 @@
 
                                 <div class="form-group text-left">
                                     <label class="small text-info" for="skills_name">スキル名</label>
-                                    <input type="text" class="form-control" name="skills_name" id="skills_name" placeholder="スキルの名前を入力してください">
+                                    <input type="text" class="form-control" name="skills_name" id="skills_name" placeholder="スキルの名前を入力してください" value="{{ $datas->skills_name }}">
                                 </div>
 
                                 <div class="form-group text-left">
@@ -185,21 +186,21 @@
                                         <div class="input-group mb-3">
                                           <input type="number" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="skills_get">
                                           <div class="input-group-append">
-                                            <span class="input-group-text" name="skills_get" id="skills_get">週間（0.0）</span>
+                                            <span class="input-group-text" name="skills_get" id="skills_get" value="{{ $datas->skills_get }}">週間（0.0）</span>
                                           </div>
                                         </div>
                                 </div>
 
                           <div class="form-group text-left">
                             <label class="small text-info" for="skills_enthusiasm">意気込み</label>
-                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3"></textarea>
+                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3" value="{{ $datas->['skills_enthusiasm'] }}"></textarea>
                           </div>
                 </div>{{-- 中央パートの左側 --}}
 
                 <div class="col-5"><!--中央パートの右側-->
                             <div class="form-group text-left" style="align-self:flex-end">
                                 <label class="small text-info" for="skills_area">希望エリア</label>
-                                <select class="form-control"name="skills_area" id="skills_area">
+                                <select class="form-control"name="skills_area" id="skills_area" value="{{ $datas->skills_area }}">
                                     <option>らふぐ</option>
                                     <option>まんだうえ</option>
                                     <option>ばにらっど</option>
@@ -222,9 +223,9 @@
                             <div class="form-group text-left">{{-- チェックボックス --}}
                                 <label class="small text-info p-3">あなたが興味をもっていること・ものにチェックを入れてください</label>
                                   <div class="checkbox">
-                                    <div clss="form-row" id="checkBoxies1">
+                                    <div class="form-row" id="checkBoxies1">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest01" id="interest01">：本・コミック・雑誌　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest01" id="interest01" value="{{ $datas->interest01 }}">：本・コミック・雑誌　</label>
                                                 <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest02" id="interest02">：芸能・アニメ　　　　</label>
                                                 <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest03" id="interest03">：ミュージック　　　　</label>
                                                 <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest04" id="interest04">：家電・カメラ・AV機器</label>

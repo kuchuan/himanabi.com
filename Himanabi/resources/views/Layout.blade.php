@@ -48,7 +48,8 @@
 
 <!-- Navigation Bar -->
 <header>
-    <nav class="navbar navbar-expand-lg navStyle fixed-top">
+    {{-- <nav class="navbar navbar-expand-lg navStyle fixed-top"> --}}
+    <nav class="navbar navbar-expand-lg navStyle">
         <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
@@ -75,7 +76,7 @@
                       {{ auth::user() }}
                       @if (Auth::user() == null )
                         <li class="nav-item">
-                          <a href="{{ route('himanabi.account') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
+                          <a href="{{ route('himanabi.createaccount') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
                     <li class="nav-item">
