@@ -83,9 +83,12 @@
           </button>
         </div>
     </div>
-      
   </form>
 
+@guest
+@else
+{{ (auth::user()) }}
+@endguest
 
 {{-- ーー --}}
   <!-- Team -->

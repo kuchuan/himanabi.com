@@ -67,27 +67,34 @@
                 @guest
                 {{-- ログインしていないとき --}}
                     <li class="nav-item">
-                        <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
+                        <a href="portfolio.html" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
+                        <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-question-circle"></i>About</a>
                     </li>
+                      {{ auth::user() }}
+                      @if (Auth::user() == null )
+                        <li class="nav-item">
+                          <a href="{{ route('himanabi.account') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
+                        </li>
+                      @endif
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-phone"></i>ログイン</a>
+                        <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
                     </li>
                 @else
                 {{-- ログインしているとき --}}
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-users"></i>あなたのスキル</a>
+                        <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル（仮）</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-users"></i>気になるスキル（仮）</a>
+                        <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-file-import"></i>あなたのスキル</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('himanabi.account') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.account') }}" class="nav-link">{{ Auth::user()->name }}さんの情報管理</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-phone"></i>ログアウト</a>
+                        <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
                     </li>
                 @endguest
             </ul>
@@ -131,15 +138,15 @@
 
           <div> 
           @if (($errors->has('email')) || ($errors->has('password')))
-           <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary">{{ __('Login(普段はこちら)') }}</button></p>
+           <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p>
           @else
             <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('login') }}">{{ __('Login(普段はこちら)') }}</button></p>
           @endif
 
 
-
-            @if (Route::has('himanabi.index'))
-            <p class="btn btn-link" href="{{ route('himanabi.account') }}">{{ __('Forgot Your Password?') }}</p>
+            <!--パスワードを忘れたときのリクエスト送信-->
+            @if (Route::has('password.request'))
+            <p class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</p>
             @endif
           </div>
 
