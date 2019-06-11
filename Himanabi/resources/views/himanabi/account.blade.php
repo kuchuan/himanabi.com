@@ -1,4 +1,4 @@
-@extends('testlayout')
+@extends('layout')
 
 @section('title')
 アカウント管理

@@ -33,7 +33,7 @@
 
         <div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
 
-            <p class="h4 ml-3 text-left text-info font-weight-bold">あなたの<span style="color:red">アカウント</span>を管理しましょう</p>
+            <p class="h4 ml-3 text-left text-info font-weight-bold">あなたの<span style="color:red">アカウント</span>を作りましょう</p>
             <p type="text" class="mb-0 text-right text-info" ><i class="fas fa-trash-alt fa-border fa-1x mr-3 border-info">：ユーザー削除はこちら</i></p>
                 <div class="ml-3 text-left text-muted font-weight-bold">＊必須項目</div>
 
@@ -42,11 +42,11 @@
                 <div class="col-5"><!--中央パートの左側-->
                     <div class="form-group text-left">
                         <label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="令泉 和也">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="令泉 和也">
                     </div>
                     <div class="form-group text-left">
-                        <label class="small text-info" for="inputNickName">ニックネーム*</label>
-                        <input type="text" class="form-control" id="inputNickName" placeholder="げんごうくん">
+                        <label class="small text-info" for="nickname">ニックネーム*</label>
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="げんごうくん">
                         {{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
                     </div>
                   <div class="form-group text-left">
@@ -75,7 +75,7 @@
                                           </div>
                                           <div class="modal-body">
                                             {{-- <label for="inputFile">画像ファイルを指定してください</label> --}}
-                                                <input type="file" id="inputFile">
+                                                <input type="file" name="picture" id="picture">
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
@@ -85,33 +85,33 @@
                                       </div><!-- /.modal-dialog -->
                                     </div><!-- /.modal -->
                     <div class="form-group text-left">
-                        <label class="small text-info" for="inputBirthday">生年月日</label>
-                        <input type="date" class="form-control" id="inputBirthday" placeholder="2000-1-1">
+                        <label class="small text-info" for="birthday">生年月日</label>
+                        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="2000-1-1">
                     </div>
                 </div><!--/.中央パートの左側-->
 
 
                 <div class="col-5"><!--中央パートの右側-->
                         <div class="form-group text-left">
-                            <label class="small text-info" for="inputEmail">E-mail*</label>
-                            <input type="email" class="form-control" id="InputEmail" placeholder="Eメールアドレス">
+                            <label class="small text-info" for="email">E-mail*</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス">
                         </div>
                         <div class="form-group text-left">
-                            <label class="small  text-info" or="reInputEmail">E-mail確認用</label>
-                            <input type="email" class="form-control" id="reInputEmail" placeholder="Eメールアドレス">
+                            <label class="small  text-info" for="email_verified_at">E-mail確認用</label>
+                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認">
                             <small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
                         </div>
                         <div class="form-group text-left">
-                            <label class="small text-info" for="inputPassword">パスワード*</label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="パスワード">
+                            <label class="small text-info" for="password">パスワード*</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="パスワード">
                         </div>
                         <div class="form-group text-left">
-                            <label class="small text-info" for="reInputPassword">パスワード確認用</label>
-                            <input type="password" class="form-control" id="reInputPassword" placeholder="パスワード">
+                            <label class="small text-info" for="remember_token">パスワード確認用</label>
+                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認">
                         </div>
                         <div class="form-group text-left">
-                            <label class="small text-info" for="languageSelect1">使用言語</label>
-                            <select class="form-control" id="languageSelect1">
+                            <label class="small text-info" for="language">使用言語</label>
+                            <select class="form-control" name="language" id="language">
                                 <option>日本語</option>
                                 <option>英語</option>
                                 <option>中国語</option>
@@ -120,8 +120,8 @@
                             </select>
                         </div>
                         <div class="form-group text-left">
-                            <label class="small text-info" for="areaSelect1">居住エリア</label>
-                            <select class="form-control" id="areaSelect1">
+                            <label class="small text-info" for="area">居住エリア</label>
+                            <select class="form-control" name="area" id="area">
                                 <option>らふぐ</option>
                                 <option>まんだうえ</option>
                                 <option>ばにらっど</option>
@@ -162,8 +162,8 @@
                 <div clas="col-1"></div><!--中央パートの左余白-->
                 <div class="col-5"><!--中央パートの左側-->
                             <div class="form-group text-left"><!--カテゴリ-->
-                                <label class="small text-info" for="exampleSelect1exampleFormControlSelect1">カテゴリ</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <label class="small text-info" for="skills_category">カテゴリ</label>
+                                <select class="form-control" name="skills_category" id="skills_category">
                                     <option>語学</option>
                                     <option>教育</option>
                                     <option>運動</option>
@@ -176,30 +176,30 @@
                             </div><!--./カテゴリ-->
 
                                 <div class="form-group text-left">
-                                    <label class="small text-info" for="inputSkill">スキル名</label>
-                                    <input type="text" class="form-control" id="inputSkill" placeholder="スキルの名前を入力してください">
+                                    <label class="small text-info" for="skills_name">スキル名</label>
+                                    <input type="text" class="form-control" name="skills_name" id="skills_name" placeholder="スキルの名前を入力してください">
                                 </div>
 
                                 <div class="form-group text-left">
                                     <label class="small text-info" for="textArea1">希望期間</label>
                                         <div class="input-group mb-3">
-                                          <input type="number" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="basic-addon2">
+                                          <input type="number" class="form-control" placeholder="期間を記入してください" aria-label="希望期間" aria-describedby="skills_get">
                                           <div class="input-group-append">
-                                            <span class="input-group-text" id="basic-addon2">週間（0.0）</span>
+                                            <span class="input-group-text" name="skills_get" id="skills_get">週間（0.0）</span>
                                           </div>
                                         </div>
                                 </div>
 
                           <div class="form-group text-left">
-                            <label class="small text-info" for="textArea1">意気込み</label>
-                            <textarea class="form-control" id="textArea1" rows="3"></textarea>
+                            <label class="small text-info" for="skills_enthusiasm">意気込み</label>
+                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3"></textarea>
                           </div>
                 </div>{{-- 中央パートの左側 --}}
 
                 <div class="col-5"><!--中央パートの右側-->
                             <div class="form-group text-left" style="align-self:flex-end">
-                                <label class="small text-info" for="areaSelect2">希望エリア</label>
-                                <select class="form-control" id="areaSelect2">
+                                <label class="small text-info" for="skills_area">希望エリア</label>
+                                <select class="form-control"name="skills_area" id="skills_area">
                                     <option>らふぐ</option>
                                     <option>まんだうえ</option>
                                     <option>ばにらっど</option>
@@ -222,50 +222,50 @@
                             <div class="form-group text-left">{{-- チェックボックス --}}
                                 <label class="small text-info p-3">あなたが興味をもっていること・ものにチェックを入れてください</label>
                                   <div class="checkbox">
-                            <div class="form-row" id="checkRadios1">
-                              <div class="form-check form-check-inline small ml-2">
-                              <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox01">：本・コミック・雑誌　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox02">：芸能・アニメ　　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox03">：ミュージック　　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox04">：家電・カメラ・AV機器</label>
-                                                        </div>
-                                                </div>
-                                                <hr>
-                                                <div class="form-row" id="checkRadios2">
-                                                        <div class="form-check form-check-inline small ml-2">
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox05">：ＰＣ・ガジェット　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox06">：ホーム＆キッチン　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox07">：美容・健康　　　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox08">：ファッション・貴金属</label>
-                                                        </div>
-                                                </div>
-                                                <hr>
-                                                <div class="form-row" id="checkRadios3">
-                                                        <div class="form-check form-check-inline small ml-2">
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox09">：子育て・介護　　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox10">：動物・ペット　　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox11">：仕事・オフィス　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox12">：スポーツ・アウトドア</label>
-                                                        </div>
-                                                </div>
-                                                <hr>
-                                                <div class="form-row" id="checkRadios4">
-                                                        <div class="form-check form-check-inline small ml-2">
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox13">：芸術・アート　　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox14">：食品・飲料・酒　　　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox15">：金融・ファイナンス　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox16">：おもちゃ・ゲーム　　</label>
-                                                        </div>
-                                                </div>
-                                                <hr>
-                                                <div class="form-row" id="checkRadios5">
-                                                        <div class="form-check form-check-inline small ml-2">
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox17">：自動車・バイク・船　</label>
-                                                            <label class="checkbox-inline ml-1"><input type="checkbox" value="" id="checkBox18">：ＤＩＹ・ハンドメイド</label>
-                                          </div>
+                                    <div clss="form-row" id="checkBoxies1">
+                                            <div class="form-check form-check-inline small ml-2">
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest01" id="interest01">：本・コミック・雑誌　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest02" id="interest02">：芸能・アニメ　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest03" id="interest03">：ミュージック　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest04" id="interest04">：家電・カメラ・AV機器</label>
+                                            </div>
                                     </div>
-                                     </div> <!--./div class="checkbox"-->
-                      </div>{{-- ./チェックボックス --}}
+                                    <hr>
+                                    <div class="form-row" id="checkBoxies2">
+                                            <div class="form-check form-check-inline small ml-2">
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest05" id="interest05">：ＰＣ・ガジェット　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest06" id="interest06">：ホーム＆キッチン　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest07" id="interest07">：美容・健康　　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest08" id="interest08">：ファッション・貴金属</label>
+                                            </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row" id="checkBoxies3">
+                                            <div class="form-check form-check-inline small ml-2">
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest09" id="interest09">：子育て・介護　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest10" id="interest10">：動物・ペット　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest11" id="interest11">：仕事・オフィス　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest12" id="interest12">：スポーツ・アウトドア</label>
+                                            </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row" id="checkBoxies4">
+                                            <div class="form-check form-check-inline small ml-2">
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest13" id="interest13">：芸術・アート　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest14" id="interest14">：食品・飲料・酒　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest15" id="interest15">：金融・ファイナンス　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest16" id="interest16">：おもちゃ・ゲーム　　</label>
+                                            </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row" id="checkBoxies5">
+                                            <div class="form-check form-check-inline small ml-2">
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest17" id="interest17">：自動車・バイク・船　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest18" id="interest18">：ＤＩＹ・ハンドメイド</label>
+                                            </div>
+                                    </div>
+                                  </div> <!--./div class="checkbox" -->
+                            </div>{{-- ./チェックボックス --}}
                       <br>
               </div>{{-- ./col-10 --}}
               <br>

@@ -29,8 +29,9 @@ class HimanabiController extends Controller
         return view('himanabi.createaccount',['datas' => $datas]);
     }
 
-    public function account($id){
-        $himanabi = himanabi::find($id);
+    public function account(){
+        // $himanabi = himanabi::find($id);
+        // dd($himanabi);
         //アカウント管理画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
@@ -70,24 +71,26 @@ class HimanabiController extends Controller
         // 選択された画像をstrage/app/public/diary_imgにアップロード
         // 画像名を残す
         $$himanabi->skills_picture = $request->skills_picture->store('public/img');
-        $himanabi->Interest01 =$request->Interest01;
-        $himanabi->Interest02 =$request->Interest02;
-        $himanabi->Interest03 =$request->Interest03;
-        $himanabi->Interest04 =$request->Interest04;
-        $himanabi->Interest05 =$request->Interest05;
-        $himanabi->Interest06 =$request->Interest06;
-        $himanabi->Interest07 =$request->Interest07;
-        $himanabi->Interest08 =$request->Interest08;
-        $himanabi->Interest09 =$request->Interest09;
-        $himanabi->Interest10 =$request->Interest10;
-        $himanabi->Interest11 =$request->Interest11;
-        $himanabi->Interest12 =$request->Interest12;
-        $himanabi->Interest13 =$request->Interest13;
-        $himanabi->Interest14 =$request->Interest14;
-        $himanabi->Interest15 =$request->Interest15;
-        $himanabi->Interest16 =$request->Interest16;
-        $himanabi->Interest17 =$request->Interest17;
-        $himanabi->Interest18 =$request->Interest18;
+        $himanabi->interest01 =$request->interest01;
+        $himanabi->interest02 =$request->interest02;
+        $himanabi->interest03 =$request->interest03;
+        $himanabi->interest04 =$request->interest04;
+        $himanabi->interest05 =$request->interest05;
+        $himanabi->interest06 =$request->interest06;
+        $himanabi->interest07 =$request->interest07;
+        $himanabi->interest08 =$request->interest08;
+        $himanabi->interest09 =$request->interest09;
+        $himanabi->interest10 =$request->interest10;
+        $himanabi->interest11 =$request->interest11;
+        $himanabi->interest12 =$request->interest12;
+        $himanabi->interest13 =$request->interest13;
+        $himanabi->interest14 =$request->interest14;
+        $himanabi->interest15 =$request->interest15;
+        $himanabi->interest16 =$request->interest16;
+        $himanabi->interest17 =$request->interest17;
+        $himanabi->interest18 =$request->interest18;
+        $himanabi->interest19 =$request->interest19;
+        $himanabi->interest20 =$request->interest20;
 
         $himanabi->save(); //DBに保存
 

@@ -29,24 +29,26 @@ class CreateSkillsTable extends Migration
             $table->timestampsTz();
 
             $table->string('skills_picture', 255)->nullable();
-            $table->boolean('Interest01');
-            $table->boolean('Interest02');
-            $table->boolean('Interest03');
-            $table->boolean('Interest04');
-            $table->boolean('Interest05');
-            $table->boolean('Interest06');
-            $table->boolean('Interest07');
-            $table->boolean('Interest08');
-            $table->boolean('Interest09');
-            $table->boolean('Interest10');
-            $table->boolean('Interest11');
-            $table->boolean('Interest12');
-            $table->boolean('Interest13');
-            $table->boolean('Interest14');
-            $table->boolean('Interest15');
-            $table->boolean('Interest16');
-            $table->boolean('Interest17');
-            $table->boolean('Interest18');
+            $table->boolean('interest01');
+            $table->boolean('interest02');
+            $table->boolean('interest03');
+            $table->boolean('interest04');
+            $table->boolean('interest05');
+            $table->boolean('interest06');
+            $table->boolean('interest07');
+            $table->boolean('interest08');
+            $table->boolean('interest09');
+            $table->boolean('interest10');
+            $table->boolean('interest11');
+            $table->boolean('interest12');
+            $table->boolean('interest13');
+            $table->boolean('interest14');
+            $table->boolean('interest15');
+            $table->boolean('interest16');
+            $table->boolean('interest17');
+            $table->boolean('interest18');
+            $table->boolean('interest19');
+            $table->boolean('interest20');
 
         });
     }

@@ -136,12 +136,12 @@
 
 
 
-          <div> 
-          @if (($errors->has('email')) || ($errors->has('password')))
-           <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p>
-          @else
+          <div>
+          {{-- @if (($errors->has('email')) || ($errors->has('password'))) --}}
+           {{-- <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p> --}}
+          {{-- @else --}}
             <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('login') }}">{{ __('Login(普段はこちら)') }}</button></p>
-          @endif
+          {{-- @endif --}}
 
 
             <!--パスワードを忘れたときのリクエスト送信-->

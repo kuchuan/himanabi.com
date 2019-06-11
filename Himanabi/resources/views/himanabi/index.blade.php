@@ -74,7 +74,7 @@
             <span class="cp_sl06_highlight"></span>
             <span class="cp_sl06_selectbar"></span>
             <label class="cp_sl06_selectlabel">場所で選ぶ</label>
-    　　　</div>
+        </div>
 
         <div class = "search_button" style="padding-right: 420px; padding-top: 44px;">
           <input class="sbox5" type="" name="" placeholder="フリーワード( ex. ピアノ、英語、水泳）">
