@@ -24,8 +24,9 @@ class HimanabiController extends Controller
     public function createaccount(){
         //アカウント管理画面
         //$datas =DB::select('select * from user');
-        $datas = User::all(); //全件取得
+        // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
+        $datas = User::with('skills')->first(); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
         // dd($datas);
         // $skills = Skill::all();
         return view('himanabi.createaccount',['datas' => $datas]);
