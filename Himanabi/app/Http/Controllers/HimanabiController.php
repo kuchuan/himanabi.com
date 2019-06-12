@@ -17,7 +17,10 @@ class HimanabiController extends Controller
 
     public function index(){
 
-    	return view('himanabi.index');
+
+        $datas = User::with('skills')->get();
+
+    	return view('himanabi.index',['datas' => $datas]);
 
     }
 
@@ -27,18 +30,22 @@ class HimanabiController extends Controller
         // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
         $datas = User::with('skills')->first(); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
+        // var_dump($datas);
         // dd($datas);
         // $skills = Skill::all();
         return view('himanabi.createaccount',['datas' => $datas]);
     }
 
-    public function account(){
+    public function account($id){
+        // $id = 21;
         // $himanabi = himanabi::find($id);
         // dd($himanabi);
+        // $login_user = auth::user();
+        // dd($id);
         //アカウント管理画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
-        $datas = User::first();//最初のデータのみ取得
+        $datas = User::with('skills')->find($id);//見つけたデータのみ取得
         // dd($datas);
         return view('himanabi.account',['datas' => $datas]);
     }
@@ -61,7 +68,7 @@ class HimanabiController extends Controller
         $himanabi->area = $request->area;
         $himanabi->picture = $request->picture;
         //ここからskillsテーブル
-        $himanabi->toggle_user = "0"; //ユーザーの希望登録は"0"参照するwebページでトグルを入れ変える必要あり
+        $himanabi->toggle_user = "0"; //ユーザーの希望登録は"0"参照するwebページ(view)でhidden属性を入れて不可視化してトグルを入れ変える必要あり
         $himanabi->skills_category = $request->skills_category;
         $himanabi->user_id = Auth::user()->id; //追加 ログインしてるユーザーのidを保存
         $himanabi->skills_name = $request->skills_name;

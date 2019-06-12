@@ -48,8 +48,9 @@
 
 <!-- Navigation Bar -->
 <header>
-    {{-- <nav class="navbar navbar-expand-lg navStyle fixed-top"> --}}
-    <nav class="navbar navbar-expand-lg navStyle">
+<form method="POST" class="form-horizontal">
+    @csrf
+    <nav class="navbar navbar-expand-lg navStyle fixed-top">
         <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
@@ -73,9 +74,9 @@
                     <li class="nav-item">
                         <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-question-circle"></i>About</a>
                     </li>
-                      {{ auth::user() }}
                       @if (Auth::user() == null )
                         <li class="nav-item">
+                          {{ auth::user() }}
                           <a href="{{ route('himanabi.createaccount') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
@@ -92,7 +93,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.account') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
+                        <a href="{{ route('himanabi.account',[Auth::user()] )}}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}{{ Auth::user()->id }}さんの情報管理</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
@@ -101,11 +102,13 @@
             </ul>
             </div>
     </nav>
+</form>
 
 
  <!-- Modal -->
 <form class="form-signin" method="POST" action="{{ route('login') }}">
 {{-- <form method="POST" action="{{ route('login') }}"> --}}
+  @csrf
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <!--./Modalcontent-->
@@ -118,7 +121,6 @@
         </div>
         <!--modal-body-->
         <div class="modal-body">
-          @csrf
               <p style="margin:20px;"> <input type="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"  name="email" placeholder="Eメールアドレス" value="{{ old('email') }}" required autofocus>
               </p>
           @if ($errors->has('email'))

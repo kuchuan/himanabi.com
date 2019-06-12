@@ -6,10 +6,6 @@
 
 @section('content')
 
-
-<form >
-
-
 <!--検証用-->
 
         {{-- {{ dd($datas->skills->first()) }}//リレーションでskillsの最初を取得 --}}
@@ -18,7 +14,6 @@
             {{-- <li>{{ $user->name }}</li> --}}
             {{-- <li>{{ $user->nickname }}</li> --}}
         {{-- @endforeach --}}
-
             {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, </li> --}}
                 {{-- {{ $skill->user->skills_name }} --}}
 
@@ -30,7 +25,7 @@
             {{-- {{ ($datas) }} --}}
             {{-- {{var_dump($datas->skills->first()->skills_enthusiasm)}} --}}
 <!--./検証用-->
-
+<form>
 <div class="container pt-5" ><!--firstContainer-->
 @csrf
     <div class="row infoPart">
@@ -173,9 +168,9 @@
                                     <option {{ ($datas->skills->first()->skills_category)==="運動" ? 'selected' : ''}}>運動</option>
                                     <option {{ ($datas->skills->first()->skills_category)==="芸術" ? 'selected' : ''}}>芸術</option>
                                     <option {{ ($datas->skills->first()->skills_category)==="食品" ? 'selected' : ''}}>食品</option>
-                                    <option {{ ($datas->skills->first()->skills_category)==="売買" ? 'selected' : ''}}>売買</option>
-                                    <option {{ ($datas->skills->first()->skills_category)==="物作り" ? 'selected' : ''}}>物作り</option>
-                                    <option {{ ($datas->skills->first()->skills_category)==="子育て" ? 'selected' : ''}}>子育て</option>
+                                    <option {{ ($datas->skills->first()->skills_category)==="売買" ? 'selected' : ''}}>ビジネス</option>
+                                    <option {{ ($datas->skills->first()->skills_category)==="物作り" ? 'selected' : ''}}>制作</option>
+                                    <option {{ ($datas->skills->first()->skills_category)==="子育て" ? 'selected' : ''}}>家庭</option>
                                     <option {{ ($datas->skills->first()->skills_category)==="その他" ? 'selected' : ''}}>その他</option>
                                 </select>
                             </div><!--./カテゴリ-->
