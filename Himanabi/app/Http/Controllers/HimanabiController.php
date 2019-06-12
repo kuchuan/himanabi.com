@@ -23,16 +23,15 @@ class HimanabiController extends Controller
 
     public function index(){
         // $users = Skill::with('user')->get();
-        $datas = User::all();
+        // $datas = User::all();
         // $skills = Skill::all();
         // var_dump($skills);
         // exit();
-        // $users = User::with('skill_user')->get();
+        $datas = User::with('skills')->get();
         // $users = User::all()->take(3);
         // $skills = Skill_user::with('user')->get();
         // dd($skills->skills_explanation);
-    	return view('himanabi.index', ['datas' => $datas]);
-
+        return view('himanabi.index', ['datas' => $datas]);
     }
 
 
@@ -41,12 +40,16 @@ class HimanabiController extends Controller
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
         $datas = User::first();//最初のデータのみ取得
-        // dd($datas);
+
         return view('himanabi.account',['datas' => $datas]);
     }
 
     public function about(){
         return view('himanabi.about');
+    }
+
+    public function show(){
+        return view('himanabi.show');
     }
 
 

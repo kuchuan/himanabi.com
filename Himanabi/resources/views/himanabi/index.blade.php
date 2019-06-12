@@ -94,9 +94,10 @@
         <h5 class="section-title h1">新着情報</h5>
         <div class="row">
             <!-- Team member -->
-            <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
+            {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
 
-                @foreach($datas->skills->take(6) as $skill)
+            @foreach($datas->take(6) as $user)
+ {{ dd($user->skills) }}
 
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
@@ -105,12 +106,12 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src={{-- {{ $user->picture }} --}} alt="card image"></p>
-                                    <h4 class="card-title">{{-- {{ $datas->name }} --}}{{-- 名前 --}}</h4>
-                                    <p class="card-text">{{-- スキル・学びの詳細 --}}</p>
+                                    <h4 class="card-title">{{ $user->name }}{{-- 名前--}}</h4>
+                                    <p class="card-text">{{--スキル・学びの詳細 --}}{{ $user->skills }}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>
-                                     
+
                                 </div>
                             </div>
                         </div>
@@ -148,16 +149,15 @@
                 </div>
             </div>
             @endforeach
-            </li>
 
-           
+
         </div>
         <h5 class="section-title h1">あなたへのおすすめ</h5>
         <div class="row">
             <!-- Team member -->
-            <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }},
+            {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
 
-                @foreach($datas->skills->random(3) as $skill)
+         {{-- @foreach($datas->skills->random(3) as $skill) --}}
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
                     <div class="mainflip">
@@ -165,7 +165,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">{{$user->name}}{{-- 名前 --}}</h4>
+                                    <h4 class="card-title">{{-- {{$datas->name}} --}}{{-- 名前 --}}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -206,9 +206,9 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-            </li>
-
+            {{-- @endforeach --}}
+{{--             </li>
+ --}}
 
         </div>
     </div>

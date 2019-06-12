@@ -28,7 +28,9 @@ Route::get('/testlayout', 'HimanabiController@test')->name('himanabi.test');//De
 Route::get('/skills', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
 
 
+
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
+Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
 
 
 Route::post('/', 'Auth\LoginController@index');
