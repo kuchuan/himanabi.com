@@ -15,10 +15,25 @@ class HimanabiController extends Controller
 
      public function index(){
                 //ログイン管理画面
-                $datas = User::first();//最初のデータのみ取
-                return view('himanabi.index',['datas'=>$datas]);
-        // return view('himanabi.index');
+                // $datas = User::first();//最初のデータのみ取
+           // {{ Auth::user()->name }}
+        return view('himanabi.index');
            }
+
+    public function delete(){
+
+        return view('himanabi.delete');
+    }
+
+    public function message(){
+
+        return view('himanabi.message');
+    }
+
+
+    // public function login(){
+    //     return view('himanabi.auth.login');
+    // }
 
 
 

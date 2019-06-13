@@ -11,7 +11,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <p class="colorfilter-base">
-            <img src="/img/セブ海.jpg" height="70%"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
+            <img src="/img/cebusea.jpg" height="70%"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
           </p>
         </div>
 {{--         <div class="good">
@@ -19,7 +19,7 @@
         </div> --}}
         <div class="carousel-item">
          <p class="colorfilter-base">
-          <img src="/img/TOP画面２.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
+          <img src="/img/topscreen2.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
          </p>
         </div>
 {{--         <div class="good">
@@ -27,12 +27,12 @@
         </div> --}}
         <div class="carousel-item">
          <p class="colorfilter-base">
-          <img src="/img/TOP画面.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
+          <img src="/img/topscreen1.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
          </p>
         </div>
         {{-- logo画像 --}}
         <div class="good">
-          <img src="/img/アセット 1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
+          <img src="/img/asset1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -105,7 +105,7 @@
                                     <p class="card-text">スキル・学びの詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
+                                     <a href="{{ route('himanabi.message')}}"class="btn-circle">📩</a>
                                      
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                     <p class="card-text">スキル・学びの詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
+                                     <a href="{{ route('himanabi.message')}}"class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                                     <p class="card-text">スキル・学びの詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
+                                     <a href="{{ route('himanabi.message')}}" class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +267,7 @@
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                            <a class="social-icon text-xs-center" target="_blank" href="{{ route('himanabi.message')}}">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
@@ -306,7 +306,7 @@
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
+                                     <a href="{{ route('himanabi.message')}}" class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>
@@ -356,7 +356,7 @@
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
+                                    <a href="{{ route('himanabi.message')}}" class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>
@@ -409,7 +409,7 @@
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
+                                    <a href="{{ route('himanabi.message')}}" class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>
@@ -459,7 +459,7 @@
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
+                                    <a href="{{ route('himanabi.message')}}" class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>
@@ -509,7 +509,7 @@
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
+                                    <a href="{{ route('himanabi.message')}}" class="btn-circle">📩</a>
                                 </div>
                             </div>
                         </div>

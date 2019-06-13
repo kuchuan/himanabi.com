@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
+Route::get('/', 'HimanabiController@index')->name('himanabi.index'); 
+
+
+
+
+//追加
 // Route::get('/Top', function () {
 //     return view('Top');
 // });
+Route::get('/login','Himanabi@login')->name('login');
+
+Auth::routes();
+
+Route::group(["middleware" => "auth"], function(){
+
 
 
 // Route::get('himanabi/create', 'HimanabiController@create')->name('himanabi.create'); // ログイン処理
@@ -26,14 +37,21 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 Route::get('/account', 'HimanabiController@account')->name('himanabi.account'); //検証用
 
 
+Route::get('/delete','HimanabiController@delete')->name('himanabi.delete');
+
 
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
+
+Route::get('/message','HimanabiController@message')->name('himanabi.message');
+
+Route::get('/delete','HimanabiController@delete')->name('himanabi.delete');
+
 
 
 
 Route::post('/', 'HimanabiController@index');
 
 
-Auth::routes();
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

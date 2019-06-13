@@ -30,9 +30,10 @@
     @endguest
 
 <!-- Navigation Bar -->
+<!-- Navigation Bar -->
 <header>
-    <nav class="navbar navbar-expand-lg navStyle">
-        <a class="brand-navbar" href="#"><img src="/img/アセット 2.png" class="ikon" alt="Responsive image" height="60px"></a>
+    <nav class="navbar navbar-expand-lg navStyle fixed-top">
+        <a class="brand-navbar" href="#"><img src="/img/asset2.png" class="ikon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
             </button>
@@ -52,31 +53,57 @@
                 <li class="nav-item">
                     <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>
                 </li>
-
-
                 @guest
-
-
                 @else
                 <li class="nav-username">
-                  <a>ユーザー名の表示</a>{{ Auth::user()->name }}
+                    <a>ユーザー名の表示</a>
                 </li>
-
                 @endguest
-
                 <li class="nav-item">
-
                     @guest
-                    
-                    <a href="{{ route('login') }}" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウトイン</a>
+                      {{-- {{(Auth::user()->name)}} --}}
+                      <a href="{{ route('login') }}" class="nav-link">
+                        <i class="fas fa-phone"></i>ログイン</a>
                     @else
-
-                    <a href="{{ route('login') }}" class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-phone"></i>ログアウト
-                    </a>
-
+                      {{ (Auth::user()->name) }}
+                      <a href="{{ route('logout') }}">ログアウト</a>
+                      {{-- {{(Auth::user()->name)}} --}}
                     @endguest
                 </li>
-                <!-- Modal -->
+
+
+               
+
+
+
+{{-- 
+
+                        <li class="nav-item">
+                                <a href="/mypage" class="nav-link">My Page</a>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('himanabi.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('himanabi.index') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+ --}}
+                    
+
+        
+      
+ 
+         {{--        <!-- Modal -->
                 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -133,7 +160,7 @@
                 </div>
                </ul>
         </div>
-    </div>
+    </div> --}}
     </nav>
 
 
