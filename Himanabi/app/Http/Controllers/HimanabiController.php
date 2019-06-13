@@ -20,9 +20,11 @@ class HimanabiController extends Controller
 
         $datas = User::with('skills')->get();
 
-    	return view('himanabi.index',['datas' => $datas]);
+        return view('himanabi.index',['datas' => $datas]);
 
     }
+
+
 
     public function createaccount(){
         //アカウント管理画面
@@ -105,7 +107,7 @@ class HimanabiController extends Controller
         $himanabi->save(); //DBに保存
 
             //一覧ページに戻る（リダイレクト処理）
-            return redirect()->route('himanabi.index');//メインの画面に戻る（ただしマッチングデータでメイン画面を開く
+            return redirect()->route('himanabi.account');//メインの画面に戻る（ただしマッチングデータでメイン画面を開く
     }
 
     public function about(){
@@ -113,12 +115,12 @@ class HimanabiController extends Controller
     }
 
 
-    public function skill(){
-        //アカウント管理画面
-        //$datas =DB::select('select * from user');
-        // $datas = User::all(); //全件取得
-        $datas = User::first();//最初のデータのみ取得
-        return view('himanabi.skill',['datas' => $datas]);
-    }
+    // public function skill(){
+    //     //アカウント管理画面
+    //     //$datas =DB::select('select * from user');
+    //     // $datas = User::all(); //全件取得
+    //     $datas = User::first();//最初のデータのみ取得
+    //     return view('himanabi.skill',['datas' => $datas]);
+    // }
 
 }

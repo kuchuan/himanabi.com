@@ -7,10 +7,11 @@
 @section('content')
 
 
-  {{--   @foreach($datas->skills as $skill)
-        {{ $datas->skills_name }}
-        ooo
-    @endforeach --}}
+{{-- {{dd($datas)}} --}}
+{{ var_dump($datas->find(21)->name) }}
+{{-- {{ dd($datas->sikills) }} --}}
+
+
 {{-- caroucel --}}
   <div id="carouselExampleControls" class="carousel slide pt-5 pb-3" data-ride="carousel">
       <div class="carousel-inner">
@@ -85,7 +86,7 @@
         <div class = "inputbox">
           <input class="sbox5" type="text" name="inputbox" placeholder="フリーワード( ex. ピアノ、英語、水泳）">
              <button class="cp_ipselect sbtn5 btn-dark">
-                <i class="fas fa-search"></i><span>検索{{ ($datas->skills->find(7)->skills_name) }}</span>
+                <i class="fas fa-search"></i><span>検索</span>
             </button>
         </div>
     </div>
@@ -96,12 +97,12 @@
 @else
 @endguest
 
-{{-- ーー --}}
   <!-- Team -->
 <section id="team">
     <div class="container">
         <h3 class="section-title">新着情報</h3>
         <div class="row">
+
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
@@ -110,7 +111,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(1)->name) }}</h4>
                                     <p class="card-text">スキル・学びの詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
@@ -122,7 +123,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">スキルのタイトル</h4>
                                     <p class="card-text">???????????????????????????????????</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
@@ -161,7 +162,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(2)->name) }}</h4>
                                     <p class="card-text">スキル・学びの詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -211,7 +212,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_03.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(3)->name) }}</h4>
                                     <p class="card-text">スキル・学びの詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -261,7 +262,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(4)->name) }}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -311,7 +312,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(5)->name) }}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -361,7 +362,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(6)->name) }}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -404,7 +405,13 @@
             </div>
             <!-- ./Team member -->
         </div>
-        <h3 class="section-title">あなたへのおすすめ</h3>
+
+    @guest
+    <h3 class="section-title">あなたへのおすすめ</h3>
+    @else
+    <h3 class="section-title">{{Auth::user()->name}}さんへのおすすめ</h3>
+    @endguest
+
         <div class="row">
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -414,7 +421,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(7)->name) }}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -464,7 +471,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(8)->name) }}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -514,7 +521,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
+                                    <h4 class="card-title">{{ ($datas->find(9)->name) }}</h4>
                                     <p class="card-text">スキル詳細</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
