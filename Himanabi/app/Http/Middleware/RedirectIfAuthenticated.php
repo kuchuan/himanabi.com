@@ -18,8 +18,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/');
-        }
+
+            // return redirect('/');
+
+            return redirect('/');//homeから/に変更Dean
 
         return $next($request);
     }

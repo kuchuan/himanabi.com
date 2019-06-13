@@ -27,17 +27,29 @@ Auth::routes();
 Route::group(["middleware" => "auth"], function(){
 
 
-
-// Route::get('himanabi/create', 'HimanabiController@create')->name('himanabi.create'); // ログイン処理
-// Route::post('himanabi/create', 'HimanabiController@store')->name('himanabi.create'); // 保存処理
-
+Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
+//Routeは上からマッチングされるので順序に注意！！！！！
 
 
+// Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
+		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
+		Route::post('createaccount', 'HimanabiController@store')->name('Himanabi.createaccount');//保存画面
 
-Route::get('/account', 'HimanabiController@account')->name('himanabi.account'); //検証用
+    //{}は対応するメソッドの引数になる
+    // Route::post('account');
+		Route::get('account/{id}', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
+		Route::put('himanabi/update/{id}', 'HimanabiController@update')->name('himanabi.updateaccount'); //ユーザー更新処理
+
+		Route::delete('himanabi/deleteaccount/{id}', 'himanabiController@destory')->name('himanabi.destoryaccount'); //ユーザー削除処理
+
+		Route::post('himanabi/{id}/like', 'HimanabiController@like')->name('himanabi.like');
+    Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabidiary.dislike');
+// });//ここは後日有効にします
 
 
 Route::get('/delete','HimanabiController@delete')->name('himanabi.delete');
+
+Route::get('/skills', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
 
 
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
@@ -55,3 +67,7 @@ Route::post('/', 'HimanabiController@index');
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home'); //Dean不要なので最終は削除

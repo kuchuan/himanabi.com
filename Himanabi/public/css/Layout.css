@@ -38,7 +38,7 @@ padding: 0px 30px 0px 0px;
 {
     color: #15b000;
 }
-.ikon{
+.icon{
     padding-bottom: 15px;
     padding-right: 10;
 }
@@ -114,7 +114,8 @@ padding: 0px 30px 0px 0px;
 
 /* FontAwesome for working BootSnippet :> */
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('lib/font-awesome/fonts/font-awesome.min.css');
+/*@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');*/
 #team {
     background: white !important;
 }
@@ -255,6 +256,20 @@ section .section-title {
     color: white;
     padding-left: 15px;px
 }
+.good {
+     width: 450px;
+    height: 138px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    position: absolute;
+    top: 33%;
+    left: 30%;
+}
 
 .colorfilter-base {
     background-color: white;  /* カラーフィルタ効果の色を指定 */
@@ -267,8 +282,8 @@ section .section-title {
 
 .cp_ipselect {
     position: relative;
-    width: 18%;
-    margin: 2em auto;
+    width: 25%;
+    margin: 2px auto;
     text-align: center;
     float: left;
 }
@@ -309,7 +324,7 @@ section .section-title {
     position: absolute;
     top: 18px;
     right: 10px;
-    width: 0;
+    width: ;
     height: 0;
     padding: 0;
     content: '';
@@ -337,7 +352,7 @@ section .section-title {
 .cp_sl06_selectbar {
     position: relative;
     display: block;
-    width: 100%;
+    width: 90%;
 }
 .cp_sl06_selectbar:before, .cp_sl06_selectbar:after {
     content: '';
@@ -372,7 +387,7 @@ a:hover{
     text-decoration:none;
 }
 .section-padding {
-    padding: 60px 0;
+    padding: 30px 0;
 }
 .bottom {
     background-color: #0a1c2e;
@@ -417,8 +432,7 @@ div{text-align: center;}
     background-color:#FFFFFF;
     box-shadow: 0.1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-   
-    
+
 }
 #logreg-forms form {
     width: 100%;
@@ -493,7 +507,7 @@ div{text-align: center;}
     #logreg-forms{
         width:300px;
     }
-    
+
     #logreg-forms  .social-login{
         width:200px;
         margin:0 auto;
@@ -505,7 +519,7 @@ div{text-align: center;}
         color:white;
         width:200px;
         height: 56px;
-        
+
     }
     #logreg-forms .social-btn:nth-child(1){
         margin-bottom: 5px;
@@ -516,7 +530,7 @@ div{text-align: center;}
     #logreg-forms  .facebook-btn:after{
         content:'Facebook';
     }
-  
+
     #logreg-forms  .google-btn:after{
         content:'Google+';
     }

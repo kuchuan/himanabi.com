@@ -24,6 +24,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 				'nickname' => $faker->firstKanaName(), // 単語
 				'email' => $faker->unique()->safeEmail,
 				'password' => $faker->password(),
+                'remember_token' => str_random(10),
                 'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
 				'language' => $faker->country(),
 				'area' => $faker->city(),
