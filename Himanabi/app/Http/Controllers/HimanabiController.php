@@ -56,10 +56,8 @@ class HimanabiController extends Controller
         //保存処理POST送信のデータの受け取り（以前は$_POSTで受けていた）
         //Laravelでは＄_POSTの代わりにRequestクラスを使う
         // dd($request);
-        // INSERT INTO テーブル名 (colum名) VALUE (値)
-        // INSET INTO diaries (title. body) VALUE ($_POST['title'], $_POST['body'])
-        // INSET INTO diaries (title. body) VALUE ($request ->title, $request->body)
-        //ModelクラスDiaryを使用する
+ 
+        //Modelクラスuserを使用する
         $himanabi = new Himanabi();// インスタンス化
         //ここからusersテーブル
         $himanabi->name = $request->name;
@@ -115,12 +113,12 @@ class HimanabiController extends Controller
     }
 
 
-    // public function skill(){
-    //     //アカウント管理画面
-    //     //$datas =DB::select('select * from user');
-    //     // $datas = User::all(); //全件取得
-    //     $datas = User::first();//最初のデータのみ取得
-    //     return view('himanabi.skill',['datas' => $datas]);
-    // }
+    public function skill(){
+        //アカウント管理画面
+        //$datas =DB::select('select * from user');
+        // $datas = User::all(); //全件取得
+        $datas = User::first();//最初のデータのみ取得
+        return view('himanabi.skill',['datas' => $datas]);
+    }
 
 }

@@ -25,7 +25,7 @@
             {{-- {{ ($datas) }} --}}
             {{-- {{var_dump($datas->skills->first()->skills_enthusiasm)}} --}}
 <!--./検証用-->
-<form>
+<form action="{{ route('himanabi.createaccount') }}" method="post">
 <div class="container pt-5" ><!--firstContainer-->
 @csrf
     <div class="row infoPart">
@@ -44,11 +44,11 @@
                 <div class="col-5"><!--中央パートの左側-->
                     <div class="form-group text-left">
                         <label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="令泉 和也" value="{{ $datas->name }}">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="令泉 和也" value="{{ old('name') }}">
                     </div>
                     <div class="form-group text-left">
                         <label class="small text-info" for="nickname">ニックネーム*</label>
-                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="げんごうくん" value="{{ $datas->nickname }}">
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="げんごうくん" value="{{ old('nickname') }}">
                         {{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
                     </div>
                   <div class="form-group text-left">
@@ -88,7 +88,7 @@
                                     </div><!-- /.modal -->
                     <div class="form-group text-left">
                         <label class="small text-info" for="birthday">生年月日</label>
-                        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="2000-1-1" value="{{ $datas->birthday }}">
+                        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="2000-1-1" value="{{ old('birthday') }}">
                     </div>
                 </div><!--/.中央パートの左側-->
 
@@ -96,24 +96,24 @@
                 <div class="col-5"><!--中央パートの右側-->
                         <div class="form-group text-left">
                             <label class="small text-info" for="email">E-mail*</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス" value="{{ $datas->email }}">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス" value="{{ old('email') }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small  text-info" for="email_verified_at">E-mail確認用</label>
-                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="{{ $datas->email_verified_at }}">
+                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="{{ old('email_verified_at') }}">
                             <small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="password">パスワード*</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="パスワード" value="{{ $datas->pas }}">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="パスワード" value="{{ old('password') }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="remember_token">パスワード確認用</label>
-                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認" value="{{ $datas->remember_token }}">
+                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認" value="{{ old('remember_token') }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="language">使用言語</label>
-                            <select class="form-control" name="language" id="language" value="{{ $datas->language }}">
+                            <select class="form-control" name="language" id="language" value="{{ old('language') }}">
                                 <option {{ ($datas->language)==="日本語" ? 'selected' : ''}}>日本語</option>
                                 <option {{ ($datas->language)==="英語" ? 'selected' : ''}}>英語</option>
                                 <option {{ ($datas->language)==="中国語" ? 'selected' : ''}}>中国語</option>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="area">居住エリア</label>
-                            <select class="form-control" name="area" id="area" value="{{ $datas->area }}">
+                            <select class="form-control" name="area" id="area" value="{{ old('area') }}">
                                 <option {{ ($datas->area)==="ラフグ" ? 'selected' : ''}}>ラフグ</option>
                                 <option {{ ($datas->area)==="マンダウエ" ? 'selected' : ''}}>マンダウエ</option>
                                 <option {{ ($datas->area)==="バニラッド" ? 'selected' : ''}}>バニラッド</option>
@@ -307,28 +307,5 @@
 
 </form>
 <br>
-
-
-
-{{--     <a href="{{ route('diary.create') }}" class ="btn btn-primary">新規投稿</a>
->>>>>>> 38358ec5ee63c3b2fc4322b94ba4ea37ef0fe71f
-    @foreach ($diaries as $diary)
-        <div class="m-4 p-4 border border-primary">
-            <p>{{ $diary['title'] }}</p>
-            <p>{{ $diary['body'] }}</p>
-            <p>{{ $diary['created_at'] }}</p>
-
-    @if(Auth::check() && Auth::user()->id == $diary['user_id'])
-            <a class="btn btn-outline-success" href="{{ route('diary.edit', ['id' => $diary['id']]) }}"><i class="fas fa-edit">：編集</i></a>
-
-            <form action="{{ route('diary.destory', ['id' => $diary['id']]) }}" method="POST" class="d-inline">
-                @csrf
-                @method('delete')
-                <button class="btn btn-outline-danger"><i class="fas fa-trash-alt">：削除</i></button>
-            </form>
-        @endif
-
-        </div>
-    @endforeach --}}
 
 @endsection
