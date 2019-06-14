@@ -48,7 +48,7 @@
 
 <!-- Navigation Bar -->
 <header>
-<form method="POST" class="form-horizontal" action="{{ route('himanabi.account') }}">
+<form method="POST" class="form-horizontal" action="{{ route('himanabi.index') }}">
     @csrf
     <nav class="navbar navbar-expand-lg navStyle fixed-top">
         <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
@@ -75,7 +75,7 @@
                         <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-question-circle"></i>About</a>
                       @if (Auth::user() == null )
                         <li class="nav-item">
-                          <a href="{{ route('himanabi.index') }}"" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
+                          <a href="{{ route('himanabi.index') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
                     <li class="nav-item">
@@ -95,11 +95,12 @@
                       {{-- @if(Auth::check() && Auth::user()->id == $datas['id']) --}}
                       {{-- 表示して！ --}}
                       {{-- @csrf --}}
-                      <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" method="POST" class="d-inline">
+                      {{-- <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" method="POST" class="d-inline"> --}}
                         <a href="{{ route('himanabi.account', [Auth::user()->id]) }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}{{ Auth::user()->id }}さんの情報管理</a>
-                      </form>
+                      {{-- </form> --}}
                       {{-- @endif --}}
                     </li>
+
                     <li class="nav-item">
                         <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
                     </li>
@@ -111,7 +112,7 @@
 
 
  <!-- Modal -->
-<form class="form-signin" method="POST" action="{{ route('login') }}">
+<form class="form-signin" method="POST" action="{{ route('himanabi.index') }}">
 {{-- <form method="POST" action="{{ route('login') }}"> --}}
 @csrf
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -148,7 +149,7 @@
           {{-- @if (($errors->has('email')) || ($errors->has('password'))) --}}
            {{-- <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p> --}}
           {{-- @else --}}
-            <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.account') }}">{{ __('Login(普段はこちら)') }}</button></p>
+            <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.index') }}">{{ __('Login(普段はこちら)') }}</button></p>
           {{-- @endif --}}
 
 

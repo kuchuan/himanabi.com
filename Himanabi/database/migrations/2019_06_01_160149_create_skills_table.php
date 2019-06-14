@@ -29,26 +29,26 @@ class CreateSkillsTable extends Migration
             $table->timestampsTz();
 
             $table->string('skills_picture', 255)->nullable();
-            $table->boolean('interest01');
-            $table->boolean('interest02');
-            $table->boolean('interest03');
-            $table->boolean('interest04');
-            $table->boolean('interest05');
-            $table->boolean('interest06');
-            $table->boolean('interest07');
-            $table->boolean('interest08');
-            $table->boolean('interest09');
-            $table->boolean('interest10');
-            $table->boolean('interest11');
-            $table->boolean('interest12');
-            $table->boolean('interest13');
-            $table->boolean('interest14');
-            $table->boolean('interest15');
-            $table->boolean('interest16');
-            $table->boolean('interest17');
-            $table->boolean('interest18');
-            $table->boolean('interest19');
-            $table->boolean('interest20');
+            $table->boolean('interest01')->nullable();
+            $table->boolean('interest02')->nullable();
+            $table->boolean('interest03')->nullable();
+            $table->boolean('interest04')->nullable();
+            $table->boolean('interest05')->nullable();
+            $table->boolean('interest06')->nullable();
+            $table->boolean('interest07')->nullable();
+            $table->boolean('interest08')->nullable();
+            $table->boolean('interest09')->nullable();
+            $table->boolean('interest10')->nullable();
+            $table->boolean('interest11')->nullable();
+            $table->boolean('interest12')->nullable();
+            $table->boolean('interest13')->nullable();
+            $table->boolean('interest14')->nullable();
+            $table->boolean('interest15')->nullable();
+            $table->boolean('interest16')->nullable();
+            $table->boolean('interest17')->nullable();
+            $table->boolean('interest18')->nullable();
+            $table->boolean('interest19')->nullable();
+            $table->boolean('interest20')->nullable();
 
         });
     }

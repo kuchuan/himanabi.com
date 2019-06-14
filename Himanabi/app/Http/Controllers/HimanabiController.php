@@ -71,11 +71,15 @@ class HimanabiController extends Controller
 
         $users->save(); //DBに保存
 
+        var_dump($users["id"]);//Dean確認用
+        // dd($users->id);//Dean確認用
+
         $skills = new Skill();
         //ここからskillsテーブル
         $skills->toggle_user = "0"; //ユーザーの希望登録は"0"参照するwebページ(view)でhidden属性を入れて不可視化してトグルを入れ変える必要あり
         $skills->skills_category = $request->skills_category;
         // $skills->user_id = Auth::user()->id; //追加 ログインしてるユーザーのidを保存
+        $skills->user_id = $users["id"]; //追加 ログインしてるユーザーのidを保存
         $skills->skills_name = $request->skills_name;
         $skills->skills_experience = $request->skills_experience;
         $skills->skills_get = $request->skills_get;
@@ -85,7 +89,7 @@ class HimanabiController extends Controller
         // storageフォルダに画像をアップロードする
         // 選択された画像をstrage/app/public/diary_imgにアップロード
         // 画像名を残す
-        $skills->skills_picture = $request->skills_picture->store('public/img');
+        // $skills->skills_picture = $request->skills_picture->store('public/img');//後日作成
         $skills->interest01 =$request->interest01;
         $skills->interest02 =$request->interest02;
         $skills->interest03 =$request->interest03;
