@@ -28,7 +28,7 @@
 @csrf
 
 <div class="container pt-5" ><!--firstContainer-->
-@csrf
+
     <div class="row infoPart">
         <div class="col-sm-1" style="background-color:;">
             {{-- 両サイドの空白カラム --}}

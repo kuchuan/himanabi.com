@@ -48,14 +48,14 @@
 
 <!-- Navigation Bar -->
 <header>
-<form method="POST" class="form-horizontal">
+<form method="POST" class="form-horizontal" action="{{ route('account') }}">
     @csrf
     <nav class="navbar navbar-expand-lg navStyle fixed-top">
         <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
             </button>
-            <h2 class="title" >H<span class = "i">i</span>manavi</h2>
+            <h2 class="title" >H<span class = "i">i</span>manabi</h2>
             <h6 class="site">スキルと時間のマッチング総合サイト</h6>
             <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
@@ -76,12 +76,11 @@
                     </li>
                       @if (Auth::user() == null )
                         <li class="nav-item">
-                          {{ auth::user() }}
                           <a href="{{ route('himanabi.createaccount') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
+                        <a href="{{ route('himanabi.index') }}" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
                     </li>
                 @else
                 {{-- ログインしているとき --}}
@@ -93,7 +92,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.account',[Auth::user()] )}}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}{{ Auth::user()->id }}さんの情報管理</a>
+                      @if(Auth::check())
+                      {{-- @if(Auth::check() && Auth::user()->id == $datas['id']) --}}
+                      @csrf
+                      <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" method="POST" class="d-inline">
+                        <a href="{{ route('himanabi.account', [Auth::user()->id]) }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}{{ Auth::user()->id }}さんの情報管理</a>
+                      </form>
+                      @endif
                     </li>
                     <li class="nav-item">
                         <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
@@ -108,7 +113,7 @@
  <!-- Modal -->
 <form class="form-signin" method="POST" action="{{ route('login') }}">
 {{-- <form method="POST" action="{{ route('login') }}"> --}}
-  @csrf
+@csrf
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <!--./Modalcontent-->
@@ -143,7 +148,7 @@
           {{-- @if (($errors->has('email')) || ($errors->has('password'))) --}}
            {{-- <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p> --}}
           {{-- @else --}}
-            <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('login') }}">{{ __('Login(普段はこちら)') }}</button></p>
+            <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.account') }}">{{ __('Login(普段はこちら)') }}</button></p>
           {{-- @endif --}}
 
 
@@ -166,7 +171,7 @@
 
               <a style="margin:20px;" class="btn btn-outline-primary button-center" href="{{ route('himanabi.createaccount') }}">SNSのユーザーでログインする</a>
               <a style="margin:20px;" class="btn btn-outline-primary button-center mb-5" href="{{ route('himanabi.createaccount') }}">新規にユーザー登録する</a>
-
+ 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>

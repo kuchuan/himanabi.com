@@ -312,7 +312,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png" alt="card image"></p>
-                                    <h4 class="card-title">{{ ($datas[0]->name) }}</h4>
+                                    <h4 class="card-title">{{ ($datas[4]->name) }}</h4>
                                     <p class="card-text">{{$datas[0]->skills[0]->skills_name}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -362,7 +362,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">{{ ($datas[0]->name) }}</h4>
+                                    <h4 class="card-title">{{ ($datas[5]->name) }}</h4>
                                     <p class="card-text">{{$datas[0]->skills[0]->skills_name}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -421,7 +421,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">{{ ($datas[0]->name) }}</h4>
+                                    <h4 class="card-title">{{ ($datas[6]->name) }}</h4>
                                     <p class="card-text">{{$datas[0]->skills[0]->skills_name}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -471,7 +471,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">{{ ($datas[0]->name) }}</h4>
+                                    <h4 class="card-title">{{ ($datas[7]->name) }}</h4>
                                     <p class="card-text">{{$datas[0]->skills[0]->skills_name}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
@@ -521,7 +521,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">{{ ($datas[0]->name) }}</h4>
+                                    <h4 class="card-title">{{ ($datas[8]->name) }}</h4>
                                     <p class="card-text">{{$datas[0]->skills[0]->skills_name}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
