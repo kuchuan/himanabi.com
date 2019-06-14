@@ -14,6 +14,15 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        return route('createaccount');
+        return route('login');
     }
+
+
+
+    public function logout(Request $request) //Dean追加
+    {
+        $this->performLogout($request);
+        return redirect()->route('himanabi.index'); // ここを好きな遷移先に変更する。
+    }
+
 }

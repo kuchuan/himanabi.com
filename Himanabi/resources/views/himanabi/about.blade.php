@@ -4,6 +4,9 @@
 
 @section('content')
 
+<div class="pt-5">
+</div>
+
 <link rel="stylesheet" href="{{ asset('css/about.css') }}">
 
 <div class="how-section1">

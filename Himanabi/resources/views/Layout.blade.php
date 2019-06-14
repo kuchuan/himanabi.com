@@ -48,7 +48,7 @@
 
 <!-- Navigation Bar -->
 <header>
-<form method="POST" class="form-horizontal" action="{{ route('account') }}">
+<form method="POST" class="form-horizontal" action="{{ route('himanabi.account') }}">
     @csrf
     <nav class="navbar navbar-expand-lg navStyle fixed-top">
         <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
@@ -69,14 +69,13 @@
                 @guest
                 {{-- ログインしていないとき --}}
                     <li class="nav-item">
-                        <a href="portfolio.html" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
+                        <a href="himanabi/portfolio.html" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-question-circle"></i>About</a>
-                    </li>
                       @if (Auth::user() == null )
                         <li class="nav-item">
-                          <a href="{{ route('himanabi.createaccount') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
+                          <a href="{{ route('himanabi.index') }}"" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
                     <li class="nav-item">
@@ -92,13 +91,14 @@
                     </li>
 
                     <li class="nav-item">
-                      @if(Auth::check())
+                      {{-- @if(Auth::check()) --}}
                       {{-- @if(Auth::check() && Auth::user()->id == $datas['id']) --}}
-                      @csrf
+                      {{-- 表示して！ --}}
+                      {{-- @csrf --}}
                       <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" method="POST" class="d-inline">
                         <a href="{{ route('himanabi.account', [Auth::user()->id]) }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}{{ Auth::user()->id }}さんの情報管理</a>
                       </form>
-                      @endif
+                      {{-- @endif --}}
                     </li>
                     <li class="nav-item">
                         <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>

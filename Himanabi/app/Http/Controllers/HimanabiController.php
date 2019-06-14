@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\user; //App\Userクラスの使用を宣言する（Dean追加）
 use App\skill; //App\skillクラスの使用を宣言する（Dean追加）
+use Auth;
 use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの試用を宣言する（Dean追加）
 use Illuminate\Http\Request;
 
@@ -13,11 +14,6 @@ class HimanabiController extends Controller
     // {
     //     // views/himanabi/create.blade.phpを表示する
     //     return view('himanabi.create');
-    // }
-//コンストラクタ
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
     // }
 
 
@@ -29,7 +25,6 @@ class HimanabiController extends Controller
         return view('himanabi.index',['datas' => $datas]);
 
     }
-
 
 
     public function createaccount(){
@@ -61,26 +56,26 @@ class HimanabiController extends Controller
     public function store(CreateHimanabi $request){
         //保存処理POST送信のデータの受け取り（以前は$_POSTで受けていた）
         //Laravelでは＄_POSTの代わりにRequestクラスを使う
-        dd($request);
-
+        // dd($request);
+        // dd($request->skills_name);
         //Modelクラスuserを使用する
         $users = new User();// インスタンス化
         //ここからusersテーブル
         $users->name = $request->name;
-        // $himanabi->email= $request->e;
-        // $himanabi->password = $request->password;
+        $users->email= $request->email;
+        $users->password = $request->password;
         $users->birthday = $request->birthday;
-        $usees->language = $request->language;
-        $usees->area = $request->area;
-        $usees->picture = $request->picture;
+        $users->language = $request->language;
+        $users->area = $request->area;
+        $users->picture = $request->picture;
 
         $users->save(); //DBに保存
 
-        $skills = new Skills();
+        $skills = new Skill();
         //ここからskillsテーブル
         $skills->toggle_user = "0"; //ユーザーの希望登録は"0"参照するwebページ(view)でhidden属性を入れて不可視化してトグルを入れ変える必要あり
         $skills->skills_category = $request->skills_category;
-        $skills->user_id = Auth::user()->id; //追加 ログインしてるユーザーのidを保存
+        // $skills->user_id = Auth::user()->id; //追加 ログインしてるユーザーのidを保存
         $skills->skills_name = $request->skills_name;
         $skills->skills_experience = $request->skills_experience;
         $skills->skills_get = $request->skills_get;
