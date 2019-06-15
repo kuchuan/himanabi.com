@@ -7,7 +7,7 @@
 @section('content')
 
 
-<form action="{{ route('himanabi.createaccount') }}" method="post">
+<form action="{{ route('himanabi.createaccount') }}" method="POST">
 @csrf
 <div class="container pt-5" ><!--firstContainer-->
     <div class="row infoPart">
@@ -128,7 +128,7 @@
 </div><!--/.firstContainer-->
 
 
-<div class="container border" ><!--secondContainer-->
+<div class="container" ><!--secondContainer-->
         <div class="row infoPart">
             <div class="col-sm-1" style="background-color:;">
                 {{-- 両サイドの空白カラム --}}
@@ -191,16 +191,17 @@
                                     <option >その他</option>
                                 </select>
                             </div>
+                            <input type="hidden" class="form-control" name="toggle_user" id="toggle_user"  value="0" >
                 </div>{{-- ./中央パートの右側 --}}
                 <div clas="col-1"></div><!--中央パートの右余白-->
                 </div>
-                <br>
 
                 <div class="row justify-content-between">
                     <div clas="col-1"></div><br>
                         <div class="col-10">
 
-                            <div class="form-group text-left">{{-- チェックボックス --}}
+                            <div class="form-group text-left pt-2">{{-- チェックボックス --}}
+
                                 <label class="small text-info p-3">あなたが興味をもっていること・ものにチェックを入れてください</label>
                                   <div class="checkbox">
                                     <div class="form-row" id="checkBoxies1">

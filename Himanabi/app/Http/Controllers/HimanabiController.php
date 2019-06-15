@@ -26,9 +26,17 @@ class HimanabiController extends Controller
 
     }
 
+    public function loginmach($id){
 
-    public function createaccount(){
-        //アカウント管理画面
+
+        $datas = User::with('skills')->get(); //ここにはマッチングアルゴリズムを書く予定
+
+        return view('Himanabi.index',['datas' => $datas]);
+
+    }
+
+
+    public function createaccount(){  //アカウント作成画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
@@ -39,11 +47,8 @@ class HimanabiController extends Controller
         return view('himanabi.createaccount',['datas' => $datas]);
     }
 
-    public function account($id){
-        // $id = 21;
-        // $himanabi = himanabi::find($id);
-        // dd($himanabi);
-        // $login_user = auth::user();
+    public function account(){
+        $id= 23;
         // dd($id);
         //アカウント管理画面
         //$datas =DB::select('select * from user');
@@ -76,7 +81,7 @@ class HimanabiController extends Controller
 
         $skills = new Skill();
         //ここからskillsテーブル
-        $skills->toggle_user = "0"; //ユーザーの希望登録は"0"参照するwebページ(view)でhidden属性を入れて不可視化してトグルを入れ変える必要あり
+        $skills->toggle_user = $request->toggle_user; //参照するwebページ(view)でhidden属性を入れて不可視化している
         $skills->skills_category = $request->skills_category;
         // $skills->user_id = Auth::user()->id; //追加 ログインしてるユーザーのidを保存
         $skills->user_id = $users["id"]; //追加 ログインしてるユーザーのidを保存

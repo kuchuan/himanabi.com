@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')</title> 
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/layout.css">{{-- りょうくん追加 --}}
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
@@ -38,7 +38,6 @@
 
 
 
-
 </head>
 <body>
     @guest
@@ -49,14 +48,13 @@
 
 <!-- Navigation Bar -->
 <header>
-{{-- <form method="POST" class="form-horizontal" action="{{ route('himanabi.index') }}"> --}}
-    {{-- @csrf --}}
-    <nav class="navbar navbar-expand-lg navStyle fixed-top">
+    {{-- <nav class="navbar navbar-expand-lg navStyle fixed-top"> --}}
+    <nav class="navbar navbar-expand-lg navStyle">
         <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
             </button>
-            <h2 class="title" >H<span class = "i">i</span>manabi</h2>
+            <h2 class="title" >H<span class = "i">i</span>manavi</h2>
             <h6 class="site">スキルと時間のマッチング総合サイト</h6>
             <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ml-auto navList">
@@ -70,17 +68,19 @@
                 @guest
                 {{-- ログインしていないとき --}}
                     <li class="nav-item">
-                        <a href="himanabi/portfolio.html" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
+                        <a href="portfolio.html" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-question-circle"></i>About</a>
+                    </li>
+                      {{ auth::user() }}
                       @if (Auth::user() == null )
                         <li class="nav-item">
-                          <a class="nav-link" style="color: white" ><i class="fas fa-users"></i>ゲストさん</a>
+                          <a href="{{ route('himanabi.createaccount') }}" class="nav-link"><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.index') }}" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
+                        <a href="contact.html" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
                     </li>
                 @else
                 {{-- ログインしているとき --}}
@@ -88,25 +88,12 @@
                         <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル（仮）</a>
                     </li>
                     <li class="nav-item">
-                      @if(Auth::check())
-                      <form action="{{ route('himanabi.skill', [Auth::user()->id]) }}" class="d-inline">
-                        @method('PUT')
-                        @csrf
-                        <a href="{{ route('himanabi.skill', [Auth::user()->id]) }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
-                      </form>
-                      @endif
+                        <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-file-import"></i>あなたのスキル</a>
                     </li>
 
                     <li class="nav-item">
-                      @if(Auth::check())
-                      <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" class="d-inline">
-                        @method('POST')
-                        @csrf
-                        <a href="{{ route('himanabi.account', [Auth::user()->id]) }}" name="id" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
-                      </form>
-                      @endif
+                        <a href="{{ route('himanabi.account') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
                     </li>
@@ -114,13 +101,11 @@
             </ul>
             </div>
     </nav>
-{{-- </form> --}}
 
 
  <!-- Modal -->
 <form class="form-signin" method="POST" action="{{ route('login') }}">
-{{-- <form class="form-signin" method="POST" action="{{ route('login') }}"> --}}
-@csrf
+{{-- <form method="POST" action="{{ route('login') }}"> --}}
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <!--./Modalcontent-->
@@ -133,6 +118,7 @@
         </div>
         <!--modal-body-->
         <div class="modal-body">
+          @csrf
               <p style="margin:20px;"> <input type="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"  name="email" placeholder="Eメールアドレス" value="{{ old('email') }}" required autofocus>
               </p>
           @if ($errors->has('email'))
@@ -178,7 +164,7 @@
 
               <a style="margin:20px;" class="btn btn-outline-primary button-center" href="{{ route('himanabi.createaccount') }}">SNSのユーザーでログインする</a>
               <a style="margin:20px;" class="btn btn-outline-primary button-center mb-5" href="{{ route('himanabi.createaccount') }}">新規にユーザー登録する</a>
- 
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
