@@ -24,11 +24,10 @@
 {{-- {{ var_dump(Auth::user()) }}, --}}
 {{-- {{$datas->skills_category}}, --}}
 {{-- {{ dd( $datas->skills_category ) }} --}}
-<form >
+<form action="{{ route('himanabi.accountedit') }}" method="POST">
 @csrf
-
 <div class="container pt-5" ><!--firstContainer-->
-
+{{var_dump($datas["id"])}}
     <div class="row infoPart">
         <div class="col-sm-1" style="background-color:;">
             {{-- 両サイドの空白カラム --}}
@@ -96,12 +95,12 @@
 
                 <div class="col-5"><!--中央パートの右側-->
                         <div class="form-group text-left">
-                            <label class="small text-info" for="email">E-mail*</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス" value="{{ $datas->email }}">
+                            <label class="small text-info" for="email">E-mail（変更不可）*</label>
+                            <a type="email" class="form-control border-warning" name="email" id="email" placeholder="Eメールアドレス(変更不可)" value="">{{ $datas->email }}</a>
                         </div>
                         <div class="form-group text-left">
                             <label class="small  text-info" for="email_verified_at">E-mail確認用</label>
-                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="">
+                            <a type="email" class="form-control border-warning" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="">{{ $datas->email }}</a>
                             <small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
                         </div>
                         <div class="form-group text-left">
@@ -210,6 +209,8 @@
                                     <option {{ ($datas->skills_area)==="その他" ? 'selected' : ''}}>その他</option><option>らふぐ</option>
                                 </select>
                             </div>
+                            <input type="hidden" class="form-control" name="toggle_user" id="toggle_user"  value="0" >
+                             {{-- 自分のスキルは"0" --}}
                 </div>{{-- ./中央パートの右側 --}}
                 <div clas="col-1"></div><!--中央パートの右余白-->
                 </div>
@@ -279,28 +280,28 @@
                   <i class="fas fa-caret-down fa-3x text-info pb-2"></i>
                   <br>
             <div class="input-button">
-            <button type="button" class="btn btn-outline-dark border-dark">破棄する</button>
+            <button type="button" class="btn btn-outline-dark border-dark">メイン画面に戻る</button>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">　　更新する　　</button>
             </div>
-                                    <!-- 登録モーダルの設定 -->
-                                    <div class="modal fade" id="myCheckModal" tabindex="-1" role="dialog" aria-labelledby="myCheckModalLabel">
-                                      <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h6 class="modal-title" id="modalLabel">個人と希望スキル情報登録の確認</h6>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                          </div>
-                                          <div class="modal-footer justify-content-between">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
-                                            <button type="button" class="btn btn-primary">情報を登録する</button>
-                                          </div><!-- /.modal-footer -->
-                                        </div><!-- /.modal-content -->
-                                      </div><!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.登録modalの終了 -->
+        <!-- 登録モーダルの設定 -->
+        <div class="modal fade" id="myCheckModal" tabindex="-1" role="dialog" aria-labelledby="myCheckModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="modalLabel">個人と希望スキル情報登録の確認</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+                <button type="submit" class="btn btn-primary">情報を登録する</button>
+              </div><!-- /.modal-footer -->
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div>
+        <!-- /.登録modalの終了 -->
 
                 <p class="text-info font-weight-bold"><br>提供できるスキルがあれば、<br>『あなたのスキル登録』から登録をお願いします。</p>
 
@@ -309,27 +310,5 @@
 </form>
 <br>
 
-
-
-{{-- 	 <a href="{{ route('diary.create') }}" class ="btn btn-primary">新規投稿</a>
->>>>>>> 38358ec5ee63c3b2fc4322b94ba4ea37ef0fe71f
-	@foreach ($diaries as $diary)
-		<div class="m-4 p-4 border border-primary">
-			<p>{{ $diary['title'] }}</p>
-			<p>{{ $diary['body'] }}</p>
-			<p>{{ $diary['created_at'] }}</p>
-
-	@if(Auth::check() && Auth::user()->id == $diary['user_id'])
-			<a class="btn btn-outline-success" href="{{ route('diary.edit', ['id' => $diary['id']]) }}"><i class="fas fa-edit">：編集</i></a>
-
-			<form action="{{ route('diary.destory', ['id' => $diary['id']]) }}" method="POST" class="d-inline">
-				@csrf
-				@method('delete')
-				<button class="btn btn-outline-danger"><i class="fas fa-trash-alt">：削除</i></button>
-			</form>
-		@endif
-
-		</div>
-	@endforeach --}}
 
 @endsection

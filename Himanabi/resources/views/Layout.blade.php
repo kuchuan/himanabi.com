@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/css/layout.css">{{-- りょうくん追加 --}}
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
+    <script type="text/javascript" src="assets/js/description.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/description.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
   <!-- Dean緊急付け加えBootstrap CSS File -->
 {{-- <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
@@ -36,16 +41,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
-
-
-
 </head>
 <body>
-    @guest
-    {{-- ログインしていない（ゲスト状態）場合の処理 --}}
-    @else
-    {{-- ログインしている場合の処理 --}}
-    @endguest
 
 <!-- Navigation Bar -->
 <header>
@@ -70,7 +67,7 @@
                 @guest
                 {{-- ログインしていないとき --}}
                     <li class="nav-item">
-                        <a href="himanabi/portfolio.html" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
+                        <a href="{{route ('himanabi.description') }}" class="nav-link"><i class="fas fa-sort-amount-down"></i>マッチングまでの流れ</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-question-circle"></i>About</a>
@@ -85,14 +82,14 @@
                 @else
                 {{-- ログインしているとき --}}
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.skill') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル（仮）</a>
+                        <a href="{{ route('himanabi.index') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル（仮）</a>
                     </li>
                     <li class="nav-item">
                       @if(Auth::check())
                       <form action="{{ route('himanabi.skill', [Auth::user()->id]) }}" class="d-inline">
-                        @method('PUT')
+                        @method('POST')
                         @csrf
-                        <a href="{{ route('himanabi.skill', [Auth::user()->id]) }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
+                        <a href="{{ route('himanabi.skill', [Auth::user()->id]) }}" name="skillid" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
                       </form>
                       @endif
                     </li>
@@ -102,7 +99,8 @@
                       <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" class="d-inline">
                         @method('POST')
                         @csrf
-                        <a href="{{ route('himanabi.account', [Auth::user()->id]) }}" name="id" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
+                        <a href="{{ route('himanabi.account',[Auth::user()->id]) }}" name="accountid" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理,
+                        </a>
                       </form>
                       @endif
                     </li>

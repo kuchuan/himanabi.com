@@ -192,6 +192,7 @@
                                 </select>
                             </div>
                             <input type="hidden" class="form-control" name="toggle_user" id="toggle_user"  value="0" >
+                            {{-- 自分のスキルは"0" --}}
                 </div>{{-- ./中央パートの右側 --}}
                 <div clas="col-1"></div><!--中央パートの右余白-->
                 </div>

@@ -21,7 +21,7 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
 		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//保存画面
 		Route::get('himanabi/account/{id}', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
-		Route::get('account', 'HimanabiController@account')->name('himanabi.account');//
+		Route::get('himanabi/account', 'HimanabiController@account')->name('himanabi.account');//
 
 //ユーザー認証に関連するもの
 // Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
@@ -37,14 +37,15 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
     Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabidiary.dislike');
 
 
-		Route::get('/skills', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
+		Route::get('himanabi/skill{id}', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
 
 // });//ここは後日有効にします
 
 
 //ユーザー認証に関連しないもの（後置）
 		Route::get('himanabi/about', 'HimanabiController@about')->name('himanabi.about');
-		Route::get('himanabi.index', 'HimanabiController@index')->name('himanabi.index'); 
+		route::get('himanabi/description', 'HimanabiController@description')->name('himanabi.description');
+		Route::get('himanabi/index', 'HimanabiController@index')->name('himanabi.index');
 
 
 		Route::post('/', 'Auth\LoginController@index');
