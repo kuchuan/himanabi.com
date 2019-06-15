@@ -205,3 +205,37 @@ section .section-title {
 .row{
     padding: 0px 300px;
 }
+
+
+.btn-square-little-rich {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #01DFD7;/*色*/
+  border: solid 10px #0f9ada;/*線色*/
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  font-size: 25px;
+}
+
+.btn-square-little-rich:active {
+  /*押したとき*/
+  border: solid 60px #03A9F4;
+  box-shadow: none;
+  text-shadow: none;
+
+}
+
+.btn-1{
+float: left;
+}
+
+.btn-2{
+  float: left;
+  padding-bottom:
+  color: white;
+  background-color: #03A9F4;
+}

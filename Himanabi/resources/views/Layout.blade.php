@@ -16,6 +16,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    @yield('mystyle')
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
    {{--  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> ？二つあるよね？--}}
     <link href=“https://fonts.googleapis.com/css?family=Amatic+SC:700” rel=“stylesheet”>
     {{-- りょうくんが書いたコードここまで --}}
@@ -47,7 +52,7 @@
                     <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>このサイトについて</a>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
+                    <a href="{{ route('himanabi.description')}}" class="nav-link"><i class="fas fa-briefcase"></i>マッチングまでの流れ</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('himanabi.about') }}" class="nav-link"><i class="fas fa-users"></i>About</a>

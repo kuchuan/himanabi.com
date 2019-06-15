@@ -97,7 +97,6 @@
             {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
 
             @foreach($datas->take(6) as $user)
- {{ dd($user->skills) }}
 
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
@@ -107,7 +106,10 @@
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src={{-- {{ $user->picture }} --}} alt="card image"></p>
                                     <h4 class="card-title">{{ $user->name }}{{-- 名前--}}</h4>
-                                    <p class="card-text">{{--スキル・学びの詳細 --}}{{ $user->skills }}</p>
+                                    @foreach($user->skills as $skill)
+                                        {{ $skill->skills_name }}
+                                    @endforeach
+                                    <p class="card-text">{{--スキル・学びの詳細 --}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>
@@ -119,14 +121,14 @@
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title">名前</h4>
-                                    <p class="card-text">???????????????????????????????????</p>
+                                    <p class="card-text">????????</p>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item">
+                                        {{-- <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
-                                        </li>
-                                        <li class="list-inline-item">
+                                        </li> --}}
+                                        {{-- <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
                                                 <i class="fa fa-twitter"></i>
                                             </a>
@@ -138,7 +140,7 @@
                                         </li>
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
+                                                <i class="fa fa-google"></i> --}}
                                             </a>
                                         </li>
                                     </ul>
@@ -206,7 +208,7 @@
                     </div>
                 </div>
             </div>
-            {{-- @endforeach --}}
+      {{-- @endforeach --}}
 {{--             </li>
  --}}
 

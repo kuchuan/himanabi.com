@@ -21,6 +21,7 @@ class HimanabiController extends Controller
     // }
 
 
+
     public function index(){
         // $users = Skill::with('user')->get();
         // $datas = User::all();
@@ -34,6 +35,12 @@ class HimanabiController extends Controller
         return view('himanabi.index', ['datas' => $datas]);
     }
 
+     // public function paginate() {
+
+     //    $likes = Like::paginate(10);
+     //    return view('like', ['like' => $likes,]);
+
+     // }
 
     public function account(){
         //アカウント管理画面
@@ -50,6 +57,19 @@ class HimanabiController extends Controller
 
     public function show(){
         return view('himanabi.show');
+
+    }
+
+    public function like(){
+
+        $datas = User::with('skills')->get();
+        $posts = User::latest()->paginate(5);
+
+        return view('himanabi.like',["datas" => $datas]);
+    }
+
+    public function description(){
+        return view("himanabi.description");
     }
 
 

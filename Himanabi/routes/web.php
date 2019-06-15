@@ -31,6 +31,8 @@ Route::get('/skills', 'HimanabiController@skill')->name('himanabi.skill');//Dean
 
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
 Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
+Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
+Route::get('/description', 'HimanabiController@description')->name('himanabi.description');
 
 
 Route::post('/', 'Auth\LoginController@index');
