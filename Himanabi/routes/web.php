@@ -37,6 +37,11 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
     Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabidiary.dislike');
 
 
+Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
+Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
+Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
+
+
 		Route::get('himanabi/skill{id}', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
 
 // });//ここは後日有効にします

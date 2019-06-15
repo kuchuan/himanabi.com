@@ -25,6 +25,7 @@
         <div class="carousel-item">
          <p class="colorfilter-base">
           <img src="/img/top2.png" width="100%" height="100%" class="d-block colorfilter-image" alt="...">
+
          </p>
         </div>
         <div class="carousel-item">
@@ -104,6 +105,10 @@
         <div class="row">
 
             <!-- Team member -->
+            {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
+
+            @foreach($datas->take(6) as $user)
+
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
                     <div class="mainflip">
@@ -126,12 +131,12 @@
                                     <h4 class="card-title">{{ ($datas[0]->name) }}</h4>
                                     <p class="card-text">{{$datas[0]->skills[0]->skills_explanation }}</p>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item">
+                                        {{-- <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
-                                        </li>
-                                        <li class="list-inline-item">
+                                        </li> --}}
+                                        {{-- <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
                                                 <i class="fa fa-twitter"></i>
                                             </a>
@@ -143,7 +148,6 @@
                                         </li>
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
                                             </a>
                                         </li>
                                     </ul>
@@ -153,6 +157,8 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+
         </div>
 
     @guest
@@ -163,6 +169,9 @@
 
         <div class="row">
             <!-- Team member -->
+            {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
+
+         {{-- @foreach($datas->skills->random(3) as $skill) --}}
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
                     <div class="mainflip">
@@ -211,9 +220,9 @@
                     </div>
                 </div>
             </div>
-            <!-- ./Team member -->
-
-
+      {{-- @endforeach --}}
+{{--             </li>
+ --}}
 
         </div>
     </div>

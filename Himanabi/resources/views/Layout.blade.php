@@ -34,6 +34,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <link href=“https://fonts.googleapis.com/css?family=Amatic+SC:700” rel=“stylesheet”>
     {{-- りょうくんが書いたコードここまで --}}

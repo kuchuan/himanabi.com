@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\user; //App\Userクラスの使用を宣言する（Dean追加）
 use App\skill; //App\skillクラスの使用を宣言する（Dean追加）
 use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの試用を宣言する（Dean追加）
+use App\Skill_user; //App\Skill_userクラスの試用を宣言する
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class HimanabiController extends Controller
 {
@@ -17,13 +19,20 @@ class HimanabiController extends Controller
     // }
 
 
+
     public function index(){
-
-
+        // $users = Skill::with('user')->get();
+        // $datas = User::all();
+        // $skills = Skill::all();
+        // var_dump($skills);
+        // exit();
         $datas = User::with('skills')->get();
+        // $users = User::all()->take(3);
+        // $skills = Skill_user::with('user')->get();
+        // dd($skills->skills_explanation);
 
         return view('himanabi.index',['datas' => $datas]);
-    }    
+    }
 
     public function description(){
 
@@ -38,9 +47,14 @@ class HimanabiController extends Controller
         $datas = User::with('skills')->get(); //ここにはマッチングアルゴリズムを書く予定
 
         return view('Himanabi.index',['datas' => $datas]);
-
     }
 
+     // public function paginate() {
+
+     //    $likes = Like::paginate(10);
+     //    return view('like', ['like' => $likes,]);
+
+     // }
 
     public function createaccount(){  //アカウント作成画面
         //$datas =DB::select('select * from user');
@@ -61,6 +75,7 @@ class HimanabiController extends Controller
         // $datas = User::all(); //全件取得
         $datas = User::with('skills')->find($accountid);//見つけたデータのみ取得
         // dd($datas);
+
         return view('himanabi.account',['datas' => $datas]);
     }
 
@@ -189,6 +204,21 @@ class HimanabiController extends Controller
             //一覧ページに戻る（リダイレクト処理）
             return redirect()->route('himanabi.createaccount');//メインの画面に戻る（ただしマッチングデータでメイン画面を開く
     }
+
+
+    public function show(){
+        return view('himanabi.show');
+
+    }
+
+    public function like(){
+
+        $datas = User::with('skills')->get();
+        $posts = User::latest()->paginate(5);
+
+        return view('himanabi.like',["datas" => $datas]);
+    }
+
 
     public function about(){
         return view('himanabi.about');

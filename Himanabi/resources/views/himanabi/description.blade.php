@@ -47,6 +47,7 @@
         </div>
         <!-- ============ step 2 =========== -->
         <div class="row">
+
             <div class="col-md-5">
                 <div class="process-point-left"></div>
             </div>
@@ -122,6 +123,7 @@
                     <div class="process-line-r"></div>
                 </div>
             </div>
+
         </div>
         <!-- ============ step 5 =========== -->
         <div class="row">
