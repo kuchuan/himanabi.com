@@ -11,6 +11,6 @@ class SkillsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Skill::class, 20)->create(); // 20件のデータを作成
+        factory(App\Skill::class, 40)->create(); // 20件のデータを作成
     }
 }

@@ -26,11 +26,11 @@
                 <div class="col-5"><!--中央パートの左側-->
                     <div class="form-group text-left">
                         <label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="令泉 和也" value="{{ old('name') }}">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="お名前" value="{{ old('name') }}">
                     </div>
                     <div class="form-group text-left">
                         <label class="small text-info" for="nickname">ニックネーム*</label>
-                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="げんごうくん" value="{{ old('nickname') }}">
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="ニックネーム" value="{{ old('nickname') }}">
                         {{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
                     </div>
                   <div class="form-group text-left">
@@ -192,7 +192,7 @@
                                 </select>
                             </div>
                             <input type="hidden" class="form-control" name="toggle_user" id="toggle_user"  value="0" >
-                            {{-- 自分のスキルは"0" --}}
+                            {{-- 自分のスキルは"1" --}}
                 </div>{{-- ./中央パートの右側 --}}
                 <div clas="col-1"></div><!--中央パートの右余白-->
                 </div>
@@ -262,7 +262,7 @@
                   <i class="fas fa-caret-down fa-3x text-info pb-2"></i>
                   <br>
             <div class="input-button">
-                <button type="button" class="btn btn-outline-dark border-dark">破棄する</button>
+                <a href="{{ route('himanabi.index') }}" type="button" class="btn btn-outline-dark border-dark">破棄する</a>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</button>
             </div>
         <!-- 登録モーダルの設定 -->

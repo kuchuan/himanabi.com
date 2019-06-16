@@ -12,16 +12,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
-  <!-- Dean緊急付け加えBootstrap CSS File -->
-{{-- <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
-  {{-- Libraries CSS Files --}}
-{{-- <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"> --}}
-{{-- <link href="lib/font-awesome/all.css" rel="stylesheet"> --}}
-{{-- <link href="lib/font-awesome/fonts/all.css" rel="stylesheet"> --}}
-{{-- <link rel="stylesheet" href="/css/kokoro.css"> --}}
-<!--付け加えここまで-->
-
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{--佐藤付け足し--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -87,22 +77,21 @@
                     </li>
                     <li class="nav-item">
                       @if(Auth::check())
-                      <form action="{{ route('himanabi.skill', [Auth::user()->id]) }}" class="d-inline">
+                     {{--  <form action="{{ route('himanabi.skill', ['id' => Auth::user()->id]) }}" class="d-inline">
                         @method('POST')
-                        @csrf
-                        <a href="{{ route('himanabi.skill', [Auth::user()->id]) }}" name="skillid" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
-                      </form>
+                        @csrf --}}
+                        <a href="{{ route('himanabi.skill',['id' => Auth::user()->id]) }}" name="skillid" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
+                      {{-- </form> --}}
                       @endif
                     </li>
 
                     <li class="nav-item">
                       @if(Auth::check())
-                      <form action="{{ route('himanabi.account', [Auth::user()->id]) }}" class="d-inline">
+                      {{-- <form action="{{ route('himanabi.account', ['id' => Auth::user()->id]) }}" class="d-inline">
                         @method('POST')
-                        @csrf
-                        <a href="{{ route('himanabi.account',[Auth::user()->id]) }}" name="accountid" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理,
-                        </a>
-                      </form>
+                        @csrf --}}
+                        <a href="{{ route('himanabi.account',['id' => Auth::user()->id]) }}" name="accountid" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
+                      {{-- </form> --}}
                       @endif
                     </li>
 

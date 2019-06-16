@@ -20,7 +20,7 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
 //ユーザー認証に関連しないもの（前置）
 		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
 		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//保存画面
-		Route::get('himanabi/account/{id}', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
+		Route::get('himanabi/{id}/account/', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
 		Route::get('himanabi/account', 'HimanabiController@account')->name('himanabi.account');//
 
 //ユーザー認証に関連するもの
@@ -29,12 +29,12 @@ Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
     // Route::post('account');
 		// Route::get('himanabi/account/{id}', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
 		Route::get('/{id}', 'HimanabiController@loginmach')->name('himanabi.index'); //ユーザー認証済み画面
-		Route::put('himanabi/update/{id}', 'HimanabiController@update')->name('himanabi.updateaccount'); //ユーザー更新処理
+		Route::put('himanabi/{id}/update/', 'HimanabiController@update')->name('himanabi.updateaccount'); //ユーザー更新処理
 
 		Route::delete('himanabi/deleteaccount/{id}', 'himanabiController@destory')->name('himanabi.destoryaccount'); //ユーザー削除処理
 
 		Route::post('himanabi/{id}/like', 'HimanabiController@like')->name('himanabi.like');
-    Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabidiary.dislike');
+    Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabi.dislike');
 
 
 Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
@@ -42,7 +42,8 @@ Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
 Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
 
 
-		Route::get('himanabi/skill{id}', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
+		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
+		Route::get('himanabi/skill', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
 
 // });//ここは後日有効にします
 

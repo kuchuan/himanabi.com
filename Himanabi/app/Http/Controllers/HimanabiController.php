@@ -26,13 +26,34 @@ class HimanabiController extends Controller
         // $skills = Skill::all();
         // var_dump($skills);
         // exit();
-        $datas = User::with('skills')->get();
+        // $datas = User::whereHas('skill')->first();
+         $datas = Skill::with('User')->get();
+        // $datas = Skill::with('user')->get();
+        // dd($datas);
         // $users = User::all()->take(3);
         // $skills = Skill_user::with('user')->get();
         // dd($skills->skills_explanation);
 
         return view('himanabi.index',['datas' => $datas]);
     }
+
+    // public function index(Request $request){
+    //     #フォームmethodからGETでキーワード受け取り
+    //     $keyword = $request->input('keyword');
+
+    //     #クエリ生成
+    //     $query = User::query();
+
+    //     #もしキーワードがあったら
+    //     if(!empty($keyword)){
+    //         $query->where('name','like','%'.$keyword.'%')->orWhere('mail','like','%'.$keyword.'%');
+    //     }
+
+    //     #ページネーション
+    //     $datas = $query->orderBy('created_at','desc')->paginate(10);
+    //     return view('himanabi.index')->with('datas',$datas)->with('keyword',$keyword)->with('message','ユーザーリスト');
+    // }
+
 
     public function description(){
 
@@ -67,15 +88,15 @@ class HimanabiController extends Controller
         return view('himanabi.createaccount',['datas' => $datas]);
     }
 
-    public function account($accountid){
-        $accountid= 23;
+    public function account($id){
+        // $id= 23;
         // $id = $request->id;
         //アカウント管理画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
-        $datas = User::with('skills')->find($accountid);//見つけたデータのみ取得
+        $datas = User::with('skills')->find($id);//見つけたデータのみ取得
         // dd($datas);
-
+        // $datas = User::first();//最初のデータのみ取得
         return view('himanabi.account',['datas' => $datas]);
     }
 
@@ -225,14 +246,14 @@ class HimanabiController extends Controller
     }
 
 
-    public function skill($id){
+    public function skill(Request $request, $id){
         //なにか間違ってるみたい
         //アカウント管理画面
-        $id = 23;
+        // $id = 23;
         //$datas =DB::select('select * from user');
-        $datas = User::with('skills')->find($id);
+        // $datas = User::wi    th('skills')->find();
         // $datas = User::all(); //全件取得
-        // $datas = User::first();//最初のデータのみ取得
+        $datas = User::first();//最初のデータのみ取得
         // dd($datas);
         return view('himanabi.skill',['datas' => $datas]);
     }
