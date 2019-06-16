@@ -270,11 +270,11 @@ class HimanabiController extends Controller
     }
 
 
-    public function skillcheckfront(){
+    public function skillcheck(){
          //スキル登録時のカード確認
         $datas = Skill::with('User')->first();//現在仮に最初のデータを送る
 
-        return view('himanabi.skillcheckfront',['datas' => $datas]);
+        return view('himanabi.skillcheck',['datas' => $datas]);
 
     }
 

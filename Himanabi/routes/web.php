@@ -29,7 +29,7 @@ Route::get('himanabi/index', 'HimanabiController@index')->name('himanabi.index')
 
 
 		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//スキル編集
-		Route::get('himanabi/skillcheckfront','HimanabiController@skillcheckfront')->name('himanabi.skillcheckfront');
+		Route::get('himanabi/skillcheck','HimanabiController@skillcheck')->name('himanabi.skillcheck');
 		//提供者のスキルカード確認
 		Route::put('himanabi/{id}/skillupdate/', 'HimanabiController@skillupdate')->name('himanabi.skillupdate'); //スキル更新処理
 		Route::get('himanabi/skill', 'HimanabiController@skill')->name('himanabi.skill');//保留
