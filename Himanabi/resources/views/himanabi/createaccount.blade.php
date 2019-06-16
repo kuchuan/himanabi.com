@@ -196,55 +196,55 @@
                 </div>{{-- ./中央パートの右側 --}}
                 <div clas="col-1"></div><!--中央パートの右余白-->
                 </div>
+                <br>
 
                 <div class="row justify-content-between">
                     <div clas="col-1"></div><br>
                         <div class="col-10">
 
-                            <div class="form-group text-left pt-2">{{-- チェックボックス --}}
-
+                            <div class="form-group text-left">{{-- チェックボックス --}}
                                 <label class="small text-info p-3">あなたが興味をもっていること・ものにチェックを入れてください</label>
                                   <div class="checkbox">
                                     <div class="form-row" id="checkBoxies1">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest01" id="interest01" value="0" {{ old('interest01') }}>：本・コミック・雑誌　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest02" id="interest02" value="0" {{ old('interest02') }}>：芸能・アニメ　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest03" id="interest03" value="0" {{ old('interest03') }}>：ミュージック　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest04" id="interest04" value="0" {{ old('interest04') }}>：家電・カメラ・AV機器</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest01" value="{{ old('interest01') }}">：本・コミック・雑誌　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest02" value="{{ old('interest02') }}">：芸能・アニメ　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest03" value="{{ old('interest03') }}">：ミュージック　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest04" id="interest04" value="{{ old('interest04') }}">：家電・カメラ・AV機器</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies2">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest05" id="interest05" value="0" {{ old('interest05') }}>：ＰＣ・ガジェット　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest06" id="interest06" value="0" {{ old('interest06') }}>：ホーム＆キッチン　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest07" id="interest07" value="0" {{ old('interest07') }}>：美容・健康　　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest08" id="interest08" value="0" {{ old('interest08') }}>：ファッション・貴金属</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest05" id="interest05" value="{{ old('interest05') }}">：ＰＣ・ガジェット　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest06" id="interest06" value="{{ old('interest06') }}">：ホーム＆キッチン　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest07" id="interest07" value="{{ old('interest07') }}">：美容・健康　　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest08" id="interest08" value="{{ old('interest08') }}">：ファッション・貴金属</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies3">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest09" id="interest09" value="0" {{ old('interest09') }}>：子育て・介護　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest10" id="interest10" value="0" {{ old('interest10') }}>：動物・ペット　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest11" id="interest11" value="0" {{ old('interest11') }}>：仕事・オフィス　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest12" id="interest12" value="0" {{ old('interest12') }}>：スポーツ・アウトドア</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest09" id="interest09" value="{{ old('interest09') }}">：子育て・介護　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest10" id="interest10" value="{{ old('interest10') }}">：動物・ペット　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest11" id="interest11" value="{{ old('interest11') }}">：仕事・オフィス　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest12" id="interest12" value="{{ old('interest12') }}">：スポーツ・アウトドア</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies4">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest13" id="interest13" value="0" {{ old('interest13') }}>：芸術・アート　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest14" id="interest14" value="0" {{ old('interest14') }}>：食品・飲料・酒　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest15" id="interest15" value="0" {{ old('interest15') }}>：金融・ファイナンス　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest16" id="interest16" value="0" {{ old('interest16') }}>：おもちゃ・ゲーム　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest13" id="interest13" value="{{ old('interest13') }}">：芸術・アート　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest14" id="interest14" value="{{ old('interest14') }}">：食品・飲料・酒　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest15" id="interest15" value="{{ old('interest15') }}">：金融・ファイナンス　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest16" id="interest16" value="{{ old('interest16') }}">：おもちゃ・ゲーム　　</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies5">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest17" id="interest17" value="0" {{ old('interest17') }}>：自動車・バイク・船　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" value="" name="interest18" id="interest18" value="0" {{ old('interest18') }}>：ＤＩＹ・ハンドメイド</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest17" id="interest17" value="{{ old('interest17') }}">：自動車・バイク・船　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest18" id="interest18" value="{{ old('interest18') }}">：ＤＩＹ・ハンドメイド</label>
                                             </div>
                                     </div>
                                   </div> <!--./div class="checkbox" -->

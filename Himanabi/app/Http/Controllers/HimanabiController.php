@@ -89,7 +89,7 @@ class HimanabiController extends Controller
     }
 
     public function account($id){
-        // $id= 23;
+        // $id= 10;
         // $id = $request->id;
         //アカウント管理画面
         //$datas =DB::select('select * from user');
@@ -103,6 +103,8 @@ class HimanabiController extends Controller
     public function store(CreateHimanabi $request){
         //保存処理POST送信のデータの受け取り（以前は$_POSTで受けていた）
         //Laravelでは＄_POSTの代わりにRequestクラスを使う
+        // dd($request);
+        // dd('$checkbox[]');
         // dd($request);
         // dd($request->skills_name);
         //Modelクラスuserを使用する
@@ -118,10 +120,11 @@ class HimanabiController extends Controller
 
         $users->save(); //DBに保存
 
-        var_dump($users["id"]);//Dean確認用
+        // var_dump($users["id"]);//Dean確認用
         // dd($users->id);//Dean確認用
 
         $skills = new Skill();
+
         //ここからskillsテーブル
         $skills->toggle_user = $request->toggle_user; //参照するwebページ(view)でhidden属性を入れて不可視化している
         $skills->skills_category = $request->skills_category;
@@ -136,9 +139,9 @@ class HimanabiController extends Controller
         //選択された画像を/public/imgにアップロード
         // 画像名を残す
         // $skills->skills_picture = $request->skills_picture->store('public/img');//後日作成
-        $skills->interest01 =$request->interest01;
-        $skills->interest02 =$request->interest02;
-        $skills->interest03 =$request->interest03;
+        $skills->interest01 =$request->interest[0];
+        $skills->interest02 =$request->interest[1];
+        $skills->interest03 =$request->interest[2];
         $skills->interest04 =$request->interest04;
         $skills->interest05 =$request->interest05;
         $skills->interest06 =$request->interest06;
@@ -156,6 +159,11 @@ class HimanabiController extends Controller
         $skills->interest18 =$request->interest18;
         $skills->interest19 =$request->interest19;
         $skills->interest20 =$request->interest20;
+
+
+        // var_dump('checkbox[]');//Dean確認用
+        // var_dump($request->interest01);//Dean確認用
+        // var_dump($checkbox[0]);
 
         $skills->save(); //DBに保存
 
@@ -181,7 +189,7 @@ class HimanabiController extends Controller
 
         $users->save(); //DBに保存
 
-        var_dump($users["id"]);//Dean確認用
+        var_dump($users["id"] + "ストア");//Dean確認用
         // dd($users->id);//Dean確認用
 
         $skills = new Skill();
@@ -246,7 +254,7 @@ class HimanabiController extends Controller
     }
 
 
-    public function skill(Request $request, $id){
+    public function skill($id){
         //なにか間違ってるみたい
         //アカウント管理画面
         // $id = 23;

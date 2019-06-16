@@ -37,10 +37,10 @@
 
 <!-- Navigation Bar -->
 <header>
-{{-- <form method="POST" class="form-horizontal" action="{{ route('himanabi.index') }}"> --}}
-    {{-- @csrf --}}
+<form action="{{ route('himanabi.index') }}" method="POST" class="form-horizontal" >
+    @csrf
     <nav class="navbar navbar-expand-lg navStyle fixed-top">
-        <a class="brand-navbar" href="/"><img src="/img/アセット 2.png" class="icon" alt="Responsive image" height="60px"></a>
+        <a class="brand-navbar" href="/"><img src="/img/asset2.png" class="icon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
                 <span><i class="fas fa-align-right iconStyle"></i></span>
             </button>
@@ -102,7 +102,7 @@
             </ul>
             </div>
     </nav>
-{{-- </form> --}}
+</form>
 
 
  <!-- Modal -->
