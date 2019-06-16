@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\user; //App\Userクラスの使用を宣言する（Dean追加）
 use App\skill; //App\skillクラスの使用を宣言する（Dean追加）
+use App\Room_user;
+use App\message;
+use App\Skill_user; //App\Skill_userクラスの使用を宣言する
 use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの試用を宣言する（Dean追加）
-use App\Skill_user; //App\Skill_userクラスの試用を宣言する
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -88,7 +90,7 @@ class HimanabiController extends Controller
         return view('himanabi.createaccount',['datas' => $datas]);
     }
 
-    public function account($id){
+    public function accountedit($id){
         // $id= 10;
         // $id = $request->id;
         //アカウント管理画面
@@ -99,6 +101,20 @@ class HimanabiController extends Controller
         // $datas = User::first();//最初のデータのみ取得
         return view('himanabi.account',['datas' => $datas]);
     }
+
+
+    public function skilledit($id){
+        //なにか間違ってるみたい
+        //アカウント管理画面
+        // $id = 23;
+        //$datas =DB::select('select * from user');
+        // $datas = User::wi    th('skills')->find();
+        // $datas = User::all(); //全件取得
+        $datas = User::first();//最初のデータのみ取得
+        // dd($datas);
+        return view('himanabi.skill',['datas' => $datas]);
+    }
+
 
     public function store(CreateHimanabi $request){
         //保存処理POST送信のデータの受け取り（以前は$_POSTで受けていた）
@@ -171,7 +187,7 @@ class HimanabiController extends Controller
             return redirect()->route('himanabi.createaccount');//メインの画面に戻る（ただしマッチングデータでメイン画面を開く
     }
 
-        public function accountedit($id,$user_id, CreateHimanabi $request){
+        public function accountupdate($id,$user_id, CreateHimanabi $request){
         //保存処理POST送信のデータの受け取り（以前は$_POSTで受けていた）
         //Laravelでは＄_POSTの代わりにRequestクラスを使う
         // dd($request);
@@ -254,16 +270,16 @@ class HimanabiController extends Controller
     }
 
 
-    public function skill($id){
-        //なにか間違ってるみたい
-        //アカウント管理画面
-        // $id = 23;
-        //$datas =DB::select('select * from user');
-        // $datas = User::wi    th('skills')->find();
-        // $datas = User::all(); //全件取得
-        $datas = User::first();//最初のデータのみ取得
-        // dd($datas);
-        return view('himanabi.skill',['datas' => $datas]);
+    public function skillcheckfront(){
+         //スキル登録時のカード確認
+        $datas = Skill::with('User')->first();//現在仮に最初のデータを送る
+
+        return view('himanabi.skillcheckfront',['datas' => $datas]);
+
     }
+
+
+
+
 
 }

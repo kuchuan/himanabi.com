@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title> 
+    
     <link rel="stylesheet" href="/css/layout.css">{{-- りょうくん追加 --}}
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
@@ -106,7 +107,7 @@
 
 
  <!-- Modal -->
-<form class="form-signin" method="POST" action="{{ route('login') }}">
+<form class="form-signin" method="POST" action="{{ route('himanabi.index') }}">
 {{-- <form class="form-signin" method="POST" action="{{ route('login') }}"> --}}
 @csrf
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -143,7 +144,8 @@
           {{-- @if (($errors->has('email')) || ($errors->has('password'))) --}}
            {{-- <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p> --}}
           {{-- @else --}}
-            <p style="margin:20px;"><button type="button-center" class="btn btn-primary" action= "{{ route('login') }}">{{ __('Login(普段はこちら)') }}</button></p>
+            <p style="margin:20px;">
+              <button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.index',["id" => 46]) }}">{{ __('Login(普段はこちら)') }}</button></p>
           {{-- @endif --}}
 
 

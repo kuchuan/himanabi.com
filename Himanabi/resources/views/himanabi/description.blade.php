@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-いいね一覧画面
+サイトの利用手順画面
 @endsection
 
 @section('mystyle')

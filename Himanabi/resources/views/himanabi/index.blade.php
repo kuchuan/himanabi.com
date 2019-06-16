@@ -46,7 +46,7 @@
       </div>
 
           <div class="good">
-              <img src="/img/asset.png" width="100%" height="100%">
+              <img src="/img/asset.png" width="120%" height="120%">
           </div>
 
     <div class="searchbox">
@@ -112,6 +112,7 @@
                                     <h4 class="card-title">{{ ($datas[$loop->iteration]->skills_name) }}</h4>
                                     <p class="card-text">名前：{{$datas[$loop->iteration]->user->name}}</p>
                                     <p class="card-text">提供エリア：{{$datas[$loop->iteration]->skills_area}}</p>
+                                    <p class="card-text">使用言語：{{$datas[$loop->iteration]->user->language}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
                                     <a href="#" class="btn-circle">📩</a>

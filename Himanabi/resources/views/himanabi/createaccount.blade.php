@@ -263,7 +263,7 @@
                   <br>
             <div class="input-button">
                 <a href="{{ route('himanabi.index') }}" type="button" class="btn btn-outline-dark border-dark">破棄する</a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</button>
+                <a href="{{ route('himanabi.index') }} type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</a>
             </div>
         <!-- 登録モーダルの設定 -->
         <div class="modal fade" id="myCheckModal" tabindex="-1" role="dialog" aria-labelledby="myCheckModalLabel">

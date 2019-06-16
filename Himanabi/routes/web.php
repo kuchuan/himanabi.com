@@ -10,40 +10,40 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
-
-
 //Routeは上からマッチングされるので順序に注意！！！！！
 
-
 //ユーザー認証に関連しないもの（前置）
-		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
-		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//保存画面
-		Route::get('himanabi/{id}/account/', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
-		Route::get('himanabi/account', 'HimanabiController@account')->name('himanabi.account');//
+Route::get('/', 'HimanabiController@index')->name('himanabi.index'); //追加
+Route::get('himanabi/index', 'HimanabiController@index')->name('himanabi.index');
+
 
 //ユーザー認証に関連するもの
 // Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
-    //{}は対応するメソッドの引数になる
-    // Route::post('account');
-		// Route::get('himanabi/account/{id}', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集画面
-		Route::get('/{id}', 'HimanabiController@loginmach')->name('himanabi.index'); //ユーザー認証済み画面
-		Route::put('himanabi/{id}/update/', 'HimanabiController@update')->name('himanabi.updateaccount'); //ユーザー更新処理
+		// Route::get('/{id}', 'HimanabiController@loginmach')->name('himanabi.index'); //認証済みトップ
+		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
+		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//新規保存画
 
-		Route::delete('himanabi/deleteaccount/{id}', 'himanabiController@destory')->name('himanabi.destoryaccount'); //ユーザー削除処理
-
-		Route::post('himanabi/{id}/like', 'HimanabiController@like')->name('himanabi.like');
-    Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabi.dislike');
+		Route::get('himanabi/{id}/account/', 'HimanabiController@account')->name('himanabi.account');//ユーザー編集
+		Route::get('himanabi/{id}/account/', 'HimanabiController@store')->name('himanabi.account');//ユーザー保存
+		Route::get('himanabi/account', 'HimanabiController@account')->name('himanabi.account');//保留
 
 
-Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
-Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
-Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
+		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//スキル編集
+		Route::get('himanabi/skillcheckfront','HimanabiController@skillcheckfront')->name('himanabi.skillcheckfront');
+		//提供者のスキルカード確認
+		Route::put('himanabi/{id}/skillupdate/', 'HimanabiController@skillupdate')->name('himanabi.skillupdate'); //スキル更新処理
+		Route::get('himanabi/skill', 'HimanabiController@skill')->name('himanabi.skill');//保留
+
+		Route::delete('himanabi/{id}/deleteaccount/', 'himanabiController@destory')->name('himanabi.destoryaccount'); //ユーザー削除処理
 
 
-		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
-		Route::get('himanabi/skill', 'HimanabiController@skill')->name('himanabi.skill');//Dean検証用
+		Route::post('himanabi/{id}/like', 'HimanabiController@like')->name('himanabi.like');//いいね処理
+    Route::post('himanabi/{id}/dislike', 'HimanabiController@dislike')->name('himanabi.dislike');//いいね解除
+
+
+//Route::get('/about', 'HimanabiController@about')->name('himanabi.about');
+//Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
+//Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
 
 // });//ここは後日有効にします
 
@@ -51,11 +51,9 @@ Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
 //ユーザー認証に関連しないもの（後置）
 		Route::get('himanabi/about', 'HimanabiController@about')->name('himanabi.about');
 		route::get('himanabi/description', 'HimanabiController@description')->name('himanabi.description');
-		Route::get('himanabi/index', 'HimanabiController@index')->name('himanabi.index');
 
 
-		Route::post('/', 'Auth\LoginController@index');
-
+Route::post('/', 'Auth\LoginController@index');
 
 
 Auth::routes();
