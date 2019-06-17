@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-いいね一覧画面
+わたしのいいね一覧画面
 @endsection
 
 @section('content')

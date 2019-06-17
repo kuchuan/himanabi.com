@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title> 
-    
+
     <link rel="stylesheet" href="/css/layout.css">{{-- りょうくん追加 --}}
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
     <script type="text/javascript" src="assets/js/description.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/description.css">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -80,11 +77,12 @@
                         <a href="{{ route('himanabi.index') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル（仮）</a>
                     </li>
                     <li class="nav-item">
+
                       @if(Auth::check())
                      {{--  <form action="{{ route('himanabi.skill', ['id' => Auth::user()->id]) }}" class="d-inline">
                         @method('POST')
                         @csrf --}}
-                        <a href="{{ route('himanabi.skill',['id' => Auth::user()->id]) }}" name="skillid" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
+                        <a href="{{ route('himanabi.skill',[Auth::user()->id]) }}" name="id" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a>
                       {{-- </form> --}}
                       @endif
                     </li>
@@ -94,7 +92,7 @@
                       {{-- <form action="{{ route('himanabi.account', ['id' => Auth::user()->id]) }}" class="d-inline">
                         @method('POST')
                         @csrf --}}
-                        <a href="{{ route('himanabi.account',['id' => Auth::user()->id]) }}" name="accountid" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
+                        <a href="{{ route('himanabi.account',['id' => Auth::user()->id]) }}" name="id" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
                       {{-- </form> --}}
                       @endif
                     </li>

@@ -19,7 +19,7 @@ Route::get('himanabi/{id}/mypage', 'HimanabiController@mypage')->name('himanabi.
 
 
 //ユーザー認証に関連するもの
-Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
+// Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
 		// Route::get('/{id}', 'HimanabiController@loginmach')->name('himanabi.index'); //認証済みトップ
 		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
 		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//新規保存画
@@ -52,7 +52,7 @@ Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にしま
 //Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
 //Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
 
-});//ここは後日有効にします
+// });//ここは後日有効にします
 
 
 //ユーザー認証に関連しないもの（後置）

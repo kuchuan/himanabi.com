@@ -21,7 +21,6 @@ class HimanabiController extends Controller
     // }
 
 
-
     public function index(){
         // $users = Skill::with('user')->get();
         // $datas = User::all();
@@ -38,6 +37,20 @@ class HimanabiController extends Controller
 
         return view('himanabi.index',['datas' => $datas]);
     }
+
+    public function mypage(Request $request){
+
+         $datas = Skill::with('User')->get();
+        // $datas = Skill::with('user')->get();
+        // $users = User::all()->take(3);
+        // $skills = Skill_user::with('user')->get();
+        // dd($skills->skills_explanation);
+
+        return view('himanabi.mypage',['datas' => $datas]);
+
+    }
+
+
 
     // public function index(Request $request){
     //     #フォームmethodからGETでキーワード受け取り
