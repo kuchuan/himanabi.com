@@ -49,6 +49,10 @@ class Skill extends Model
 
 		public function user() {   //多のskillに対して一になるusersのテーブル名を使う
 			return $this->belongsTo(User::class);
-}
+		}
+
+		public function room_users() {
+			return $this->belongstoMany(Room_user::class);
+		}
 
 }

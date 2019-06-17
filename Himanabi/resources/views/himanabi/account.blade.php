@@ -224,8 +224,8 @@
                                   <div class="checkbox">
                                     <div class="form-row" id="checkBoxies1">
                                                 <div class="form-check form-check-inline small ml-2">
-                                                    <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]]" id="interest01" value="interest01" {{ old('interest01',$datas->skills[0]->interest01) ? 'checked="checked"' : ''}}>：本・コミック・雑誌　</label>
-                                                    <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]]" id="interest02" value="interest02" {{ old('interest02',$datas->skills[0]->interest02) ? 'checked="checked"' : ''}}>：芸能・アニメ　　　　</label>
+                                                    <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]]" id="interest01" value="0" {{ old('interest01',$datas->skills[0]->interest01) ? 'checked="checked"' : ''}}>：本・コミック・雑誌　</label>
+                                                    <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]]" id="interest02" value="1" {{ old('interest02',$datas->skills[0]->interest02) ? 'checked="checked"' : ''}}>：芸能・アニメ　　　　</label>
                                                     <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]]" id="interest03" value="interest03" {{ old('interest03',$datas->skills[0]->interest03) ? 'checked="checked"' : ''}}>：ミュージック　　　　</label>
                                                     <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]]" id="interest04" value="interest04" {{ old('interest04',$datas->skills[0]->interest04) ? 'checked="checked"' : ''}}>：家電・カメラ・AV機器</label>
                                                 </div>

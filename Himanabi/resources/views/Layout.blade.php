@@ -68,8 +68,11 @@
                           <a class="nav-link" style="color: white" ><i class="fas fa-users"></i>ゲストさん</a>
                         </li>
                       @endif
+{{--                     <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
+                    </li> #しばらく凍結 --}}
                     <li class="nav-item">
-                        <a href="{{ route('himanabi.index') }}" class="nav-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>ログイン</a>
+                        <a href="{{ route('login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i>ログイン</a>
                     </li>
                 @else
                 {{-- ログインしているとき --}}
@@ -145,7 +148,7 @@
            {{-- <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p> --}}
           {{-- @else --}}
             <p style="margin:20px;">
-              <button type="button-center" class="btn btn-primary" action= "{{ route('himanabi.index',["id" => 46]) }}">{{ __('Login(普段はこちら)') }}</button></p>
+              <button type="button-center" class="btn btn-primary" action= "{{ route('login') }}">{{ __('Login(普段はこちら)') }}</button></p>
           {{-- @endif --}}
 
 

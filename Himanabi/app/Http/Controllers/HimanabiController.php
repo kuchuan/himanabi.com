@@ -155,9 +155,10 @@ class HimanabiController extends Controller
         //選択された画像を/public/imgにアップロード
         // 画像名を残す
         // $skills->skills_picture = $request->skills_picture->store('public/img');//後日作成
-        $skills->interest01 =$request->interest[0];
-        $skills->interest02 =$request->interest[1];
-        $skills->interest03 =$request->interest[2];
+        dd(var_dump(interrest));
+        $skills->interest01 =$request->interest01;
+        $skills->interest02 =$request->interest02;
+        $skills->interest03 =$request->interest03;
         $skills->interest04 =$request->interest04;
         $skills->interest05 =$request->interest05;
         $skills->interest06 =$request->interest06;
@@ -277,6 +278,18 @@ class HimanabiController extends Controller
         return view('himanabi.skillcheck',['datas' => $datas]);
 
     }
+
+
+    public function skilllist(){
+        //気になるスキル一覧
+        // $datas = Room_user::with('skill')->get();
+        // $datas = Skill::with('User')->get();//仮データベース（多対多の実現まで）
+        $datas = Skill::with('User')->inRandomOrder()->get();//仮データベース（多対多の実現まで）
+
+        return view('himanabi.skilllist',['datas' => $datas]);
+    }
+
+
 
 
 
