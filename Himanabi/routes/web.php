@@ -21,19 +21,17 @@ Route::get('himanabi/{id}/mypage', 'HimanabiController@mypage')->name('himanabi.
 //ユーザー認証に関連するもの
 // Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
 		// Route::get('/{id}', 'HimanabiController@loginmach')->name('himanabi.index'); //認証済みトップ
-		Route::get('createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
+		Route::get('himanabi/{id}/createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
 		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//新規保存画
 
-		Route::get('himanabi/{id}/account/', 'HimanabiController@accountedit')->name('himanabi.account');//ユーザー編集
-		// Route::get('himanabi/{id}/account/', 'HimanabiController@store')->name('himanabi.account');//ユーザー保存
-		Route::get('himanabi/account', 'HimanabiController@account')->name('himanabi.account');//保留
+		Route::get('himanabi/{id}/account', 'HimanabiController@accountedit')->name('himanabi.account');//ユーザー編集
+		Route::post('himanabi/{id}/account/', 'HimanabiController@store')->name('himanabi.account');//ユーザー保存
 
 
-		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//スキル編集
-		Route::get('himanabi/skillcheck','HimanabiController@skillcheck')->name('himanabi.skillcheck');
-		//提供者のスキルカード確認
-		Route::put('himanabi/{id}/skillupdate', 'HimanabiController@skillupdate')->name('himanabi.skillupdate'); //スキル更新処理
-		Route::get('himanabi/skill', 'HimanabiController@skill')->name('himanabi.skill');//保留
+		Route::get('himanabi/{id}/skillcreate', 'HimanabiController@skillcreate')->name('himanabi.skillcreate');//スキル新規登録
+		Route::get('himanabi/{id}/skill', 'HimanabiController@skilledit')->name('himanabi.skill');//スキル編集
+		Route::get('himanabi/{id}skillcheck','HimanabiController@skillcheck')->name('himanabi.skillcheck');//提供スキルカード確認
+		Route::put('himanabi/{id}/skillupdate', 'HimanabiController@skillupdate')->name('himanabi.skillupdate'); //カードからスキル更新処理
 
 
 		Route::get('himanabi/{id}/skilllist','HimanabiController@skilllist')->name('himanabi.skilllist');//スキルリスト

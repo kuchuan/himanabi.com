@@ -21,10 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: black" >
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('Himanabi', 'Himanabi') }}
+                <a class="brand-navbar" href="/"><img src="/img/asset2.png" class="icon mr-2 mb-2" alt="Responsive image" height="38px" width="38px" ></a>
+                <a class="navbar-brand text-white"  href="{{ url('/') }}">
+                    {{-- {{ config('Himanabi', 'Himanabi') }} --}}
+                    <h2 class="title m-0" >H<span class = "i" style="color: red">i</span>manabi</h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,11 +43,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                                <a class="nav-link  text-white" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
                             @endif
                         @else

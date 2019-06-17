@@ -26,11 +26,11 @@
                 <div class="col-5"><!--中央パートの左側-->
                     <div class="form-group text-left">
                         <label class="small text-info" for="inputName">お名前＊（姓名には空白” ”を入れる）</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="お名前" value="{{ old('name') }}">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="お名前" value="{{ old('name',$datas->name) }}">
                     </div>
                     <div class="form-group text-left">
                         <label class="small text-info" for="nickname">ニックネーム*</label>
-                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="ニックネーム" value="{{ old('nickname') }}">
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="ニックネーム" value="{{ old('nickname',$datas->nickname) }}">
                         {{-- <small class="text-muted">本サイトではニックネームが使われます。</small> --}}
                     </div>
                   <div class="form-group text-left">
@@ -77,25 +77,25 @@
 
                 <div class="col-5"><!--中央パートの右側-->
                         <div class="form-group text-left">
-                            <label class="small text-info" for="email">E-mail*</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Eメールアドレス" value="{{ old('email') }}">
+                            <label class="small text-info" for="createemail">E-mail（変更不可）*</label>
+                            <input type="email" class="form-control border-warning" name="createemail" id="createemail" placeholder="Eメールアドレス" value="{{ old('email',$datas->email) }}" readonly>
                         </div>
                         <div class="form-group text-left">
-                            <label class="small  text-info" for="email_verified_at">E-mail確認用</label>
-                            <input type="email" class="form-control" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="{{ old('email_verified_at') }}">
+                            <label class="small  text-info" for="createemail_verified_at">E-mail確認用</label>
+                            <input type="email" class="form-control border-warning" name="createemail_verified_at" id="crteateemail_verified_at" placeholder="Eメールアドレスの確認" value="{{ old('email_verified_at',$datas->email) }}" readonly>
                             <small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="password">パスワード*</label>
-                            <input type="password" class="form-control"{{ $errors->has('password') ? ' is-invalid' : '' }} name="password" id="password" placeholder="パスワード" value="{{ old('password') }}">
+                            <input type="password" class="form-control"{{ $errors->has('password') ? ' is-invalid' : '' }} name="password" id="password" placeholder="パスワード" value="{{ old('password',$datas->password) }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="remember_token">パスワード確認用</label>
-                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認" value="{{ old('remember_token') }}">
+                            <input type="password" class="form-control" name="remember_token" id="remember_token" placeholder="パスワードの確認" value="{{ old('remember_token',$datas->remember_token) }}">
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="language">使用言語</label>
-                            <select class="form-control" name="language" id="language" value="{{ old('language') }}">
+                            <select class="form-control" name="language" id="language" value="{{ old('language',$datas->language) }}">
                                 <option >日本語</option>
                                 <option >英語</option>
                                 <option >中国語</option>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="form-group text-left">
                             <label class="small text-info" for="area">居住エリア</label>
-                            <select class="form-control" name="area" id="area" value="{{ old('area') }}">
+                            <select class="form-control" name="area" id="area" value="{{ old('area',$datas->area) }}">
                                 <option >ラフグ</option>
                                 <option >マンダウエ</option>
                                 <option >バニラッド</option>
@@ -174,7 +174,7 @@
 
                           <div class="form-group text-left">
                             <label class="small text-info" for="skills_enthusiasm">意気込み</label>
-                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3">{{ old('skills_enthusiasm') }}</textarea>
+                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3">"{{ old('skills_enthusiasm') }}</textarea>
                           </div>
                 </div>{{-- 中央パートの左側 --}}
 
@@ -210,41 +210,41 @@
                                                 <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest01" value="{{ old('interest01') }}">：本・コミック・雑誌　</label>
                                                 <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest02" value="{{ old('interest02') }}">：芸能・アニメ　　　　</label>
                                                 <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest03" value="{{ old('interest03') }}">：ミュージック　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest04" id="interest04" value="{{ old('interest04') }}">：家電・カメラ・AV機器</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest04" value="{{ old('interest04') }}">：家電・カメラ・AV機器</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies2">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest05" id="interest05" value="{{ old('interest05') }}">：ＰＣ・ガジェット　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest06" id="interest06" value="{{ old('interest06') }}">：ホーム＆キッチン　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest07" id="interest07" value="{{ old('interest07') }}">：美容・健康　　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest08" id="interest08" value="{{ old('interest08') }}">：ファッション・貴金属</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest05" value="{{ old('interest05') }}">：ＰＣ・ガジェット　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest06" value="{{ old('interest06') }}">：ホーム＆キッチン　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest07" value="{{ old('interest07') }}">：美容・健康　　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest08" value="{{ old('interest08') }}">：ファッション・貴金属</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies3">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest09" id="interest09" value="{{ old('interest09') }}">：子育て・介護　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest10" id="interest10" value="{{ old('interest10') }}">：動物・ペット　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest11" id="interest11" value="{{ old('interest11') }}">：仕事・オフィス　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest12" id="interest12" value="{{ old('interest12') }}">：スポーツ・アウトドア</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest09" value="{{ old('interest09') }}">：子育て・介護　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest10" value="{{ old('interest10') }}">：動物・ペット　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest11" value="{{ old('interest11') }}">：仕事・オフィス　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest12" value="{{ old('interest12') }}">：スポーツ・アウトドア</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies4">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest13" id="interest13" value="{{ old('interest13') }}">：芸術・アート　　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest14" id="interest14" value="{{ old('interest14') }}">：食品・飲料・酒　　　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest15" id="interest15" value="{{ old('interest15') }}">：金融・ファイナンス　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest16" id="interest16" value="{{ old('interest16') }}">：おもちゃ・ゲーム　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest13" value="{{ old('interest13') }}">：芸術・アート　　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest14" value="{{ old('interest14') }}">：食品・飲料・酒　　　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest15" value="{{ old('interest15') }}">：金融・ファイナンス　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest16" value="{{ old('interest16') }}">：おもちゃ・ゲーム　　</label>
                                             </div>
                                     </div>
                                     <hr>
                                     <div class="form-row" id="checkBoxies5">
                                             <div class="form-check form-check-inline small ml-2">
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest17" id="interest17" value="{{ old('interest17') }}">：自動車・バイク・船　</label>
-                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest18" id="interest18" value="{{ old('interest18') }}">：ＤＩＹ・ハンドメイド</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest17" value="{{ old('interest17') }}">：自動車・バイク・船　</label>
+                                                <label class="checkbox-inline ml-1"><input type="checkbox" name="interest[]" id="interest18" value="{{ old('interest18') }}">：ＤＩＹ・ハンドメイド</label>
                                             </div>
                                     </div>
                                   </div> <!--./div class="checkbox" -->
@@ -262,8 +262,9 @@
                   <i class="fas fa-caret-down fa-3x text-info pb-2"></i>
                   <br>
             <div class="input-button">
-                <a href="{{ route('himanabi.index') }}" type="button" class="btn btn-outline-dark border-dark">破棄する</a>
-                <a href="{{ route('himanabi.index') }} type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</a>
+                <button href="{{ route('himanabi.index') }}" type="button" class="btn btn-outline-dark border-dark">破棄する</button>
+                <button href="{{ route('himanabi.index') }}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">登録する</button>
+
             </div>
         <!-- 登録モーダルの設定 -->
         <div class="modal fade" id="myCheckModal" tabindex="-1" role="dialog" aria-labelledby="myCheckModalLabel">

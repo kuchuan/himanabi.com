@@ -92,11 +92,11 @@ class HimanabiController extends Controller
 
      // }
 
-    public function createaccount(){  //アカウント作成画面
+    public function createaccount($id){  //アカウント作成画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
-        $datas = User::with('skills')->first(); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
+        $datas = User::with('skills')->find($id); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
         // var_dump($datas);
         // dd($datas);
         // $skills = Skill::all();
@@ -105,6 +105,7 @@ class HimanabiController extends Controller
 
     public function accountedit($id){
         // $id= 10;
+        // dd($id);
         // $id = $request->id;
         //アカウント管理画面
         //$datas =DB::select('select * from user');
@@ -119,7 +120,7 @@ class HimanabiController extends Controller
     public function skilledit($id){
         //なにか間違ってるみたい
         //アカウント管理画面
-        // $id = 23;
+        // $id = 49;
         //$datas =DB::select('select * from user');
         // $datas = User::wi    th('skills')->find();
         // $datas = User::all(); //全件取得
@@ -132,7 +133,6 @@ class HimanabiController extends Controller
     public function store(CreateHimanabi $request){
         //保存処理POST送信のデータの受け取り（以前は$_POSTで受けていた）
         //Laravelでは＄_POSTの代わりにRequestクラスを使う
-        // dd($request);
         // dd('$checkbox[]');
         // dd($request);
         // dd($request->skills_name);
@@ -140,7 +140,7 @@ class HimanabiController extends Controller
         $users = new User();// インスタンス化
         //ここからusersテーブル
         $users->name = $request->name;
-        $users->email= $request->email;
+        // $users->email= $request->email;
         $users->password = $request->password;
         $users->birthday = $request->birthday;
         $users->language = $request->language;
@@ -168,7 +168,7 @@ class HimanabiController extends Controller
         //選択された画像を/public/imgにアップロード
         // 画像名を残す
         // $skills->skills_picture = $request->skills_picture->store('public/img');//後日作成
-        dd(var_dump(interrest));
+
         $skills->interest01 =$request->interest01;
         $skills->interest02 =$request->interest02;
         $skills->interest03 =$request->interest03;
@@ -210,7 +210,7 @@ class HimanabiController extends Controller
         $users = new User();// インスタンス化
         //ここからusersテーブル
         $users->name = $request->name;
-        $users->email= $request->email;
+        // $users->email= $request->email;
         $users->password = $request->password;
         $users->birthday = $request->birthday;
         $users->language = $request->language;
@@ -219,7 +219,7 @@ class HimanabiController extends Controller
 
         $users->save(); //DBに保存
 
-        var_dump($users["id"] + "ストア");//Dean確認用
+        dd(var_dump($users["id"]."ストア"));//Dean確認用
         // dd($users->id);//Dean確認用
 
         $skills = new Skill();
@@ -303,7 +303,15 @@ class HimanabiController extends Controller
     }
 
 
+    public function skillcreate($id){
 
+        dd($id);
+
+        $datas = Skill::with('user')->find($id); //仮データベースで入れています
+
+        return view('himanabi.skillcreate',['datas' => $datas]);
+
+    }
 
 
 

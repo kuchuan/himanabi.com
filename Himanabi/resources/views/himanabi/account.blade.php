@@ -94,12 +94,12 @@
 
                 <div class="col-5"><!--中央パートの右側-->
                         <div class="form-group text-left">
-                            <label class="small text-info" for="email">E-mail（変更不可）*</label>
-                            <a type="email" class="form-control border-warning" name="email" id="email" placeholder="Eメールアドレス(変更不可)" value="" readonly>{{ old('email',$datas->email) }}</a>
+                            <label class="small text-info" for="createemail">E-mail（変更不可）*</label>
+                            <a type="email" class="form-control border-warning" name="createemail" id="createemail" placeholder="Eメールアドレス(変更不可)" value="" readonly>{{ old('email',$datas->email) }}</a>
                         </div>
                         <div class="form-group text-left">
-                            <label class="small  text-info" for="email_verified_at">E-mail確認用</label>
-                            <a type="email" class="form-control border-warning" name="email_verified_at" id="email_verified_at" placeholder="Eメールアドレスの確認" value="" readonly>{{ old('email',$datas->email) }}</a>
+                            <label class="small  text-info" for="createmail_verified_at">E-mail確認用</label>
+                            <a type="email" class="form-control border-warning" name="createemail_verified_at" id="createemail_verified_at" placeholder="Eメールアドレスの確認" value="" readonly>{{ old('email',$datas->email) }}</a>
                             <small class="text-muted">あなたのメールは本サイトからは共有しません。</small>
                         </div>
                         <div class="form-group text-left">
@@ -191,7 +191,7 @@
 
                           <div class="form-group text-left">
                             <label class="small text-info" for="skills_enthusiasm">意気込み</label>
-                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3">{{ old('skills_enthusiasm',$datas->skills[0]->skills_enthusiasm) }}</textarea>
+                            <textarea class="form-control" name="skills_enthusiasm" id="skills_enthusiasm" rows="3">"{{ old('skills_enthusiasm',$datas->skills[0]->skills_enthusiasm) }}</textarea>
                           </div>
                 </div>{{-- 中央パートの左側 --}}
 
@@ -279,10 +279,10 @@
                   <i class="fas fa-caret-down fa-3x text-info pb-2"></i>
                   <br>
             <div class="input-button">
-            <button type="button" class="btn btn-outline-dark border-dark">メイン画面に戻る</button>
-
+                <button type="button" class="btn btn-outline-dark border-dark">メイン画面に戻る</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCheckModal">　　更新する　　</button>
             </div>
+
         <!-- 登録モーダルの設定 -->
         <div class="modal fade" id="myCheckModal" tabindex="-1" role="dialog" aria-labelledby="myCheckModalLabel">
           <div class="modal-dialog" role="document">

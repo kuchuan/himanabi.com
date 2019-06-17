@@ -6,23 +6,9 @@
 
 @section('content')
 
-<!--検証用-->
-{{--         @foreach ($datas as $user)
-            <li>{{ $user->name }}</li>
-            <li>{{ $user->nickname }}</li>
-        @endforeach --}}
-
-            {{-- <li>{{ $datas->id }},{{ $datas->name }},{{ $datas->nickname }},{{ $datas->birthday }},{{ $datas->email}},{{ $datas->password }},{{ $datas->language }},{{ $datas->area }}, --}}
-
-            	{{-- {{ $datas->skills_name }} --}}
-   {{--          	@foreach($datas->skills as $skill)
-            		{{ $skill->skills_name }}
-            	@endforeach --}}
-						{{-- </li> --}}
-<!--./検証用-->
 
 {{-- <form action="{{ route('himanabi.skill',['id' => Auth::user()->id]) }}" method="POST"> --}}
-<form action="{{ route('himanabi.skill') }}" method="POST">
+<form action="{{ route('himanabi.skillcheck') }}" method="POST">
 @csrf
 <div class="container border pt-5" ><!--secondContainer-->
 
@@ -32,7 +18,7 @@
 			</div>
 
 			<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
-                    <p class="h4 ml-3 text-left text-info font-weight-bold">あなたが<span style="color:red">学びたいスキル</span>に関連のある項目を選びましょう</p>
+                    <p class="h4 ml-3 text-left text-info font-weight-bold">あなたが<span style="color:red">提供できるスキル</span>に関連のある項目を選びましょう</p>
                     <p type="text" class="mb-0 text-right text-info" ><i class="fas fa-eraser fa-border fa-1x mr-3 border-info">：このページを最初から始める</i></p>
                         <div class="ml-3 text-left text-muted font-weight-bold">＊必須項目</div>
 

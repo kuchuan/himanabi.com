@@ -12,7 +12,7 @@
   <!-- Team -->
 <section id="team" class="p-5">
     <div class="container">
-        <<h3 class="section-title pt-5 font-weight-bold">あなたが<span style="color:red">選んだ</span>（いいねをした）スキルのカードを表示します</h3>
+        <h3 class="section-title pt-5 font-weight-bold">あなたが<span style="color:red">選んだ</span>（いいねをした）スキルのカードを表示します</h3>
         <div class="row">
 
             @foreach($datas->take(3) as $user)
