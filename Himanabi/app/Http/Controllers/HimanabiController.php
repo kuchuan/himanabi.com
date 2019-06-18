@@ -7,7 +7,7 @@ use App\skill; //App\skillクラスの使用を宣言する（Dean追加）
 use App\Room_user;
 use App\message;
 use App\Skill_user; //App\Skill_userクラスの使用を宣言する
-use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの使用を宣言する（Dean追加）
+use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの試用を宣言する（Dean追加）
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +20,13 @@ class HimanabiController extends Controller
     //     return view('himanabi.create');
     // }
 
+    // private $user;
+
+    // public function __construct(Request $request)
+    // {
+    //     $this->middleware('auth');
+    //     $this->user = \Auth::user();
+    // }
 
     public function index(){
         // $users = Skill::with('user')->get();
@@ -48,6 +55,13 @@ class HimanabiController extends Controller
 
         return view('himanabi.mypage',['datas' => $datas]);
 
+    }
+
+    public function message(){
+
+        $datas = Message::all();//仮に全件を取ってくる
+
+        return view('himanabi.message',['datas' => $datas]);
     }
 
 
@@ -96,11 +110,12 @@ class HimanabiController extends Controller
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
+
         $datas = User::with('skills')->find($id); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
         // var_dump($datas);
         // dd($datas);
         // $skills = Skill::all();
-        return view('himanabi.createaccount',['datas' => $datas]);
+         return view('himanabi.createaccount',['datas' => $datas]);
     }
 
     public function accountedit($id){
@@ -116,6 +131,18 @@ class HimanabiController extends Controller
         return view('himanabi.account',['datas' => $datas]);
     }
 
+
+    public function skilledit($id){
+        //なにか間違ってるみたい
+        //アカウント管理画面
+        // $id = 54;
+        //$datas =DB::select('select * from user');
+        // $datas = User::wi    th('skills')->find();
+        // $datas = User::all(); //全件取得
+        $datas = User::with('skills')->find($id);//とりあえず全データ取得
+        dd($datas);
+        return view('himanabi.skill',['datas' => $datas]);
+    }
 
 
     public function store(CreateHimanabi $request){

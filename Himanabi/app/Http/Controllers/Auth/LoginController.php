@@ -36,4 +36,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function logout(Request $request)  //いったんコメントアウト
+    // {
+    //    $this->guard()->logout();
+    //     // dd($request);
+    //    $request->session()->invalidate();
+
+    // }
 }

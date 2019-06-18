@@ -19,7 +19,7 @@ Route::get('himanabi/{id}/mypage', 'HimanabiController@mypage')->name('himanabi.
 
 
 //ユーザー認証に関連するもの
-// Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
+Route::group(['middleware'=>'auth'],function(){ //ここは後日有効にします
 		// Route::get('/{id}', 'HimanabiController@loginmach')->name('himanabi.index'); //認証済みトップ
 		Route::get('himanabi/{id}/createaccount', 'HimanabiController@createaccount')->name('himanabi.createaccount');//新規登録
 		Route::post('createaccount', 'HimanabiController@store')->name('himanabi.createaccount');//新規保存画
@@ -29,13 +29,13 @@ Route::get('himanabi/{id}/mypage', 'HimanabiController@mypage')->name('himanabi.
 
 
 		Route::get('himanabi/{id}/skillcreate', 'HimanabiController@skillcreate')->name('himanabi.skillcreate');//スキル新規登録
-		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//スキル編集
+		Route::get('himanabi/{id}/skill', 'HimanabiController@skilledit')->name('himanabi.skill');//スキル編集
 		Route::get('himanabi/{id}/skillcheck','HimanabiController@skillcheck')->name('himanabi.skillcheck');//提供スキルカード確認
 		Route::put('himanabi/{id}/skillupdate', 'HimanabiController@skillupdate')->name('himanabi.skillupdate'); //カードからスキル更新処理
 
 
 		Route::get('himanabi/{id}/skilllist','HimanabiController@skilllist')->name('himanabi.skilllist');//スキルリスト
-
+    Route::get('himanabi/message','HimanabiController@message')->name('himanabi.message');//メッセージ画面
 
 		route::get('himanabi/skilllist','HimanabiController@skilllist')->name('himanabi.skilllist');//いいねスキル
 
@@ -50,12 +50,12 @@ Route::get('himanabi/{id}/mypage', 'HimanabiController@mypage')->name('himanabi.
 //Route::get('/show', 'HimanabiController@show')->name('himanabi.show');
 //Route::get('/like', 'HimanabiController@like')->name('himanabi.like');
 
-// });//ここは後日有効にします
+});//ここは後日有効にします
 
 
 //ユーザー認証に関連しないもの（後置）
 		Route::get('himanabi/about', 'HimanabiController@about')->name('himanabi.about');
-		route::get('himanabi/description', 'HimanabiController@description')->name('himanabi.description');
+		Route::get('himanabi/description', 'HimanabiController@description')->name('himanabi.description');
 
 
 Route::post('/', 'Auth\LoginController@index');

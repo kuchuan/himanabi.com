@@ -27,7 +27,7 @@
                                     <p class="card-text">名前：{{$datas[$loop->iteration]->user->name}}</p>
                                     <p class="card-text">提供エリア：{{$datas[$loop->iteration]->skills_area}}</p>
                                     <p class="card-text">使用言語：{{$datas[$loop->iteration]->user->language}}</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="{{ route('himanabi.message') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
                                     <a href="#" class="btn-circle">📩</a>
 

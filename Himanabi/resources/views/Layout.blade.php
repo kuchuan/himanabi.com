@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,17 +14,23 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{--佐藤付け足し--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     {{-- りょうくんが書いたコードここから --}}
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{{--     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
 
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -31,6 +38,8 @@
     {{-- りょうくんが書いたコードここまで --}}
     {{-- フォントオーサム --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
 
 
 </head>
@@ -73,35 +82,50 @@
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i>ログイン</a>
                     </li>
+                    {{-- {{ dd(Auth::user()->user )}} --}}
                 @else
                 {{-- ログインしているとき --}}
                     <li class="nav-item">
-                      @if((Auth::check()) && (Auth::user()->user_id))
-                      <form action="{{ route('himanabi.skilllist')}}" class="d-inline">
-                        @method('POST')
-                        @csrf
-                        <a href="{{ url('himanabi/'.Auth::user()->id.'/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a>
-                      </form>
-                      @else
-                        先にあなたの情報を登録してください→
-                      @endif
+                      {{-- @if(Auth::check()) --}}
+                      {{-- <form action="{{ route('himanabi.skilllist')}}" class="d-inline"> --}}
+                        {{-- @method('POST') --}}
+                        {{-- @csrf --}}
+                        {{-- <a href="{{ url('himanabi/'.Auth::user()->id.'/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a> --}}
+                      {{-- </form> --}}
+                      {{-- @else --}}
+                        {{-- 先にあなたの情報を登録してください→ --}}
+                      {{-- @endif --}}
                     </li>
 
+
                     <li class="nav-item">
-                      {{-- @if((Auth::check()) && (Auth::user()->user_id)) --}}
-{{--                         <form action="{{ route('himanabi.skill')}}"  class="d-inline">
-                          @method('POST')
-                          @csrf
-                            <a href="{{ 'himanabi/'.Auth::user()->id }}/skill" name="id" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
-                        </form> --}}
-                      {{-- @else
-                        <form action="{{ route('himanabi.skillcreate')}}"  class="d-inline">
-                          @method('POST')
-                          @csrf
-                            <a href="{{ 'himanabi/'.Auth::user()->id }}/skillcreate" name="id" class="nav-link">
-                              <i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
-                        </form> --}}
+
+                      {{-- @if(Auth::check()) --}}
+                      {{-- <form action="{{ route('himanabi.skill') }}" class="d-inline"> --}}
+                        {{-- @method('POST') --}}
+                        {{-- @csrf --}}
+                        {{-- <a href="{{ route('himanabi/'.Auth::user()->id.'/skill') }}" name="id" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a> --}}
+                      {{-- </form> --}}
                       {{-- @endif --}}
+                    </li>
+
+
+                    <li class="nav-item">
+{{--                       @if(Auth::check())
+                        <form action="{{route('himanabi.skill')}}"  class="d-inline">
+                          @method('POST')
+                          @csrf
+                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skill') }}" name="id" class="nav-link">
+                              <i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
+                        </form>
+                      @else
+                        <form action="{{route('himanabi.skillcreate')}}"  class="d-inline">
+                          @method('POST')
+                          @csrf
+                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skillcreate') }}" name="id" class="nav-link">
+                              <i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
+                        </form>
+                      @endif --}}
                     </li>
 
                     <li class="nav-item">
