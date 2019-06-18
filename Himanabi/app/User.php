@@ -26,11 +26,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password','remember_token',
     ];
 
-    public function skill() {   //userに対して多になるskillのテーブル名を使う
-        return $this->hasMany(user::class);
+
+
+    public function skills() {  //sを忘れないように
+        return $this->hasMany(Skill::class);
+        //userに対して多になるskillのテーブル名を使う
+        // return $this->hasMany("App\Skill");
+        //userに対して多になるskillのテーブル名を使う
+
     }
 
 

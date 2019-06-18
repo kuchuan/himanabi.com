@@ -24,28 +24,35 @@ class Skill extends Model
 			'skills_enthusiasm',
 			'skills_area',
 			'skills_picture',
-			'Interest01',
-			'Interest02',
-			'Interest03',
-			'Interest04',
-			'Interest05',
-			'Interest06',
-			'Interest07',
-			'Interest08',
-			'Interest09',
-			'Interest10',
-			'Interest11',
-			'Interest12',
-			'Interest13',
-			'Interest14',
-			'Interest15',
-			'Interest16',
-			'Interest17',
-			'Interest18',
+			'interest01',
+			'interest02',
+			'interest03',
+			'interest04',
+			'interest05',
+			'interest06',
+			'interest07',
+			'interest08',
+			'interest09',
+			'interest10',
+			'interest11',
+			'interest12',
+			'interest13',
+			'interest14',
+			'interest15',
+			'interest16',
+			'interest17',
+			'interest18',
+			'interest19',
+			'interest20',
 		];
 
+
 		public function user() {   //多のskillに対して一になるusersのテーブル名を使う
-			return $this->belongsTo(Skill::class);
+			return $this->belongsTo(User::class);
+		}
+
+		public function room_users() {
+			return $this->belongstoMany(Room_user::class);
 		}
 
 }

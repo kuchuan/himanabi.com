@@ -6,384 +6,141 @@
 
 @section('content')
 
+
+{{-- {{ var_dump($datas->find(21)->name) }}
+{{ var_dump($datas[0]->skills[0]) }} --}}
+
+
+<div class="introduction">
 {{-- caroucel --}}
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <p class="colorfilter-base">
-            <img src="/img/セブ海.jpg" height="70%"  width="100%" class="d-block colorfilter-image" alt="study.jpg">
-          </p>
-        </div>
-{{--         <div class="good">
-          <img src="/img/アセット 1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
-        </div> --}}
-        <div class="carousel-item">
-         <p class="colorfilter-base">
-          <img src="/img/TOP画面２.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
-         </p>
-        </div>
-{{--         <div class="good">
-          <img src="/img/アセット 1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
-        </div> --}}
-        <div class="carousel-item">
-         <p class="colorfilter-base">
-          <img src="/img/TOP画面.jpg" width="100%" height="70%" class="d-block colorfilter-image" alt="...">
-         </p>
-        </div>
-        {{-- logo画像 --}}
-        <div class="good">
-          <img src="/img/アセット 1.png" width="500" height="220" class="fa fa-thumbs-o-up" aria-hidden="true">
-        </div>
+      <div id="carouselExampleControls" class="carousel slide pt-5 pb-3" data-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <p class="colorfilter-base">
+                <img src="/img/top1.png" height="100%"  width="100%" class="d-block colorfilter-image" alt="">
+              </p>
+            </div>
+
+            <div class="carousel-item">
+             <p class="colorfilter-base">
+              <img src="/img/top2.png" width="100%" height="100%" class="d-block colorfilter-image" alt="...">
+
+             </p>
+            </div>
+            <div class="carousel-item">
+             <p class="colorfilter-base">
+              <img src="/img/top3.png" width="100%" height="100%" class="d-block colorfilter-image" alt="...">
+             </p>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-  </div>
 
-  <form class="form5 dark" method="post" action="" style="width: %; margin: 0 auto; padding-left: 350px;">
-    <div class = "form clearfix">
-        <div class="cp_ipselect">
-            <select class="cp_sl06" required>
-            <option value="" hidden disabled selected></option>
-            <option value="1">スポーツ</option>
-            <option value="2">語学</option>
-            <option value="3">料理</option>
-            <option value="4">カメラ</option>
-            <option value="5">PC</option>
-            <option value="6">ビジネス</option>
-            </select>
-            <span class="cp_sl06_highlight"></span>
-            <span class="cp_sl06_selectbar"></span>
-            <label class="cp_sl06_selectlabel">カテゴリーで選ぶ</label>
-        </div>
+          <div class="good">
+              <img src="/img/asset.png" width="120%" height="120%">
+          </div>
 
-        <div class="cp_ipselect">
-            <select class="cp_sl06" required>
-            <option value="" hidden disabled selected></option>
-            <option value="1">セブ市</option>
-            <option value="2">マンダウエ</option>
-            <option value="3">バニラット</option>
-            <option value="4">カサンバガン</option>
-            <option value="5">マクタン島</option>
-            </select>
-            <span class="cp_sl06_highlight"></span>
-            <span class="cp_sl06_selectbar"></span>
-            <label class="cp_sl06_selectlabel">場所で選ぶ</label>
-    　　　</div>
-
-        <div class = "search_button" style="padding-right: 420px; padding-top: 44px;">
-          <input class="sbox5" type="" name="" placeholder="フリーワード( ex. ピアノ、英語、水泳）">
-          <button class="sbtn5 btn-dark">
-            <i class="fas fa-search"></i><span>検索</span>
-          </button>
+    <div class="searchbox">
+        <div class = "row justify-content-center ">
+            <div class="col-6 rounded-lg " style="background-color: black;">
+                    <div class="btn-toolbar d-inline-flex flex-row text-white" role="toolbar">
+                      <div class="p-2">
+                            <label class="small" for="skills_category">カテゴリ</label>
+                                 <select class="form-control" name="skills_category" id="skills_category" value="">
+                                    <option >語学</option>
+                                    <option >教育</option>
+                                    <option >運動</option>
+                                    <option >芸術</option>
+                                    <option >食品</option>
+                                    <option >ビジネス</option>
+                                    <option >制作</option>
+                                    <option >家庭</option>
+                                    <option >その他</option>
+                                </select>
+                      </div>
+                      <div class="p-2">
+                           <label class="small" for="skills_area">希望エリア</label>
+                                <select class="form-control"name="skills_area" id="skills_area" value="">
+                                    <option>ラフグ</option>
+                                    <option>マンダウエ</option>
+                                    <option>バニラッド</option>
+                                    <option>カサンバガン</option>
+                                    <option>マクタン</option>
+                                    <option>イロイロ</option>
+                                    <option>その他</option>
+                                </select>
+                      </div>
+                      <div class="m-3 pt-4  input-group" name="text_inputbox_group" id="text_inputbox_group">
+                        {{-- <label class="small text-info" for="text_inputbox_group"></label> --}}
+                         <input class="sbox5 rounded-left border-white" type="text" name="text_inputbox" aria-describedby="button-addon2" placeholder="( ex.ピアノ 英語 etc. ）">
+                         <div class="input-group-append btn-dark">
+                            <button type="button" id="button-addon2" class="btn btn-outline-secondary text-white">検索する</button>
+                         </div>
+                      </div>
+                    </div>
+            </div>
         </div>
     </div>
-      
-  </form>
+</div>
+{{-- </div>/.container --}}
 
-
-{{-- ーー --}}
-  <!-- Team -->
-<section id="team" class="pb-5">
+{{-- {{dd($datas)}} --}}
+@guest
+  <!-- ゲスト -->
+<section id="team" class="p-0">
     <div class="container">
-        <h5 class="section-title h1">新着情報</h5>
+        <h3 class="section-title">新着情報</h3>
         <div class="row">
-            <!-- Team member -->
+
+            @foreach($datas->take(9) as $user)
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
+                            <div class="card p-1 m-1" style="width: 100%; height: 400px;">
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル・学びの詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                     <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
-                                     
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">???????????????????????????????????</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル・学びの詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_03.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル・学びの詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                     <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
+                                    <h4 class="card-title">{{ ($datas[$loop->iteration]->skills_name) }}</h4>
+                                    <p class="card-text">名前：{{$datas[$loop->iteration]->user->name}}</p>
+                                    <p class="card-text">提供エリア：{{$datas[$loop->iteration]->skills_area}}</p>
+                                    <p class="card-text">使用言語：{{$datas[$loop->iteration]->user->language}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <a href="#" class="btn-circle-fishy">いいね</a>
                                     <a href="#" class="btn-circle">📩</a>
+
                                 </div>
                             </div>
                         </div>
                         <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                            <div class="card p-1 m-1" style="width: 100%; height: 400px;">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ ($datas[$loop->iteration]->skills_name) }}</h4>
+                                    <p class="card-text small text-left">{{$datas[$loop->iteration]->skills_explanation }}</p>
+                                    <p class="card-text small">経験：{{$datas[$loop->iteration]->skills_experience}}年</p>
+                                    <p class="card-text small">更新日：{{$datas[$loop->iteration]->updated_at }}</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
+                                                <i class="fab fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
+                                                <i class="fab fa-twitter"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
+                                                <i class="fab fa-skype"></i>
                                             </a>
                                         </li>
                                     </ul>
@@ -393,164 +150,110 @@
                     </div>
                 </div>
             </div>
-            <!-- ./Team member -->
+
+           @if($loop->iteration % 6 == 0) <!--ループ回数が6回の時-->
+                @guest
+                </div>
+                    <div>
+                        <h3 class="section-title pt-4">あなたへのおすすめ</h3>
+                    </div>
+                    <div class="row">
+                @else
+                </div>
+                    <div>
+                        <h3 class="section-title">{{Auth::user()->name}}さんへのおすすめ</h3>
+                    </div>
+                    <div class="row">
+                @endguest
+            @else
+            @endif
+
+            @endforeach
+
         </div>
-        <h5 class="section-title h1">あなたへのおすすめ</h5>
+
+
+@else
+
+  <!-- Mypage -->
+<section id="team" class="p-0">
+    <div class="container">
+        <h3 class="section-title">新着情報</h3>
         <div class="row">
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" onclick="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-                                    <h4 class="card-title">名前</h4>
-                                    <p class="card-text">スキル詳細</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
 
+            @foreach($datas->take(9) as $user)
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" onclick="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card p-1 m-1" style="width: 100%; height: 400px;">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
+                                    <h4 class="card-title">{{ ($datas[$loop->iteration]->skills_name) }}</h4>
+                                    <p class="card-text">名前：{{$datas[$loop->iteration]->user->name}}</p>
+                                    <p class="card-text">提供エリア：{{$datas[$loop->iteration]->skills_area}}</p>
+                                    <p class="card-text">使用言語：{{$datas[$loop->iteration]->user->language}}</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn-circle-fishy">いいね</a>
+                                    <a href="#" class="btn-circle">📩</a>
 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card p-1 m-1" style="width: 100%; height: 400px;">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ ($datas[$loop->iteration]->skills_name) }}</h4>
+                                    <p class="card-text small text-left">{{$datas[$loop->iteration]->skills_explanation }}</p>
+                                    <p class="card-text small">経験：{{$datas[$loop->iteration]->skills_experience}}年</p>
+                                    <p class="card-text small">更新日：{{$datas[$loop->iteration]->updated_at }}</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fab fa-skype"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           @if($loop->iteration % 6 == 0) <!--ループ回数が6回の時-->
+                @guest
+                </div>
+                    <div>
+                        <h3 class="section-title pt-4">あなたへのおすすめ</h3>
+                    </div>
+                    <div class="row">
+                @else
+                </div>
+                    <div>
+                        <h3 class="section-title">{{Auth::user()->name}}さんへのおすすめ</h3>
+                    </div>
+                    <div class="row">
+                @endguest
+            @else
+            @endif
+
+            @endforeach
 
         </div>
-    </div>
+
+@endguest
+</section>
+
 
 @endsection

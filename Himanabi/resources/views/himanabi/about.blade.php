@@ -1,8 +1,11 @@
-@extends('Layout')
+@extends('layout')
 
 @section('title')
 
 @section('content')
+
+<div class="pt-5">
+</div>
 
 <link rel="stylesheet" href="{{ asset('css/about.css') }}">
 
