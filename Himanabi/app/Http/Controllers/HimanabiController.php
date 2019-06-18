@@ -7,7 +7,7 @@ use App\skill; //App\skillクラスの使用を宣言する（Dean追加）
 use App\Room_user;
 use App\message;
 use App\Skill_user; //App\Skill_userクラスの使用を宣言する
-use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの試用を宣言する（Dean追加）
+use App\Http\Requests\CreateHimanabi;//CreateHimanabi   クラスの使用を宣言する（Dean追加）
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -116,18 +116,6 @@ class HimanabiController extends Controller
         return view('himanabi.account',['datas' => $datas]);
     }
 
-
-    public function skilledit($id){
-        //なにか間違ってるみたい
-        //アカウント管理画面
-        // $id = 49;
-        //$datas =DB::select('select * from user');
-        // $datas = User::wi    th('skills')->find();
-        // $datas = User::all(); //全件取得
-        $datas = User::first();//最初のデータのみ取得
-        // dd($datas);
-        return view('himanabi.skill',['datas' => $datas]);
-    }
 
 
     public function store(CreateHimanabi $request){
@@ -305,7 +293,7 @@ class HimanabiController extends Controller
 
     public function skillcreate($id){
 
-        dd($id);
+        // dd($id);
 
         $datas = Skill::with('user')->find($id); //仮データベースで入れています
 

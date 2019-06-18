@@ -39,7 +39,6 @@
 <!-- Navigation Bar -->
 <header>
 {{-- <form action="{{ route('himanabi.index') }}" method="POST" class="form-horizontal" > --}}
-    @csrf
     <nav class="navbar navbar-expand-lg navStyle fixed-top">
         <a class="brand-navbar" href="/"><img src="/img/asset2.png" class="icon" alt="Responsive image" height="60px"></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
@@ -77,29 +76,32 @@
                 @else
                 {{-- ログインしているとき --}}
                     <li class="nav-item">
-                      @if(Auth::check())
+                      @if((Auth::check()) && (Auth::user()->user_id))
                       <form action="{{ route('himanabi.skilllist')}}" class="d-inline">
                         @method('POST')
                         @csrf
                         <a href="{{ url('himanabi/'.Auth::user()->id.'/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a>
                       </form>
+                      @else
+                        先にあなたの情報を登録してください→
                       @endif
                     </li>
 
                     <li class="nav-item">
-                      @if((Auth::check()) && (Auth::user()->user_id))
-                        <form action="{{ route('himanabi.skill')}}"  class="d-inline">
+                      {{-- @if((Auth::check()) && (Auth::user()->user_id)) --}}
+{{--                         <form action="{{ route('himanabi.skill')}}"  class="d-inline">
                           @method('POST')
                           @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skill') }}" name="id" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
-                        </form>
-                      @else
+                            <a href="{{ 'himanabi/'.Auth::user()->id }}/skill" name="id" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
+                        </form> --}}
+                      {{-- @else
                         <form action="{{ route('himanabi.skillcreate')}}"  class="d-inline">
                           @method('POST')
                           @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skillcreate') }}" name="id" class="nav-link"><i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
-                        </form>
-                      @endif
+                            <a href="{{ 'himanabi/'.Auth::user()->id }}/skillcreate" name="id" class="nav-link">
+                              <i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
+                        </form> --}}
+                      {{-- @endif --}}
                     </li>
 
                     <li class="nav-item">

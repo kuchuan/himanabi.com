@@ -29,8 +29,8 @@ Route::get('himanabi/{id}/mypage', 'HimanabiController@mypage')->name('himanabi.
 
 
 		Route::get('himanabi/{id}/skillcreate', 'HimanabiController@skillcreate')->name('himanabi.skillcreate');//スキル新規登録
-		Route::get('himanabi/{id}/skill', 'HimanabiController@skilledit')->name('himanabi.skill');//スキル編集
-		Route::get('himanabi/{id}skillcheck','HimanabiController@skillcheck')->name('himanabi.skillcheck');//提供スキルカード確認
+		Route::get('himanabi/{id}/skill', 'HimanabiController@skill')->name('himanabi.skill');//スキル編集
+		Route::get('himanabi/{id}/skillcheck','HimanabiController@skillcheck')->name('himanabi.skillcheck');//提供スキルカード確認
 		Route::put('himanabi/{id}/skillupdate', 'HimanabiController@skillupdate')->name('himanabi.skillupdate'); //カードからスキル更新処理
 
 
