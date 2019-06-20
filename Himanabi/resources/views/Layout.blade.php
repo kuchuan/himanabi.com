@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,23 +13,17 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{--佐藤付け足し--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     {{-- りょうくんが書いたコードここから --}}
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
-{{--     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ {{--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -38,8 +31,6 @@
     {{-- りょうくんが書いたコードここまで --}}
     {{-- フォントオーサム --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
 
 
 </head>
@@ -82,150 +73,56 @@
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i>ログイン</a>
                     </li>
-                    {{-- {{ dd(Auth::user()->user )}} --}}
                 @else
                 {{-- ログインしているとき --}}
                     <li class="nav-item">
-                      {{-- @if(Auth::check()) --}}
-                      {{-- <form action="{{ route('himanabi.skilllist')}}" class="d-inline"> --}}
-                        {{-- @method('POST') --}}
-                        {{-- @csrf --}}
-                        {{-- <a href="{{ url('himanabi/'.Auth::user()->id.'/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a> --}}
+                      @if(Auth::check())
+                      {{-- <form action="{{ route('himanabi.skilllist')}}" method="POST" class="d-inline"> --}}
+                        @csrf
+                        <a href="{{ url('himanabi/'.Auth::user()->id.'/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a>
                       {{-- </form> --}}
-                      {{-- @else --}}
-                        {{-- 先にあなたの情報を登録してください→ --}}
-                      {{-- @endif --}}
-                    </li>
-
-
-                    <li class="nav-item">
-
-                      {{-- @if(Auth::check()) --}}
-                      {{-- <form action="{{ route('himanabi.skill') }}" class="d-inline"> --}}
-                        {{-- @method('POST') --}}
-                        {{-- @csrf --}}
-                        {{-- <a href="{{ route('himanabi/'.Auth::user()->id.'/skill') }}" name="id" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル</a> --}}
-                      {{-- </form> --}}
-                      {{-- @endif --}}
-                    </li>
-
-
-                    <li class="nav-item">
-{{--                       @if(Auth::check())
-                        <form action="{{route('himanabi.skill')}}"  class="d-inline">
-                          @method('POST')
-                          @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skill') }}" name="id" class="nav-link">
-                              <i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
-                        </form>
-                      @else
-                        <form action="{{route('himanabi.skillcreate')}}"  class="d-inline">
-                          @method('POST')
-                          @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skillcreate') }}" name="id" class="nav-link">
-                              <i class="fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
-                        </form>
-                      @endif --}}
+                      @endif
                     </li>
 
                     <li class="nav-item">
                       @if((Auth::check()) && (Auth::user()->user_id))
-                        <form action="{{ route('himanabi.account')}}"  class="d-inline">
-                          @method('POST')
+                        {{-- <form action="{{ route('himanabi.skilledit')}}" method="POST" class="d-inline"> --}}
                           @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/account') }}" name="id" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
+                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skilledit') }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
+                        {{-- </form> --}}
+                      @else
+ {{--                        <form action="{{ route('himanabi.skillcreate')}}" method="POST" class="d-inline"> --}}
+                          @csrf
+                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skillcreate') }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
+                        {{-- </form> --}}
+                      @endif
+                    </li>
+
+                    <li class="nav-item">
+                      @if((Auth::check()) && (Auth::user()->user_id))
+                        <form action="{{ route('himanabi.accountedit')}}" method="POST" class="d-inline">
+                          @csrf
+                            <a href="{{ url('himanabi/'.Auth::user()->id.'/accountedit') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
                         </form>
                       @else
-                        <form action="{{ route('himanabi.createaccount')}}"  class="d-inline">
-                          @method('POST')
+                        <form action="{{ route('himanabi.accountcreate')}}" method="POST" class="d-inline">
                           @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/createaccount') }}" name="id" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報追加</a>
+                            <a href="{{ url('himanabi/'.Auth::user()->id.'/accountcreate') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報追加</a>
                         </form>
                       @endif
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ Auth::logout() }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                      @csrf
+                         <a href="{{ route('logout') }}" class="nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
+                      </form>
                     </li>
                 @endguest
             </ul>
             </div>
     </nav>
 </form>
-
-
- <!-- Modal -->
-<form class="form-signin" method="POST" action="{{ route('himanabi.index') }}">
-{{-- <form class="form-signin" method="POST" action="{{ route('login') }}"> --}}
-@csrf
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <!--./Modalcontent-->
-      <div class="modal-content">
-        <div class="modal-header">{{ __('Login') }}
-          <h5 class="modal-title" id="loginModalLabel"></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!--modal-body-->
-        <div class="modal-body">
-              <p style="margin:20px;"> <input type="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"  name="email" placeholder="Eメールアドレス" value="{{ old('email') }}" required autofocus>
-              </p>
-          @if ($errors->has('email'))
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('email') }}</strong>
-              </span>
-          @endif
-
-              <p style="margin:20px;"><input type="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
-              </p>
-          @if ($errors->has('password'))
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('password') }}</strong>
-              </span>
-          @endif
-
-
-
-          <div>
-          {{-- @if (($errors->has('email')) || ($errors->has('password'))) --}}
-           {{-- <p style="margin:20px;"><button disble data-toggle="modal" data-target="#loginModal" type="button-center" class="btn btn-primary"></button></p> --}}
-          {{-- @else --}}
-            <p style="margin:20px;">
-              <button type="button-center" class="btn btn-primary" action= "{{ route('login') }}">{{ __('Login(普段はこちら)') }}</button></p>
-          {{-- @endif --}}
-
-
-            <!--パスワードを忘れたときのリクエスト送信-->
-            @if (Route::has('password.request'))
-            <p class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</p>
-            @endif
-          </div>
-
-          <div class="btn-group mb-3" role="group" aria-label="basicButtons">
-            <div class="mx-auto">
-              <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-square"></i> Sign in </span>
-              </button>
-              <button class="btn google-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-google"></i> Sign in </span>
-              </button>
-              <button class="btn twitter-btn social-btn" type="button" class="btn btn-primary"><span><i class="fab fa-twitter"></i> Sign in </span> </button>
-              <p>Already have an account??</p>
-            </div>
-          </div>
-
-              <a style="margin:20px;" class="btn btn-outline-primary button-center" href="{{ route('himanabi.createaccount') }}">SNSのユーザーでログインする</a>
-              <a style="margin:20px;" class="btn btn-outline-primary button-center mb-5" href="{{ route('himanabi.createaccount') }}">新規にユーザー登録する</a>
- 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div><!--./Modal-body-->
-      </div><!--./Modalcontent-->
-    </div>
-  </div>
-</form>
-<!--./Modal-->
 
 
     @yield('content')
@@ -250,11 +147,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-{{--   <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-3.4.1.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/php-mail-form/validate.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/chart/chart.js"></script> --}}
+
 </body>
 </html>

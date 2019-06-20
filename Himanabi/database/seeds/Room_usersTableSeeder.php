@@ -11,6 +11,6 @@ class Room_usersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Room_user::class, 20)->create(); // 20件のデータを作成
+        factory(App\Room_user::class, 40)->create(); // 20件のデータを作成
     }
 }

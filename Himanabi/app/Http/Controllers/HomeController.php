@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/');//homeから/に変更Dean
+        return view('home');
     }
 }

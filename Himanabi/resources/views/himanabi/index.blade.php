@@ -110,12 +110,49 @@
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
                                     <h4 class="card-title">{{ ($datas[$loop->iteration]->skills_name) }}</h4>
-                                    <p class="card-text">名前：{{$datas[$loop->iteration]->user->name}}</p>
+                                    <p class="card-text">名前：{{$datas[$loop->iteration]->name}}</p>
                                     <p class="card-text">提供エリア：{{$datas[$loop->iteration]->skills_area}}</p>
-                                    <p class="card-text">使用言語：{{$datas[$loop->iteration]->user->language}}</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
+                                    <p class="card-text">使用言語：{{$datas[$loop->iteration]->language}}</p>
+                                    <a href="{{route('himanabi.message')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                {{--     <a href="{{route('himanabi.message')}}" class="btn-circle-fishy">いいね</a> --}}
+
+                                    @foreach($user->skills->take(1) as $diary)
+
+                                    @if(Auth::check() && $diary->likes->contains(function ($room_user){
+                                        return $room_user->user_id == Auth::user()->id;
+                                    }))
+                                            {{--@if(Auth::check() && $diaries->room_user->contains(function ($user){
+                                        return $user->id == Auth::user()->id;
+                                    }))--}}
+                                    {{-- いいねされていたら、いいね取り消すボタン --}}
+
+                                            <form style = "display: inline;" method = "POST" action="{{ route('himanabi.dislike')}}">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $diary['id'] }}">
+                                                <button type = "submit" class = "btn btn-outline-danger">
+                                                    <i class = "fas fa-thumbs-up"></i>
+                                                    {{-- <span>{{ $diary->likes->count() }}</span> --}}
+                                                </button>
+                                            </form>
+                                    @else
+                                    {{-- いいねされていなかったら、いいねボタンを設置 --}}
+                                            <form style = "display: inline;" method = "POST" action="{{ route('himanabi.like')}}">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $diary['id'] }}">
+                                                <button type = "submit" class = "btn btn-outline-primary">
+                                                    <i class = "fas fa-thumbs-up"></i>
+                                                    {{-- <span>{{ $diary->likes->count() }}</span> --}}
+                                                </button>
+                                            </form>
+
+
+                                    @endif
+                                    @endforeach
+
+
+
+
+                                    <a href="{{route('himanabi.message')}}" class="btn-circle">📩</a>
 
                                 </div>
                             </div>
@@ -193,9 +230,9 @@
                                     <p class="card-text">名前：{{$datas[$loop->iteration]->user->name}}</p>
                                     <p class="card-text">提供エリア：{{$datas[$loop->iteration]->skills_area}}</p>
                                     <p class="card-text">使用言語：{{$datas[$loop->iteration]->user->language}}</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn-circle-fishy">いいね</a>
-                                    <a href="#" class="btn-circle">📩</a>
+                                    <a href="{{route('himanabi.message')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="{{route('himanabi.message')}}" class="btn-circle-fishy">いいね</a>
+                                    <a href="{{route('himanabi.message')}}" class="btn-circle">📩</a>
 
                                 </div>
                             </div>

@@ -20,13 +20,6 @@ class HimanabiController extends Controller
     //     return view('himanabi.create');
     // }
 
-    // private $user;
-
-    // public function __construct(Request $request)
-    // {
-    //     $this->middleware('auth');
-    //     $this->user = \Auth::user();
-    // }
 
     public function index(){
         // $users = Skill::with('user')->get();
@@ -45,23 +38,56 @@ class HimanabiController extends Controller
         return view('himanabi.index',['datas' => $datas]);
     }
 
-    public function mypage(Request $request){
+    // public function index(){
+    //         $datas = User::with(['skills', 'likes'])->get();
+    //         dd($datas);
+    //         $diaries = Skill::with(['user', 'likes'])->get();
+    //         return view('himanabi.index', ['datas' => $datas],['diaries'=>$diaries]);
+    // }
 
-         $datas = Skill::with('User')->get();
-        // $datas = Skill::with('user')->get();
-        // $users = User::all()->take(3);
-        // $skills = Skill_user::with('user')->get();
-        // dd($skills->skills_explanation);
 
-        return view('himanabi.mypage',['datas' => $datas]);
+    public function like(Request $request){
+            //idをもとにdiaryデータを一件取得
+             $diary = User::where('id',$request->id)->with('likes')->first();
+
+             // dd($diary);
+             // likesテーブルに選択されているdiaryとログインしているユーザーのidをINSERTする
+             $diary->likes()->attach(Auth::user()->id);
+
+             return redirect()->route('himanabi.index');
 
     }
 
-    public function message(){
 
-        $datas = Message::all();//仮に全件を取ってくる
+    // public function like(){
 
-        return view('himanabi.message',['datas' => $datas]);
+    //     $datas = User::with('skills')->get();
+    //     $posts = User::latest()->paginate(5);
+
+    //     return view('himanabi.like',["datas" => $datas]);
+    // }
+
+
+
+
+    public function dislike(){
+
+        $diary = User::where('id',$id)->with('likes')->first();
+        // SELECT * FROM diaries JOIN likes
+        // Modelを作ってないのでdelete()ではダメ！→間接的にlikesテーブルを引っ張ってきているため...
+        $diary->room_user()->detach(Auth::user()->id);
+        // DELET FROM likes WHERE diary_id = $diary->id AND user_id=>Auth::user()->id;
+
+        return redirect()->route('himanabi.index');
+
+    }
+
+    public function mypage(Request $request){
+
+         $datas = Skill::with('User')->get();
+
+        return view('himanabi.mypage',['datas' => $datas]);
+
     }
 
 
@@ -91,6 +117,8 @@ class HimanabiController extends Controller
     }
 
 
+
+
     public function loginmach($id){
 
 
@@ -99,6 +127,8 @@ class HimanabiController extends Controller
         return view('Himanabi.index',['datas' => $datas]);
     }
 
+
+
      // public function paginate() {
 
      //    $likes = Like::paginate(10);
@@ -106,17 +136,20 @@ class HimanabiController extends Controller
 
      // }
 
-    public function createaccount($id){  //アカウント作成画面
+
+
+    public function accountcreate($id){  //アカウント作成画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
-
-        $datas = User::with('skills')->find($id); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
+        $datas = User::with('skills')->get($id); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
         // var_dump($datas);
         // dd($datas);
         // $skills = Skill::all();
-         return view('himanabi.createaccount',['datas' => $datas]);
+        return view('himanabi.accountcreate',['datas' => $datas]);
     }
+
+
 
     public function accountedit($id){
         // $id= 10;
@@ -128,21 +161,62 @@ class HimanabiController extends Controller
         $datas = User::with('skills')->find($id);//見つけたデータのみ取得
         // dd($datas);
         // $datas = User::first();//最初のデータのみ取得
-        return view('himanabi.account',['datas' => $datas]);
+        return view('himanabi.accountedit',['datas' => $datas]);
     }
 
+
+    // public function skillcreate($id){
+    //     //なにか間違ってるみたい
+    //     //アカウント管理画面
+    //     // $id = 49;
+    //     //$datas =DB::select('select * from user');
+    //     // $datas = User::wi    th('skills')->find();
+    //     // $datas = User::all(); //全件取得
+    //     $datas = User::first();//最初のデータのみ取得
+    //     dd($datas);
+    //     return view('himanabi.skill',['datas' => $datas]);
+    // }
+
+        public function skillcreate($id){
+
+        // dd($id);
+
+        $datas = Skill::with('user')->find($id); //仮データベースで入れています
+
+        return view('himanabi.skillcreate',['datas' => $datas]);
+    }
 
     public function skilledit($id){
         //なにか間違ってるみたい
         //アカウント管理画面
-        // $id = 54;
+        // $id = 49;
         //$datas =DB::select('select * from user');
         // $datas = User::wi    th('skills')->find();
         // $datas = User::all(); //全件取得
-        $datas = User::with('skills')->find($id);//とりあえず全データ取得
-        dd($datas);
-        return view('himanabi.skill',['datas' => $datas]);
+        $datas = User::first();//最初のデータのみ取得
+        // dd($datas);
+        return view('himanabi.skilledit',['datas' => $datas]);
     }
+
+
+    public function skillcheck(){
+         //スキル登録時のカード確認
+        $datas = Skill::with('User')->first();//現在仮に最初のデータを送る
+
+        return view('himanabi.skillcheck',['datas' => $datas]);
+
+    }
+
+
+    public function skilllist(){
+        //気になるスキル一覧
+        // $datas = Room_user::with('skill')->get();
+        // $datas = Skill::with('User')->get();//仮データベース（多対多の実現まで）
+        $datas = Skill::with('User')->inRandomOrder()->get();//仮データベース（多対多の実現まで）
+
+        return view('himanabi.skilllist',['datas' => $datas]);
+    }
+
 
 
     public function store(CreateHimanabi $request){
@@ -285,50 +359,27 @@ class HimanabiController extends Controller
 
     }
 
-    public function like(){
-
-        $datas = User::with('skills')->get();
-        $posts = User::latest()->paginate(5);
-
-        return view('himanabi.like',["datas" => $datas]);
-    }
-
 
     public function about(){
         return view('himanabi.about');
     }
 
 
-    public function skillcheck(){
-         //スキル登録時のカード確認
-        $datas = Skill::with('User')->first();//現在仮に最初のデータを送る
 
-        return view('himanabi.skillcheck',['datas' => $datas]);
+    public function message(){
 
-    }
-
-
-    public function skilllist(){
-        //気になるスキル一覧
-        // $datas = Room_user::with('skill')->get();
-        // $datas = Skill::with('User')->get();//仮データベース（多対多の実現まで）
-        $datas = Skill::with('User')->inRandomOrder()->get();//仮データベース（多対多の実現まで）
-
-        return view('himanabi.skilllist',['datas' => $datas]);
-    }
-
-
-    public function skillcreate($id){
-
-        // dd($id);
-
-        $datas = Skill::with('user')->find($id); //仮データベースで入れています
-
-        return view('himanabi.skillcreate',['datas' => $datas]);
+        return view('himanabi.message');
 
     }
 
 
+    public function likeit(){
 
+        // $datas = User::with(['skills', 'likes'])->get();
+        // $diaries = Skill::with(['user', 'likes'])->get();
+        $datas = Auth::user()->likes;
+        // dd($datas);
+        return view('himanabi.likeit',["datas" => $datas]);
+    }
 
 }

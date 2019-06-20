@@ -1,16 +1,8 @@
-@extends('layout')
-
-@section('title')
-いいね一覧画面
-@endsection
-
-@section('content')
-
 <section id="team" class="pb-5">
     <div class="container">
         <h5 class="section-title h1">いいね一覧画面</h5>
         <div class="row">
-            @foreach($datas->take(6) as $user)
+            @forelse($datas as $skill)
 
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" onclick="this.classList.toggle('hover');">
@@ -18,9 +10,10 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src={{-- {{ $user->picture }} --}} alt="card image"></p>
-                                    <h4 class="card-title">{{-- {{ $user->name }} --}}{{-- 名前--}}</h4>
-                                    <p class="card-text">sスキル・学びの詳細{{-- {{ $user->skills }} --}}</p>
+                                    <p><img class=" img-fluid" src="{{-- {{ $user->picture }} --}}" alt="card image"></p>
+                                    <p>{{ $skill->id }}</p>
+                                    <h4 class="card-title">{{-- 名前--}}</h4>
+                                    <p class="card-text">スキル・学びの詳細{{ $user->skills }}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                      <a href="#" class="btn-circle-fishy">いいね</a>
                                      <a href="#" class="btn-circle">📩</a>
@@ -61,8 +54,7 @@
                     </div>
                 </div>
             </div>
-         @endforeach
-         {{ $datas->links() }}
-
-
-@endsection
+        @empty
+        <p>ホゲホゲ</p>
+         @endforelse
+         

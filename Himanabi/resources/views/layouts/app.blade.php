@@ -43,11 +43,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link  text-white" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                                <a class="nav-link  text-white" href="{{ route('login') }}">{{ __('login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('register') }}</a>
                                 </li>
                             @endif
                         @else

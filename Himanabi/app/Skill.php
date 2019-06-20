@@ -14,7 +14,7 @@ class Skill extends Model
 
 		protected $fillable = [
 			'id',
-			'users_id',
+			'user_id',
 			'toggle_user',
 			'skills_category',
 			'skills_name',
@@ -55,4 +55,14 @@ class Skill extends Model
 			return $this->belongstoMany(Room_user::class);
 		}
 
+		// public function user() {   //多のskillに対して一になるusersのテーブル名を使う
+		// 	return $this->belongsToMany('App\User');
+		// }
+
+
+    public function likes() {
+			// return $this->belongsToMany('App\User','room_user','skill_id','user_idz');
+			return $this->belongsToMany('App\User', 'room_user');
+
+}
 }
