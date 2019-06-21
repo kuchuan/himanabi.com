@@ -8,7 +8,7 @@
 
 
 {{-- <form action="{{ route('himanabi.skill',['id' => Auth::user()->id]) }}" method="POST"> --}}
-<form action="{{ route('himanabi.skillcheck') }}" method="POST">
+<form action="{{ route('himanabi.skilledit') }}" method="POST">
 @csrf
 <div class="container border pt-5" ><!--secondContainer-->
 

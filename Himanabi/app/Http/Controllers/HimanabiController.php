@@ -119,13 +119,13 @@ class HimanabiController extends Controller
 
 
 
-    public function loginmach($id){
+    // public function loginmach($id){
 
 
-        $datas = User::with('skills')->get(); //ここにはマッチングアルゴリズムを書く予定
+    //     $datas = User::with('skills')->get(); //ここにはマッチングアルゴリズムを書く予定
 
-        return view('Himanabi.index',['datas' => $datas]);
-    }
+    //     return view('Himanabi.index',['datas' => $datas]);
+    // }
 
 
 
@@ -138,11 +138,11 @@ class HimanabiController extends Controller
 
 
 
-    public function accountcreate($id){  //アカウント作成画面
+    public function accountcreate(){  //アカウント作成画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
         // $datas = User::first();//最初のデータのみ取得
-        $datas = User::with('skills')->get($id); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
+        $datas = User::with('skills')->get(); //with()を使ってUserモデル(User.php)に指定したリレーション(skill)を取得。with()はリレーション先にデータがなくても取得される。
         // var_dump($datas);
         // dd($datas);
         // $skills = Skill::all();
@@ -151,15 +151,15 @@ class HimanabiController extends Controller
 
 
 
-    public function accountedit($id){
+    public function accountedit(){
         // $id= 10;
         // dd($id);
         // $id = $request->id;
         //アカウント管理画面
         //$datas =DB::select('select * from user');
         // $datas = User::all(); //全件取得
-        $datas = User::with('skills')->find($id);//見つけたデータのみ取得
-        // dd($datas);
+        $datas = User::with('skills')->get();//見つけたデータのみ取得
+        dd($datas);
         // $datas = User::first();//最初のデータのみ取得
         return view('himanabi.accountedit',['datas' => $datas]);
     }
@@ -177,16 +177,16 @@ class HimanabiController extends Controller
     //     return view('himanabi.skill',['datas' => $datas]);
     // }
 
-        public function skillcreate($id){
+        public function skillcreate(){
 
         // dd($id);
 
-        $datas = Skill::with('user')->find($id); //仮データベースで入れています
+        $datas = Skill::with('user')->get(); //仮データベースで入れています
 
         return view('himanabi.skillcreate',['datas' => $datas]);
     }
 
-    public function skilledit($id){
+    public function skilledit(){
         //なにか間違ってるみたい
         //アカウント管理画面
         // $id = 49;
@@ -194,7 +194,7 @@ class HimanabiController extends Controller
         // $datas = User::wi    th('skills')->find();
         // $datas = User::all(); //全件取得
         $datas = User::first();//最初のデータのみ取得
-        // dd($datas);
+        dd($datas);
         return view('himanabi.skilledit',['datas' => $datas]);
     }
 
@@ -212,7 +212,8 @@ class HimanabiController extends Controller
         //気になるスキル一覧
         // $datas = Room_user::with('skill')->get();
         // $datas = Skill::with('User')->get();//仮データベース（多対多の実現まで）
-        $datas = Skill::with('User')->inRandomOrder()->get();//仮データベース（多対多の実現まで）
+        // $datas = Skill::with('User')->inRandomOrder()->get();//仮データベース（多対多の実現まで）
+         $datas = Skill::get();//仮データベース（多対多の実現まで）
 
         return view('himanabi.skilllist',['datas' => $datas]);
     }

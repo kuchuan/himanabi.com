@@ -79,7 +79,7 @@
                       @if(Auth::check())
                       {{-- <form action="{{ route('himanabi.skilllist')}}" method="POST" class="d-inline"> --}}
                         @csrf
-                        <a href="{{ url('himanabi/'.Auth::user()->id.'/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a>
+                        <a href="{{ url('himanabi/skilllist') }}" class="nav-link"><i class="fas fa-address-card"></i>気になるスキル</a>
                       {{-- </form> --}}
                       @endif
                     </li>
@@ -88,28 +88,22 @@
                       @if((Auth::check()) && (Auth::user()->user_id))
                         {{-- <form action="{{ route('himanabi.skilledit')}}" method="POST" class="d-inline"> --}}
                           @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skilledit') }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
+                            <a href="{{ url('himanabi/skilledit') }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル変更</a>
                         {{-- </form> --}}
                       @else
  {{--                        <form action="{{ route('himanabi.skillcreate')}}" method="POST" class="d-inline"> --}}
                           @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/skillcreate') }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
+                            <a href="{{ url('himanabi/skillcreate') }}" class="nav-link"><i class="fas fa-file-import"></i>{{ Auth::user()->name }}さんのスキル追加</a>
                         {{-- </form> --}}
                       @endif
                     </li>
 
                     <li class="nav-item">
-                      @if((Auth::check()) && (Auth::user()->user_id))
-                        <form action="{{ route('himanabi.accountedit')}}" method="POST" class="d-inline">
-                          @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/accountedit') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a>
-                        </form>
-                      @else
-                        <form action="{{ route('himanabi.accountcreate')}}" method="POST" class="d-inline">
-                          @csrf
-                            <a href="{{ url('himanabi/'.Auth::user()->id.'/accountcreate') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報追加</a>
-                        </form>
-                      @endif
+                      {{-- @if((Auth::check()) && (Auth::user()->user_id)) --}}
+                            {{-- <a href="{{ url('himanabi/'.Auth::user()->id.'/accountedit') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報管理</a> --}}
+                      {{-- @else --}}
+                            <a href="{{ url('himanabi/accountcreate') }}" class="nav-link"><i class="fas fa-user-edit"></i>{{ Auth::user()->name }}さんの情報追加</a>
+                      {{-- @endif --}}
                     </li>
 
                     <li class="nav-item">

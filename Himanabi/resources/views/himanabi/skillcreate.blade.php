@@ -9,10 +9,10 @@
 
 <form action="{{ route('himanabi.skillcheck') }}" method="POST">
 @csrf
-<div class="container border" ><!--secondContainer-->
+<div class="container pt-5" ><!--secondContainer-->
 		<div class="row infoPart">
 			<div class="col-sm-1" style="background-color:;">
-				両サイドの空白カラム
+
 			</div>
 
 			<div class="col-sm-10 my-md-5 rounded p-3 shadow-sm" style="background-color:#FFFFCC"><!--中央パート-->
@@ -63,12 +63,12 @@
 							<div class="form-group text-left" style="align-self:flex-end">
 								<label class="small text-info" for="areaSelect2">希望エリア</label>
 								<select class="form-control" id="areaSelect2">
-									<option>らふぐ</option>
-									<option>まんだうえ</option>
-									<option>ばにらっど</option>
-									<option>かさんばがん</option>
-									<option>まくたん</option>
-									<option>いろいろ</option>
+									<option>ラフグ</option>
+									<option>マンダウエ</option>
+									<option>バニラッド</option>
+									<option>カサンバガン</option>
+									<option>マクタン</option>
+									<option>イロイロ</option>
 									<option>その他</option>
 								</select>
 							</div>
@@ -173,7 +173,7 @@
 			  </div><!--class="row justify-content-between-->
 			  </div><!--中央パート-->
 					  <div class="col-sm-1" style="background-color:;">
-							両サイドの空白カラム
+
 						</div>
 	  </div>
 	  			  <i class="fas fa-caret-down fa-3x text-info pb-2"></i>
